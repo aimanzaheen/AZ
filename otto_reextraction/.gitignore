@@ -7,3 +7,6 @@ data/review.html
 data/verification_raw/
 data/verification.csv
 data/verification.html
+data/scrape_manifest.csv
+papers/*
+!papers/README.md

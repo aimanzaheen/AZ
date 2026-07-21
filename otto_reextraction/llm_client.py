@@ -151,6 +151,8 @@ def _source_note(text_source: str) -> str:
         "pmc_fulltext": "FULL TEXT (from PubMed Central)",
         "pubmed_abstract": "ABSTRACT ONLY (full text was not available - treat missing "
         "details as 'not explicitly stated' rather than guessing from an abstract-limited view)",
+        "local_pdf": "FULL TEXT (extracted from a locally supplied PDF)",
+        "local_txt": "FULL TEXT (from a locally supplied text file)",
     }.get(text_source, text_source or "UNKNOWN SOURCE")
 
 
