@@ -16,6 +16,8 @@ DEFAULT_RAW_DIR = PKG_DIR / "data" / "reextracted_raw"
 DEFAULT_REEXTRACTED_CSV = PKG_DIR / "data" / "reextracted.csv"
 DEFAULT_SIDE_BY_SIDE_CSV = PKG_DIR / "data" / "side_by_side.csv"
 DEFAULT_FETCH_MANIFEST_CSV = PKG_DIR / "data" / "fetch_manifest.csv"
+DEFAULT_VERIFICATION_RAW_DIR = PKG_DIR / "data" / "verification_raw"
+DEFAULT_VERIFICATION_CSV = PKG_DIR / "data" / "verification.csv"
 PROMPTS_DIR = PKG_DIR / "prompts"
 
 PAPER_ID_COLUMN = "Reference ID"

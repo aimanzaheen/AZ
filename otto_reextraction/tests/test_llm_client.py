@@ -84,3 +84,56 @@ def test_build_user_message_flags_abstract_only_source():
     assert "ABSTRACT ONLY" in msg
     assert "some abstract" in msg
     assert "do the thing" in msg
+
+
+def test_call_verification_returns_tool_input_on_success():
+    result_payload = {
+        "verdicts": [
+            {
+                "otto_field": "Anatomical connections",
+                "verdict": "mismatch",
+                "confidence": "high",
+                "explanation": "Otto's value is not supported by the text.",
+                "evidence_quote": "no such pathway is mentioned",
+            }
+        ]
+    }
+    response = FakeResponse([FakeBlock("tool_use", name="record_verification", input_=result_payload)])
+    client = FakeClient([response])
+
+    result = llm_client.call_verification(
+        client,
+        "claude-sonnet-5",
+        "paper text",
+        "pmc_fulltext",
+        "Overall summary: none.",
+        {"Anatomical connections": "ZI -> PVT"},
+    )
+    assert result == result_payload
+    assert client.messages.calls == 1
+
+
+def test_call_verification_retries_on_rate_limit(monkeypatch):
+    monkeypatch.setattr(llm_client.time, "sleep", lambda _: None)
+    result_payload = {"verdicts": []}
+    response = FakeResponse([FakeBlock("tool_use", name="record_verification", input_=result_payload)])
+    client = FakeClient([_rate_limit_error(), response])
+
+    result = llm_client.call_verification(
+        client, "claude-sonnet-5", "text", "pubmed_abstract", "summary", {"Field": "value"}
+    )
+    assert result == result_payload
+    assert client.messages.calls == 2
+
+
+def test_build_verification_user_message_includes_otto_values_and_reextraction():
+    msg = llm_client.build_verification_user_message(
+        "paper text",
+        "pmc_fulltext",
+        "Overall summary: ZI -> PVT.",
+        {"Anatomical connections": "ZI -> PVT", "Verification of Zona Incerta Targeting": "confirmed"},
+    )
+    assert "paper text" in msg
+    assert "Overall summary: ZI -> PVT." in msg
+    assert 'Anatomical connections: "ZI -> PVT"' in msg
+    assert 'Verification of Zona Incerta Targeting: "confirmed"' in msg

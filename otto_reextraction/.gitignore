@@ -4,3 +4,6 @@ data/reextracted.csv
 data/side_by_side.csv
 data/fetch_manifest.csv
 data/review.html
+data/verification_raw/
+data/verification.csv
+data/verification.html

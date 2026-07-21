@@ -1,9 +1,11 @@
 # Otto Re-extraction Pipeline
 
 Re-runs your 4 extraction prompt templates against freshly fetched paper
-text and lines the results up next to Otto's original `study_level.csv`
-output for manual review. No auto-resolution — everything lands side by
-side for a human to eyeball.
+text, lines the results up next to Otto's original `study_level.csv`
+output for manual review, and (via `verify.py`) has the model actively
+audit whether each of Otto's original values is correct against the
+source text — so you can check Otto's accuracy without eyeballing all
+400+ fields at equal weight.
 
 ```
 data/otto_output.csv (Otto's original extraction, one row per paper)
@@ -13,10 +15,19 @@ data/otto_output.csv (Otto's original extraction, one row per paper)
 2. reextract.py       → data/reextracted_raw/<paper_id>__<modality>.json
         │               + data/reextracted.csv                              re-run the 4 prompts via the
         │                                                                    Anthropic API against fetched text
-3. compare.py         → data/side_by_side.csv
-        │               [paper_id, field_name, otto_value, reextracted_value, source_quote, figure_ref, ...]
-4. render_review.py   → data/review.html
-                        filterable, collapsible page for scanning ~400+ rows across dozens of papers
+        ├──────────────────────┬─────────────────────────────
+        │                      │
+3a. compare.py                 3b. verify.py
+        │  → data/side_by_side.csv     │  → data/verification_raw/<paper_id>__<modality>.json
+        │    [otto_value vs.            │  → data/verification.csv
+        │     reextracted_value,        │    [paper_id, otto_field, verdict, confidence,
+        │     for eyeballing]           │     explanation, evidence_quote] - model judges Otto
+        │                               │     against the paper text (not just vs. reextraction)
+        │                               │
+4a. render_review.py           4b. render_verification.py
+        → data/review.html             → data/verification.html
+          per-paper side-by-side          flat, sortable/filterable triage table,
+          browsing view                   mismatches-first
 ```
 
 ## Setup
@@ -34,9 +45,23 @@ cd otto_reextraction
 
 python fetch_papers.py                 # fetch + cache paper text for every row in data/otto_output.csv
 python reextract.py                    # re-run the 4 prompts for every paper with cached text
+
 python compare.py                      # join otto vs. reextracted -> data/side_by_side.csv
 python render_review.py                # data/side_by_side.csv -> data/review.html
+
+python verify.py                       # audit otto vs. paper text (+ reextraction as a cross-check) -> data/verification.csv
+python render_verification.py          # data/verification.csv -> data/verification.html
 ```
+
+`verify.py` is the "did Otto get this right" check: for each paper and
+Otto field, it shows the model the paper text, Otto's original value, and
+the independent re-extraction, and asks for a verdict — `match`,
+`partial` (correct but incomplete), `mismatch` (wrong/unsupported), or
+`unverifiable` (not enough text to judge, e.g. abstract-only) — plus a
+one-line explanation and a supporting quote. It's a second opinion, not
+ground truth: sort `data/verification.csv` by `verdict` (mismatches are
+sorted first) or open `data/verification.html` and uncheck "match" to see
+only what needs a human look.
 
 Every stage is resumable and cheap to re-run: `fetch_papers.py` skips
 papers already in `data/cache/`, and `reextract.py` skips (paper, modality)
@@ -108,9 +133,10 @@ can reach NCBI) to confirm live behavior before kicking off the full batch.
 
 Fetched paper text (`data/cache/`) and everything derived from it
 (`data/reextracted_raw/`, `data/reextracted.csv`, `data/side_by_side.csv`,
-`data/review.html`) is gitignored — full article text, including from the
-PMC open-access subset, generally shouldn't be committed to a git repo.
-Only `data/otto_output.csv` (your own extraction) is tracked.
+`data/review.html`, `data/verification_raw/`, `data/verification.csv`,
+`data/verification.html`) is gitignored — full article text, including
+from the PMC open-access subset, generally shouldn't be committed to a
+git repo. Only `data/otto_output.csv` (your own extraction) is tracked.
 
 ## Tests
 
@@ -119,8 +145,9 @@ pip install pytest
 pytest
 ```
 
-22 tests cover CSV loading, DOI normalization, JATS XML parsing (including a
+30 tests cover CSV loading, DOI normalization, JATS XML parsing (including a
 regression test for double-counting `<caption><p>` text), the
-flatten/render logic, the otto/reextraction join in `compare.py`, and the
-Anthropic call wrapper's retry/backoff behavior — all against fixtures or
-fake clients, no network or API key required.
+flatten/render logic, the otto/reextraction join in `compare.py`, the
+verification flatten/HTML rendering, and the Anthropic call wrapper's
+retry/backoff behavior for both extraction and verification calls — all
+against fixtures or fake clients, no network or API key required.

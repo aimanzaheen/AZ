@@ -39,3 +39,53 @@ def test_render_row_value_combines_label_and_fields():
     assert value.startswith("ZI -> PVT")
     assert "Source region: ZI" in value
     assert "Target region: PVT" in value
+
+
+def test_render_modality_summary_with_no_rows():
+    assert "no re-extraction available" in flatten.render_modality_summary([])
+
+
+def test_render_modality_summary_includes_overall_summary_and_items():
+    rows = [
+        {
+            "row_label": "ZI -> PVT",
+            "figure_ref": "Fig 1",
+            "fields_json": '{"Source region": "ZI"}',
+            "summary_paragraph": "ZI drives PVT inhibition.",
+        },
+        {
+            "row_label": "PL -> ZI",
+            "figure_ref": "",
+            "fields_json": '{"Source region": "PL"}',
+            "summary_paragraph": "ZI drives PVT inhibition.",
+        },
+    ]
+    text = flatten.render_modality_summary(rows)
+    assert "Overall summary: ZI drives PVT inhibition." in text
+    assert "ZI -> PVT: Source region: ZI [Fig 1]" in text
+    assert "PL -> ZI: Source region: PL" in text
+
+
+def test_flatten_verification():
+    raw = {
+        "verdicts": [
+            {
+                "otto_field": "Anatomical connections",
+                "verdict": "partial",
+                "confidence": "medium",
+                "explanation": "Otto missed the PL->ZI pathway.",
+                "evidence_quote": "we also traced PL inputs to ZI",
+            }
+        ]
+    }
+    rows = flatten.flatten_verification("AIM-1", "anatomical", raw)
+    assert len(rows) == 1
+    assert rows[0]["paper_id"] == "AIM-1"
+    assert rows[0]["modality"] == "anatomical"
+    assert rows[0]["verdict"] == "partial"
+    assert rows[0]["otto_field"] == "Anatomical connections"
+
+
+def test_verdict_severity_orders_mismatch_first():
+    order = sorted(["match", "mismatch", "unverifiable", "partial"], key=lambda v: flatten.VERDICT_SEVERITY[v])
+    assert order == ["mismatch", "partial", "unverifiable", "match"]
