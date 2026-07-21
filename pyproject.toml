@@ -1,0 +1,22 @@
+[project]
+name = "research-extractor"
+version = "0.1.0"
+description = "Extract structured information from research article files (PDF/TXT/MD)."
+requires-python = ">=3.10"
+dependencies = [
+    "pdfplumber>=0.10",
+    "pypdf>=4.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "reportlab>=4.0"]
+
+[project.scripts]
+research-extractor = "research_extractor.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["research_extractor"]

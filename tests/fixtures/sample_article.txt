@@ -1,0 +1,48 @@
+Journal of Applied Machine Learning Research
+
+Deep Learning Approaches for Automated Extraction of Scientific Knowledge
+
+Aiman Zaheen, Jordan Lee, and Priya Nair
+
+Department of Computer Science, State University
+aiman.zaheen@example.edu, jordan.lee@example.edu
+
+Received: 2 January 2024; Accepted: 15 February 2024; Published: 1 March 2024
+DOI: 10.1234/jamlr.2024.00567
+
+Abstract
+This paper presents a lightweight pipeline for extracting structured metadata
+and section content from research article PDFs. We evaluate the approach on a
+corpus of 200 papers and show it recovers titles, authors, and section
+boundaries with high accuracy compared to manual annotation.
+
+Keywords: information extraction, natural language processing, scientific documents
+
+1. Introduction
+Research articles are published at a rapid pace, making manual review
+increasingly impractical. Automated extraction tools can help researchers
+triage and organize the literature efficiently.
+
+2. Methods
+We built a rule-based parser that detects section headers using regular
+expressions and splits the document body accordingly. The parser also
+extracts DOIs, emails, and keyword lists using targeted patterns.
+
+3. Results
+Across the evaluation corpus, the parser correctly identified section
+boundaries in 92% of documents and extracted a valid DOI in 97% of cases.
+
+4. Discussion
+The heuristic approach performs well on articles that follow common
+formatting conventions, though highly customized layouts remain a
+challenge for future work.
+
+5. Conclusion
+We presented a simple and effective approach to extracting structured
+information from research articles, suitable for building literature
+review tools.
+
+References
+[1] Smith, J. and Doe, A. (2020). Text mining for scientific literature. Journal of Data Science, 12(3), 45-67.
+[2] Nguyen, T. (2019). Automated metadata extraction from PDFs. Proceedings of the ACM Conference on Digital Libraries, 100-110.
+[3] Garcia, L., Patel, R., and Chen, Y. (2021). A survey of information extraction techniques. Transactions on Knowledge Engineering, 33(4), 789-812.
