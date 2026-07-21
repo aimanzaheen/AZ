@@ -1,0 +1,34 @@
+You are extracting fiber photometry / in vivo calcium imaging data from a neuroscience paper involving the zona incerta (ZI) or a directly connected circuit. Identify every distinct recorded population and every distinct behavioral/physiological epoch analyzed — do not assume there is only one of each.
+
+Step 1 — Identify all distinct recorded populations (by region, marker, or projection target, exactly as named by the authors — e.g., "ZI Vgat+ neurons," "ZI Lhx6+ neurons," "A13 dopaminergic neurons," "ZIr-PVT projection neurons").
+
+Step 2 — Identify all distinct behavioral states or epochs the paper aligns signal to (e.g., locomotion onset, wake/NREM/REM transitions, cue presentation, reward consumption, nociceptive stimulus, seizure onset, anesthesia induction/emergence). If a population is recorded across multiple states, create one row per population-per-state combination.
+
+Step 3 — For each row, extract (where reported):
+(1) Population/cell type recorded (verbatim from paper)
+(2) Indicator used (e.g., GCaMP6, GCaMP6M, GCaMP8) and delivery method (viral construct, Cre-line, microendoscope/GRIN lens vs. fiber photometry)
+(3) Behavioral/physiological state or epoch analyzed
+(4) Direction of signal change (increase/decrease/no change) relative to baseline or to the comparator state
+(5) Peak ΔF/F (%) or z-score, with ±SD/SEM
+(6) N animals
+(7) N neurons (if single-cell resolution via microendoscopy) or N trials/events (if bulk fiber photometry)
+(8) Latency to peak or onset of change (s)
+(9) Duration of response (s)
+(10) Classification of neurons by dominant state (e.g., "wake-max," "REM-max," "NREM-max," if paper uses this framework)
+(11) Percentage of neurons in each classification (if single-cell resolution)
+(12) Correlation with behavioral variable (r, R², or regression coefficient) if reported
+(13) p-value for signal change vs. baseline
+(14) p-value for between-group/between-condition comparison
+(15) Statistical test used
+(16) Control signal/condition used (isosbestic control, GFP-only virus, non-Cre control)
+(17) Effect of pharmacological/optogenetic/chemogenetic manipulation on the recorded signal, if co-tested
+(18) Recording system/hardware, if specified
+(19) Figure/table reference, and whether value is from main text, figure, or supplement
+
+Step 4 — Extend the column set for anything paper-specific not listed (e.g., cross-correlation with EEG delta power, cFos co-labeling percentage, causal ablation results paired with photometry).
+
+Step 5 — If a value is not explicitly stated, write "not explicitly stated." Never estimate.
+
+Step 6 — If the paper reports state classifications as percentages of a population (e.g., "51% REM-max, 24% wake-max"), preserve these exactly and do not average or collapse across papers even if they used similar terminology — paper-specific percentages must stay attributed to that paper alone.
+
+Step 7 — After the table, write a short paragraph noting whether the recorded population's photometry signal is described as necessary, sufficient, or merely correlated with the behavior/state (this distinction matters for your movement/behavior-prediction model, since correlation-only findings should be weighted differently than causal findings). Return a single flat table, one row per population-per-behavioral-epoch, with "Paper Citation" as the first column. Do not merge multiple epochs into a single cell — always split into separate rows. Append paper-specific extra columns at the end rather than inserting them mid-table. After the table, include the necessity/sufficiency/correlation summary paragraph from Step 7 as plain text, not a table row.

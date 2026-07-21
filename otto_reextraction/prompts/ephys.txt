@@ -1,0 +1,24 @@
+Extract all the electrophysiology data present in the paper.
+(1) Cell Type / Group
+(2) Mean Cm in pF with ±SD
+(3) N neurons/N animals for Cm
+(4) Mean Rin in MΩ with ±SD
+(5) N neurons/N animals for Rin
+(6) AP half-width in ms
+(7) Upstroke:Downstroke ratio
+(8) Depolarization blockade (Yes/No)
+(9) Current at blockade in pA if applicable
+(10) Resting membrane potential in mV
+(11) AP threshold in mV
+(12) Spontaneous firing rate in Hz
+(13) Voltage sag present (Yes/No)
+(14) Voltage sag magnitude in %
+(15) Rebound spiking (Yes/No)
+(16) Recording temperature in °C
+(17) Internal/external solution composition
+(18) p-value for Cm comparison within group/region
+(19) p-value for Rin comparison within group/region
+(20) p-value for AP kinetics comparison
+(21) Statistical test used for each comparison
+(22) Figure/table reference where each data point appears
+(23) Functional classification (if author mentioned)

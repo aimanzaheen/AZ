@@ -1,0 +1,19 @@
+The anatomical circuitry(s) discussed in the paper:
+
+You are extracting anatomical circuit tracing data from a neuroscience paper involving the zona incerta (ZI) or a directly connected region. This includes anterograde tracing (AAV, PHAL, BDA), retrograde tracing (CTB, retrobeads, retrograde AAV/rAAV), monosynaptic rabies tracing, and transsynaptic/polysynaptic labeling (e.g., HSV, pseudorabies, TRIO/cTRIO). Identify every distinct traced pathway in the paper — a single paper may report several, so make sure to report all of the circuits present in the paper(e.g., ZI→PAG, PL→ZI, ZI→RE). Step 1 — Identify each distinct traced pathway/circuit as the authors define it (source region, target region, and direction of tracing: anterograde or retrograde). Note if a pathway is cell-type specific (e.g., "Vgat+ ZI→PVT" rather than just "ZI→PVT"). Step 2 — For each pathway, extract (where reported):
+(1) Source region (and specific subregion, e.g., rostral/caudal/dorsal/ventral ZI)
+(2) Target region
+(3) Tracing direction (anterograde/retrograde/transsynaptic/monosynaptic rabies)
+(4) Tracer/virus used (e.g., AAV-DIO-ChR2, CTB-647, rabies-EnvA-ΔG, PRV)
+(5) Cre-driver line or promoter used for cell-type specificity (e.g., Vgat-Cre, Vglut2-Cre, TH-Cre)
+(6) Injection coordinates (AP/ML/DV) for source and/or target, if given
+(7) Injection volume (nL) and infusion rate, if given
+(8) Survival time post-injection (days/weeks)
+(9) N animals used for tracing quantification
+(10) Quantification metric used (e.g., % of labeled cells, fluorescence intensity, fiber density, number of labeled boutons)
+(11) Quantitative result (the actual number/percentage reported)
+(12) Co-localization data (e.g., % overlap with a molecular marker such as Vgat, PV, SST, TH)
+(13) Whether functional connectivity was also tested (e.g., optogenetically-evoked EPSC/IPSC in target neurons) and the result
+(14) Statistical test and p-value for any quantitative comparison between groups/pathways
+(15) Figure/table reference, and whether main text, figure, or supplement
+(16) Any caveats the authors note about tracer spread, off-target labeling, or specificity limitations. Step 3 — Extend the column set for pathway-specific details not listed above (e.g., laterality — ipsilateral vs. contralateral, layer-specific cortical origin such as L5, collateral branching patterns). Step 4 — If a value is not explicitly stated, write "not explicitly stated." Never estimate coordinates, volumes, or percentages. Step 5 — If the same source-target pathway is examined with more than one tracing method in the same paper (e.g., anterograde AAV plus retrograde CTB), create separate rows for each method rather than merging results. Step 6 — After the table, write a short paragraph mapping each traced pathway onto a simple "region A → region B (cell type, direction of effect if functionally tested)" notation, since this format will be most directly usable for building your connectome/circuit-prediction model.

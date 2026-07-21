@@ -1,0 +1,6 @@
+data/cache/
+data/reextracted_raw/
+data/reextracted.csv
+data/side_by_side.csv
+data/fetch_manifest.csv
+data/review.html
