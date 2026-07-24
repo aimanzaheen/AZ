@@ -1,0 +1,830 @@
+<title>Otto Extraction Audit — Zona Incerta Corpus</title>
+<style>
+  :root {
+    --bg: #0b0e13;
+    --surface: #12161d;
+    --surface-2: #171c24;
+    --border: #232a35;
+    --text: #e8ecef;
+    --text-muted: #8b95a3;
+    --text-faint: #5b6472;
+    --accent: #3fddc0;
+    --accent-dim: #2a9c8a;
+    --good: #4ade80;
+    --good-bg: rgba(74, 222, 128, 0.12);
+    --warn: #f5b942;
+    --warn-bg: rgba(245, 185, 66, 0.12);
+    --crit: #f2607d;
+    --crit-bg: rgba(242, 96, 125, 0.12);
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -12px rgba(0,0,0,0.6);
+  }
+
+  :root[data-theme="light"] {
+    --bg: #f4f7f7;
+    --surface: #ffffff;
+    --surface-2: #eef2f2;
+    --border: #dde3e3;
+    --text: #14181c;
+    --text-muted: #5b6672;
+    --text-faint: #8a95a0;
+    --accent: #0f9c8c;
+    --accent-dim: #0c7d70;
+    --good: #1fa971;
+    --good-bg: rgba(31, 169, 113, 0.1);
+    --warn: #b8790a;
+    --warn-bg: rgba(184, 121, 10, 0.12);
+    --crit: #d1425f;
+    --crit-bg: rgba(209, 66, 95, 0.1);
+    --shadow: 0 1px 2px rgba(20,24,28,0.06), 0 8px 24px -12px rgba(20,24,28,0.15);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f4f7f7;
+      --surface: #ffffff;
+      --surface-2: #eef2f2;
+      --border: #dde3e3;
+      --text: #14181c;
+      --text-muted: #5b6672;
+      --text-faint: #8a95a0;
+      --accent: #0f9c8c;
+      --accent-dim: #0c7d70;
+      --good: #1fa971;
+      --good-bg: rgba(31, 169, 113, 0.1);
+      --warn: #b8790a;
+      --warn-bg: rgba(184, 121, 10, 0.12);
+      --crit: #d1425f;
+      --crit-bg: rgba(209, 66, 95, 0.1);
+      --shadow: 0 1px 2px rgba(20,24,28,0.06), 0 8px 24px -12px rgba(20,24,28,0.15);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 2.5rem 2rem 4rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .mono {
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  header.page {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0 0 0.35rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 46ch;
+  }
+
+  .updated {
+    color: var(--text-faint);
+    font-size: 0.8rem;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* pipeline strip */
+  .pipeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .stage {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stage::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+  }
+
+  .stage.done::before { background: var(--good); }
+  .stage.pending::before { background: var(--warn); }
+  .stage.partial::before { background: var(--accent); }
+
+  .stage-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 0.3rem;
+  }
+
+  .stage-state {
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .stage.done .stage-state { color: var(--good); }
+  .stage.pending .stage-state { color: var(--warn); }
+  .stage.partial .stage-state { color: var(--accent); }
+
+  .stage-detail {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+  }
+
+  /* stat tiles */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .tile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    box-shadow: var(--shadow);
+  }
+
+  .tile .num {
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", monospace;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tile.accent .num { color: var(--accent); }
+  .tile.good .num { color: var(--good); }
+  .tile.crit .num { color: var(--crit); }
+
+  .tile .label {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    margin-top: 0.4rem;
+  }
+
+  /* controls */
+  .controls {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .search {
+    flex: 1;
+    min-width: 220px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.55rem 0.8rem;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-family: inherit;
+  }
+  .search::placeholder { color: var(--text-faint); }
+  .search:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+
+  .chip-filter {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .chip-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color .15s, color .15s;
+  }
+  .chip-btn:hover { color: var(--text); border-color: var(--text-faint); }
+  .chip-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .chip-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  }
+
+  .count-note {
+    color: var(--text-faint);
+    font-size: 0.78rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* table */
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 920px;
+    font-size: 0.85rem;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    background: var(--surface-2);
+    text-align: left;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+  }
+  thead th:hover { color: var(--text-muted); }
+  thead th.sorted { color: var(--accent); }
+  thead th .arrow { font-size: 0.65rem; margin-left: 0.2rem; opacity: 0.7; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--surface-2); }
+
+  td {
+    padding: 0.65rem 0.9rem;
+    vertical-align: top;
+    color: var(--text);
+  }
+
+  td.id { font-family: ui-monospace, "SF Mono", "Cascadia Code", monospace; color: var(--accent); font-weight: 600; white-space: nowrap; }
+
+  td.title-cell { max-width: 360px; }
+  .title-text { font-weight: 500; }
+  .meta-line { color: var(--text-muted); font-size: 0.78rem; margin-top: 0.2rem; }
+
+  td.doi a {
+    color: var(--text-muted);
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", monospace;
+    font-size: 0.78rem;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--text-faint);
+  }
+  td.doi a:hover { color: var(--accent); border-color: var(--accent); }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.22rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .status-pill.matched { color: var(--good); background: var(--good-bg); }
+  .status-pill.missing { color: var(--crit); background: var(--crit-bg); }
+  .status-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+  .confidence { font-family: ui-monospace, "SF Mono", "Cascadia Code", monospace; font-variant-numeric: tabular-nums; }
+
+  .modality-dots {
+    display: flex;
+    gap: 0.3rem;
+  }
+
+  .field-cell {
+    max-width: 280px;
+    min-width: 220px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+  .field-cell.empty {
+    color: var(--text-faint);
+    cursor: default;
+    font-style: italic;
+  }
+  .field-cell .field-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .field-cell.expanded .field-clamp {
+    -webkit-line-clamp: unset;
+    display: block;
+  }
+  .field-cell .expand-hint {
+    color: var(--accent);
+    font-size: 0.7rem;
+    margin-top: 0.2rem;
+    font-weight: 600;
+  }
+  .mdot {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 700;
+    font-family: ui-monospace, monospace;
+    color: var(--text-faint);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+  .mdot.on {
+    color: var(--bg);
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  footer.note {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-faint);
+    font-size: 0.8rem;
+    max-width: 70ch;
+  }
+  footer.note strong { color: var(--text-muted); }
+
+  /* verification section */
+  .section-head {
+    margin: 2.75rem 0 0.4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .section-head h2 {
+    font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0 0 0.3rem;
+    letter-spacing: -0.005em;
+  }
+  .section-head .subtitle { margin-bottom: 1.25rem; }
+
+  .verdict-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.22rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    text-transform: capitalize;
+  }
+  .verdict-pill.match { color: var(--good); background: var(--good-bg); }
+  .verdict-pill.partial { color: var(--warn); background: var(--warn-bg); }
+  .verdict-pill.mismatch { color: var(--crit); background: var(--crit-bg); }
+  .verdict-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+  td.explain-cell { max-width: 320px; }
+  .quote-line {
+    color: var(--text-faint);
+    font-size: 0.76rem;
+    font-style: italic;
+    margin-top: 0.3rem;
+    border-left: 2px solid var(--border);
+    padding-left: 0.5rem;
+  }
+
+  .conf-tag {
+    font-size: 0.68rem;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .pilot-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 720px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .pipeline { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<div class="wrap">
+  <header class="page">
+    <div>
+      <div class="eyebrow">Otto Re-extraction Pipeline</div>
+      <h1>Zona Incerta Corpus — Extraction Audit</h1>
+      <div class="subtitle">Cross-referencing Otto's structured extraction against the 71-paper study-level table, paper by paper.</div>
+    </div>
+    <div class="updated" id="generated-at"></div>
+  </header>
+
+  <div class="pipeline">
+    <div class="stage done">
+      <div class="stage-label">1 · Match</div>
+      <div class="stage-state">Complete</div>
+      <div class="stage-detail" id="stage-match-detail"></div>
+    </div>
+    <div class="stage done">
+      <div class="stage-label">2 · Extract text</div>
+      <div class="stage-state">Complete</div>
+      <div class="stage-detail" id="stage-cache-detail"></div>
+    </div>
+    <div class="stage done">
+      <div class="stage-label">3 · Re-extract (4 prompts)</div>
+      <div class="stage-state" id="stage-reextract-state">Complete</div>
+      <div class="stage-detail" id="stage-reextract-detail"></div>
+    </div>
+    <div class="stage done">
+      <div class="stage-label">4 · Verify</div>
+      <div class="stage-state" id="stage-verify-state">Complete</div>
+      <div class="stage-detail" id="stage-verify-detail"></div>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="controls">
+    <input class="search" id="search" type="text" placeholder="Search by Reference ID, title, author, or DOI…" />
+    <div class="chip-filter" id="chip-filter">
+      <button class="chip-btn active" data-filter="all">All</button>
+      <button class="chip-btn" data-filter="matched">Matched</button>
+      <button class="chip-btn" data-filter="missing">Missing file</button>
+    </div>
+  </div>
+  <div class="count-note" id="count-note"></div>
+
+  <div class="table-scroll">
+    <table id="papers-table">
+      <thead>
+        <tr>
+          <th data-key="id">Ref. ID <span class="arrow"></span></th>
+          <th data-key="title">Title / Authors <span class="arrow"></span></th>
+          <th data-key="year">Year <span class="arrow"></span></th>
+          <th data-key="animal_model">Animal model <span class="arrow"></span></th>
+          <th data-key="doi">DOI</th>
+          <th data-key="modalities">Otto fields populated</th>
+          <th data-key="anatomical_text">Anatomical connections (Otto)</th>
+          <th data-key="photometry_text">Photometry data (Otto)</th>
+          <th data-key="ephys_text">Electrophysiology data (Otto)</th>
+          <th data-key="matched">Match status <span class="arrow"></span></th>
+          <th data-key="confidence">Confidence <span class="arrow"></span></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <footer class="note">
+    <strong>Reading this table:</strong> "Match status" reflects whether a locally supplied PDF was found and text-extracted for that Reference ID (via <code class="mono">scrape_papers.py</code>). "Otto fields populated" shows which of the four extraction modalities — Anatomical (A), Photometry (P), Ephys (E), Functional (F) — Otto returned a non-empty value for.
+  </footer>
+
+  <div class="section-head">
+    <h2>Verification Audit</h2>
+    <div class="subtitle">Each Otto field, independently re-extracted from the source paper and judged against the actual text — not just against the re-extraction.</div>
+  </div>
+  <div class="pilot-note" id="pilot-note"></div>
+
+  <div class="controls">
+    <input class="search" id="v-search" type="text" placeholder="Search by Reference ID, field, or explanation…" />
+    <div class="chip-filter" id="v-chip-filter">
+      <button class="chip-btn active" data-filter="all">All</button>
+      <button class="chip-btn" data-filter="mismatch">Mismatch</button>
+      <button class="chip-btn" data-filter="partial">Partial</button>
+      <button class="chip-btn" data-filter="match">Match</button>
+    </div>
+  </div>
+  <div class="count-note" id="v-count-note"></div>
+
+  <div class="table-scroll">
+    <table id="verification-table">
+      <thead>
+        <tr>
+          <th data-vkey="paper_id">Ref. ID <span class="arrow"></span></th>
+          <th data-vkey="modality">Modality <span class="arrow"></span></th>
+          <th data-vkey="otto_field">Otto field <span class="arrow"></span></th>
+          <th data-vkey="verdict">Verdict <span class="arrow"></span></th>
+          <th data-vkey="explanation">Explanation &amp; evidence</th>
+        </tr>
+      </thead>
+      <tbody id="v-tbody"></tbody>
+    </table>
+  </div>
+
+  <footer class="note">
+    <strong>Reading this table:</strong> Verdicts come from having the model read each paper's full text directly, cross-checked against an independent re-extraction, then judge whether Otto's originally recorded value for that field is accurate and reasonably complete — <span class="verdict-pill match" style="padding:0.1rem 0.4rem;">match</span>, <span class="verdict-pill partial" style="padding:0.1rem 0.4rem;">partial</span> (correct but incomplete), or <span class="verdict-pill mismatch" style="padding:0.1rem 0.4rem;">mismatch</span> (wrong, unsupported, or fabricated). This is a second opinion, not ground truth — read the evidence quote before trusting a mismatch verdict outright.
+  </footer>
+</div>
+
+<script>
+const DATA = __DATA_JSON__;
+const VDATA = __VERIFICATION_JSON__;
+
+const generatedAt = new Date();
+document.getElementById('generated-at').textContent =
+  'Snapshot generated ' + generatedAt.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+
+const total = DATA.length;
+const matchedCount = DATA.filter(d => d.matched).length;
+const missingCount = total - matchedCount;
+const cachedCount = matchedCount; // text cache 1:1 with match in this snapshot
+
+const verifiedPaperIds = new Set(VDATA.map(v => v.paper_id));
+const verifiedCount = verifiedPaperIds.size;
+const mismatchCount = VDATA.filter(v => v.verdict === 'mismatch').length;
+const partialCount = VDATA.filter(v => v.verdict === 'partial').length;
+
+document.getElementById('stage-match-detail').textContent = matchedCount + ' / ' + total + ' papers matched';
+document.getElementById('stage-cache-detail').textContent = cachedCount + ' / ' + total + ' texts cached';
+document.getElementById('stage-reextract-detail').textContent = verifiedCount + ' / ' + total + ' papers re-extracted';
+document.getElementById('stage-reextract-state').textContent = verifiedCount >= matchedCount ? 'Complete' : 'In progress';
+document.getElementById('stage-verify-state').textContent = verifiedCount >= matchedCount ? 'Complete' : 'In progress';
+document.getElementById('stage-verify-detail').textContent = mismatchCount + ' mismatch, ' + partialCount + ' partial found so far';
+
+document.getElementById('pilot-note').textContent =
+  'Verification audit: ' + verifiedCount + ' of ' + total + ' papers run (' + VDATA.length + ' field verdicts) — read directly by the model in place of the Anthropic API, since no API key was configured for this pipeline run. ' + (total - verifiedCount) + ' paper(s) still awaiting a supplied PDF.';
+
+const statsEl = document.getElementById('stats');
+const stats = [
+  { num: total, label: 'Papers in Otto table', cls: '' },
+  { num: matchedCount, label: 'Matched to a supplied PDF', cls: 'good' },
+  { num: missingCount, label: 'Still missing a file', cls: 'crit' },
+  { num: verifiedCount, label: 'Papers audited', cls: 'accent' },
+  { num: mismatchCount, label: 'Mismatches found so far', cls: mismatchCount > 0 ? 'crit' : '' },
+];
+statsEl.innerHTML = stats.map(s =>
+  '<div class="tile ' + s.cls + '"><div class="num">' + s.num + '</div><div class="label">' + s.label + '</div></div>'
+).join('');
+
+let sortKey = 'id';
+let sortDir = 1;
+let activeFilter = 'all';
+let searchTerm = '';
+
+function naturalIdSort(a, b) {
+  const pa = a.split('-'), pb = b.split('-');
+  const na = parseInt(pa[1], 10), nb = parseInt(pb[1], 10);
+  if (pa[0] !== pb[0]) return pa[0].localeCompare(pb[0]);
+  return na - nb;
+}
+
+function fieldCell(text) {
+  if (!text) return '<td class="field-cell empty">—</td>';
+  return '<td class="field-cell"><div class="field-clamp">' + escapeHtml(text) + '</div><div class="expand-hint">click to expand</div></td>';
+}
+
+function render() {
+  let rows = DATA.slice();
+
+  if (activeFilter === 'matched') rows = rows.filter(d => d.matched);
+  if (activeFilter === 'missing') rows = rows.filter(d => !d.matched);
+
+  if (searchTerm) {
+    const t = searchTerm.toLowerCase();
+    rows = rows.filter(d =>
+      d.id.toLowerCase().includes(t) ||
+      d.title.toLowerCase().includes(t) ||
+      d.authors.toLowerCase().includes(t) ||
+      (d.doi || '').toLowerCase().includes(t) ||
+      (d.anatomical_text || '').toLowerCase().includes(t) ||
+      (d.photometry_text || '').toLowerCase().includes(t) ||
+      (d.ephys_text || '').toLowerCase().includes(t)
+    );
+  }
+
+  rows.sort((a, b) => {
+    let av = a[sortKey], bv = b[sortKey];
+    if (sortKey === 'id') return naturalIdSort(a.id, b.id) * sortDir;
+    if (sortKey === 'confidence') {
+      av = av == null ? -1 : av; bv = bv == null ? -1 : bv;
+      return (av - bv) * sortDir;
+    }
+    if (sortKey === 'matched') return ((a.matched === b.matched) ? 0 : (a.matched ? 1 : -1)) * sortDir;
+    if (typeof av === 'string') return av.localeCompare(bv) * sortDir;
+    return 0;
+  });
+
+  document.getElementById('count-note').textContent =
+    'Showing ' + rows.length + ' of ' + total + ' papers';
+
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = rows.map(d => {
+    const modalities = [
+      ['A', d.has_anatomical],
+      ['P', d.has_photometry],
+      ['E', d.has_ephys],
+      ['F', d.has_functional],
+    ].map(([label, on]) => '<span class="mdot ' + (on ? 'on' : '') + '">' + label + '</span>').join('');
+
+    const statusPill = d.matched
+      ? '<span class="status-pill matched"><span class="dot"></span>Matched</span>'
+      : '<span class="status-pill missing"><span class="dot"></span>No file yet</span>';
+
+    const confidence = d.confidence != null ? d.confidence.toFixed(2) : '—';
+
+    const doiHtml = d.doi
+      ? '<a href="' + d.doi + '" target="_blank" rel="noopener">' + d.doi.replace(/^https?:\/\/(dx\.)?doi\.org\//, '') + '</a>'
+      : '<span style="color:var(--text-faint)">—</span>';
+
+    return '<tr>' +
+      '<td class="id">' + d.id + '</td>' +
+      '<td class="title-cell"><div class="title-text">' + escapeHtml(d.title) + '</div><div class="meta-line">' + escapeHtml(d.authors) + '</div></td>' +
+      '<td class="mono">' + (d.year || '—') + '</td>' +
+      '<td>' + escapeHtml(d.animal_model || '—') + '</td>' +
+      '<td class="doi">' + doiHtml + '</td>' +
+      '<td><div class="modality-dots">' + modalities + '</div></td>' +
+      fieldCell(d.anatomical_text) +
+      fieldCell(d.photometry_text) +
+      fieldCell(d.ephys_text) +
+      '<td>' + statusPill + '</td>' +
+      '<td class="confidence">' + confidence + '</td>' +
+      '</tr>';
+  }).join('');
+
+  tbody.querySelectorAll('.field-cell:not(.empty)').forEach(cell => {
+    cell.addEventListener('click', () => cell.classList.toggle('expanded'));
+  });
+
+  document.querySelectorAll('#papers-table thead th').forEach(th => {
+    th.classList.toggle('sorted', th.dataset.key === sortKey);
+    const arrow = th.querySelector('.arrow');
+    if (th.dataset.key === sortKey) arrow.textContent = sortDir === 1 ? '↑' : '↓';
+    else arrow.textContent = '';
+  });
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+document.querySelectorAll('#papers-table thead th').forEach(th => {
+  th.addEventListener('click', () => {
+    const key = th.dataset.key;
+    if (key === sortKey) sortDir *= -1;
+    else { sortKey = key; sortDir = 1; }
+    render();
+  });
+});
+
+document.getElementById('chip-filter').addEventListener('click', (e) => {
+  const btn = e.target.closest('.chip-btn');
+  if (!btn) return;
+  document.querySelectorAll('#chip-filter .chip-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = btn.dataset.filter;
+  render();
+});
+
+document.getElementById('search').addEventListener('input', (e) => {
+  searchTerm = e.target.value;
+  render();
+});
+
+render();
+
+/* ---- verification table ---- */
+
+let vSortKey = 'verdict';
+let vSortDir = 1;
+let vFilter = 'all';
+let vSearchTerm = '';
+
+const VERDICT_ORDER = { mismatch: 0, partial: 1, unverifiable: 2, match: 3 };
+
+function renderVerification() {
+  let rows = VDATA.slice();
+
+  if (vFilter !== 'all') rows = rows.filter(d => d.verdict === vFilter);
+
+  if (vSearchTerm) {
+    const t = vSearchTerm.toLowerCase();
+    rows = rows.filter(d =>
+      d.paper_id.toLowerCase().includes(t) ||
+      d.otto_field.toLowerCase().includes(t) ||
+      d.explanation.toLowerCase().includes(t) ||
+      d.modality.toLowerCase().includes(t)
+    );
+  }
+
+  rows.sort((a, b) => {
+    let av = a[vSortKey], bv = b[vSortKey];
+    if (vSortKey === 'verdict') {
+      return ((VERDICT_ORDER[a.verdict] ?? 9) - (VERDICT_ORDER[b.verdict] ?? 9)) * vSortDir;
+    }
+    if (typeof av === 'string') return av.localeCompare(bv) * vSortDir;
+    return 0;
+  });
+
+  document.getElementById('v-count-note').textContent =
+    'Showing ' + rows.length + ' of ' + VDATA.length + ' field verdicts (' + verifiedPaperIds.size + ' papers audited)';
+
+  const tbody = document.getElementById('v-tbody');
+  tbody.innerHTML = rows.map(d => {
+    const quote = d.evidence_quote && d.evidence_quote !== 'not explicitly stated'
+      ? '<div class="quote-line">“' + escapeHtml(d.evidence_quote) + '”</div>'
+      : '';
+    return '<tr>' +
+      '<td class="id">' + escapeHtml(d.paper_id) + '</td>' +
+      '<td class="mono">' + escapeHtml(d.modality) + '</td>' +
+      '<td>' + escapeHtml(d.otto_field) + '</td>' +
+      '<td><span class="verdict-pill ' + d.verdict + '"><span class="dot"></span>' + escapeHtml(d.verdict) + '</span><div class="conf-tag">' + escapeHtml(d.confidence) + ' confidence</div></td>' +
+      '<td class="explain-cell">' + escapeHtml(d.explanation) + quote + '</td>' +
+      '</tr>';
+  }).join('');
+
+  document.querySelectorAll('#verification-table thead th').forEach(th => {
+    th.classList.toggle('sorted', th.dataset.vkey === vSortKey);
+    const arrow = th.querySelector('.arrow');
+    if (th.dataset.vkey === vSortKey) arrow.textContent = vSortDir === 1 ? '↑' : '↓';
+    else if (arrow) arrow.textContent = '';
+  });
+}
+
+document.querySelectorAll('#verification-table thead th').forEach(th => {
+  if (!th.dataset.vkey) return;
+  th.addEventListener('click', () => {
+    const key = th.dataset.vkey;
+    if (key === vSortKey) vSortDir *= -1;
+    else { vSortKey = key; vSortDir = 1; }
+    renderVerification();
+  });
+});
+
+document.getElementById('v-chip-filter').addEventListener('click', (e) => {
+  const btn = e.target.closest('.chip-btn');
+  if (!btn) return;
+  document.querySelectorAll('#v-chip-filter .chip-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  vFilter = btn.dataset.filter;
+  renderVerification();
+});
+
+document.getElementById('v-search').addEventListener('input', (e) => {
+  vSearchTerm = e.target.value;
+  renderVerification();
+});
+
+renderVerification();
+</script>
