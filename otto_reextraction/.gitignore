@@ -8,5 +8,6 @@ data/verification_raw/
 data/verification.csv
 data/verification.html
 data/scrape_manifest.csv
+data/otto_values/
 papers/*
 !papers/README.md
