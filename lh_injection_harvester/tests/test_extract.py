@@ -23,11 +23,13 @@ def test_rebuild_extracted_csv_includes_only_matches_and_flattens_experiments(tm
             {
                 "pmid": "1",
                 "text_source": "pmc_fulltext",
-                "lh_retrograde_injection_present": True,
+                "lh_injection_present": True,
                 "experiments": [
                     {
+                        "transmission_type": "retrograde",
                         "volume_injected_lh": "50 nL",
                         "stereotaxic_coordinates": "AP -1.4",
+                        "lha_subdivided": "single/undivided site",
                         "tracer": "CTB",
                         "projections_found": "PVT",
                         "survival_time": "7 days",
@@ -35,9 +37,11 @@ def test_rebuild_extracted_csv_includes_only_matches_and_flattens_experiments(tm
                         "source_quote": "we injected CTB",
                     },
                     {
+                        "transmission_type": "anterograde",
                         "volume_injected_lh": "100 nL",
                         "stereotaxic_coordinates": "AP -1.6",
-                        "tracer": "Fluorogold",
+                        "lha_subdivided": "rostral LH",
+                        "tracer": "BDA",
                         "projections_found": "ARC",
                         "survival_time": "10 days",
                         "figure_ref": "Fig 2",
@@ -53,7 +57,7 @@ def test_rebuild_extracted_csv_includes_only_matches_and_flattens_experiments(tm
             {
                 "pmid": "2",
                 "text_source": "pubmed_abstract",
-                "lh_retrograde_injection_present": False,
+                "lh_injection_present": False,
                 "experiments": [],
                 "notes": "not actually about LH injections",
             }
@@ -71,8 +75,11 @@ def test_rebuild_extracted_csv_includes_only_matches_and_flattens_experiments(tm
     assert len(rows) == 2
     assert rows[0]["paper_name"] == "Match paper"
     assert rows[0]["tracer"] == "CTB"
+    assert rows[0]["transmission_type"] == "retrograde"
+    assert rows[0]["lha_subdivided"] == "single/undivided site"
     assert rows[0]["experiment_index"] == "1"
-    assert rows[1]["tracer"] == "Fluorogold"
+    assert rows[1]["tracer"] == "BDA"
+    assert rows[1]["transmission_type"] == "anterograde"
     assert rows[1]["experiment_index"] == "2"
     assert all(r["pmid"] != "2" for r in rows)
 
@@ -124,11 +131,13 @@ def test_run_calls_llm_and_writes_raw_json(tmp_path, monkeypatch):
 
     monkeypatch.setattr(extract.anthropic, "Anthropic", FakeAnthropic)
     payload = {
-        "lh_retrograde_injection_present": True,
+        "lh_injection_present": True,
         "experiments": [
             {
+                "transmission_type": "retrograde",
                 "volume_injected_lh": "50 nL",
                 "stereotaxic_coordinates": "AP -1.4",
+                "lha_subdivided": "single/undivided site",
                 "tracer": "CTB",
                 "projections_found": "PVT",
                 "survival_time": "7 days",
@@ -156,7 +165,7 @@ def test_run_calls_llm_and_writes_raw_json(tmp_path, monkeypatch):
 
     raw = common.read_json(tmp_path / "raw" / "1.json")
     assert raw["pmid"] == "1"
-    assert raw["lh_retrograde_injection_present"] is True
+    assert raw["lh_injection_present"] is True
 
     with open(args.out) as fh:
         import csv as csvmod
@@ -164,3 +173,4 @@ def test_run_calls_llm_and_writes_raw_json(tmp_path, monkeypatch):
         rows = list(csvmod.DictReader(fh))
     assert len(rows) == 1
     assert rows[0]["tracer"] == "CTB"
+    assert rows[0]["transmission_type"] == "retrograde"

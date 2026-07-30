@@ -26,7 +26,7 @@ def rebuild_extracted_csv(raw_dir: Path, search_results_csv: Path, out_csv: Path
     rows: list[dict] = []
     for raw_path in sorted(raw_dir.glob("*.json")):
         data = common.read_json(raw_path)
-        if not data or not data.get("lh_retrograde_injection_present"):
+        if not data or not data.get("lh_injection_present"):
             continue
         pmid = data.get("pmid", raw_path.stem)
         meta = metadata.get(pmid)
@@ -38,8 +38,10 @@ def rebuild_extracted_csv(raw_dir: Path, search_results_csv: Path, out_csv: Path
                     "year": meta.year if meta else "",
                     "journal": meta.journal if meta else "",
                     "experiment_index": idx,
+                    "transmission_type": exp.get("transmission_type", ""),
                     "volume_injected_lh": exp.get("volume_injected_lh", ""),
                     "stereotaxic_coordinates": exp.get("stereotaxic_coordinates", ""),
+                    "lha_subdivided": exp.get("lha_subdivided", ""),
                     "tracer": exp.get("tracer", ""),
                     "projections_found": exp.get("projections_found", ""),
                     "survival_time": exp.get("survival_time", ""),
@@ -96,7 +98,7 @@ def run(args: argparse.Namespace) -> int:
         result["pmid"] = paper.pmid
         result["text_source"] = cached["text_source"]
         common.write_json(raw_path, result)
-        match = "match" if result.get("lh_retrograde_injection_present") else "no match"
+        match = "match" if result.get("lh_injection_present") else "no match"
         n_exp = len(result.get("experiments", []))
         print(f"[{i}/{len(papers)}] {paper.pmid}: {match} ({n_exp} experiment(s))")
         processed += 1

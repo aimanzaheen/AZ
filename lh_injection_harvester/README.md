@@ -1,18 +1,21 @@
 # LH Injection Harvester
 
-Harvests papers describing a specific injection type into the mouse brain and compiles them
-into one sortable, filterable HTML table with:
+Harvests papers describing tracer injections into the mouse brain and compiles them into one
+sortable, filterable HTML table with:
 
 - Paper name
+- Transmission type (retrograde / anterograde / both)
 - Volume injected into LH
 - Stereotaxic coordinates
+- LHA subdivided? (single/undivided site, or which named subregion was targeted)
 - Tracer
 - Projections found
 - Survival time before perfusion
 
-Configured by default for **retrograde tracer injections into the lateral hypothalamus (LH)**
-(CTB, fluorogold, retrobeads, retrograde AAV, rabies) - override `--query` to target a different
-injection type, tracer, or brain region.
+Configured by default for **tracer injections into the lateral hypothalamus (LH/LHA)**, in
+either direction (CTB, fluorogold, retrobeads, retrograde AAV, rabies for retrograde; PHA-L, BDA,
+anterograde AAV for anterograde) - override `--query` to target a different injection type,
+tracer, or brain region.
 
 ```
 search_papers.py  → data/search_results.csv     PubMed esearch/esummary for the query
@@ -20,7 +23,7 @@ search_papers.py  → data/search_results.csv     PubMed esearch/esummary for th
 fetch_papers.py    → data/cache/<pmid>.json      PMC full text if open-access, else abstract
         │                                        + data/fetch_manifest.csv
 extract.py         → data/extracted_raw/<pmid>.json   Anthropic API call per paper against
-        │             + data/extracted.csv             prompts/lh_retrograde_injection.txt -
+        │             + data/extracted.csv             prompts/lh_injection.txt -
         │                                               one row per distinct injection experiment
 render_table.py    → data/table.html             the final webpage: sortable/filterable table
 ```
@@ -62,19 +65,20 @@ running the full batch (each paper costs one Anthropic API call).
 ## Targeting a different injection type
 
 Edit `--query` (or `common.DEFAULT_QUERY`) to change what `search_papers.py` searches for, and
-edit `prompts/lh_retrograde_injection.txt` (or point `extract.py --prompt-file` at a new file) to
-change what gets extracted - e.g. switch it to anterograde AAV projection-mapping injections, or
-a different target region entirely. The 6-column output schema in `llm_client.py`
-(`RECORD_LH_INJECTIONS_TOOL`) is generic enough to reuse as-is; only the prompt wording needs to
-change to redefine "match" and to explain the new injection type.
+edit `prompts/lh_injection.txt` (or point `extract.py --prompt-file` at a new file) to change
+what gets extracted - e.g. narrow back to retrograde-only, or point at a different target region
+entirely. The output schema in `llm_client.py` (`RECORD_LH_INJECTIONS_TOOL`) is generic enough to
+reuse as-is; only the prompt wording needs to change to redefine "match" and to explain the new
+injection type.
 
 ## Papers the search missed a false match on
 
-`extract.py` calls tell the model to first decide whether the paper actually reports an LH
-retrograde injection at all (the keyword search will pull in some false positives, e.g. papers
-that only cite others' LH tracing work). Those are recorded in `data/extracted_raw/<pmid>.json`
-with `"lh_retrograde_injection_present": false` and excluded from the table - check that file's
-`"notes"` field if you want to know why a given paper was excluded.
+`extract.py` calls tell the model to first decide whether the paper actually reports a tracer
+injection placed IN the LH at all (the keyword search will pull in false positives - e.g. papers
+that inject a tracer elsewhere and happen to find LH cells labeled as a downstream result, which
+doesn't count). Those are recorded in `data/extracted_raw/<pmid>.json` with
+`"lh_injection_present": false` and excluded from the table - check that file's `"notes"` field
+if you want to know why a given paper was excluded.
 
 ## Copyright note
 

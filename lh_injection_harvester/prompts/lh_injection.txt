@@ -1,0 +1,66 @@
+You are extracting data about tracer injections into the lateral hypothalamus (LH, also called
+the lateral hypothalamic area / LHA) of the mouse brain from a neuroscience paper. This includes
+BOTH directions of tracing:
+- Retrograde tracers (cholera toxin subunit B / CTB, fluorogold, retrobeads, retrograde AAV
+  such as AAVretro/rAAV2-retro, monosynaptic/polysynaptic rabies virus) deposited in the LH to
+  label upstream neurons elsewhere in the brain that project INTO the LH.
+- Anterograde tracers (PHA-L, biotinylated dextran amine/BDA, non-retrograde AAV expressing a
+  fluorophore or synaptophysin-tagged reporter) deposited in the LH to label the LH's own
+  downstream axon terminals/efferents in other regions.
+
+Only count an injection as relevant if the tracer/virus was actually deposited IN the LH itself.
+A paper where a tracer was injected somewhere else (e.g. the parabrachial nucleus, the ventral
+tegmental area, brown adipose tissue) and LH cells were labeled as a result does NOT count - the
+injection site must be the LH.
+
+This paper was returned by a keyword search and may not actually describe this injection type -
+first decide whether it does.
+
+Step 1 - Decide whether the paper reports at least one tracer injection placed in the mouse LH
+(retrograde or anterograde). If not, set "lh_injection_present" to false, leave "experiments" as
+an empty list, and briefly say why in "notes". Do not fabricate data for a paper that doesn't
+actually contain it.
+
+Step 2 - If it does, identify each distinct LH injection experiment. A paper may report more
+than one (e.g. different tracers, different transmission directions, different LH
+subregions/coordinates, or different mouse lines) - create one row in "experiments" per distinct
+injection experiment rather than merging them. If the SAME tracer/coordinates were used but
+compared against a different tracer in the same LH site, still give each tracer its own row.
+
+Step 3 - For each experiment, extract exactly these fields, using the paper's own wording where
+possible:
+1. transmission_type - "retrograde", "anterograde", or "both" (a bidirectional/dual tracer, or a
+   single experiment explicitly reported as labeling both directions). Never leave this as "not
+   explicitly stated" - if the paper doesn't say directly, infer it from the tracer identity
+   (e.g. CTB/fluorogold/retrobeads/rabies/AAVretro = retrograde; PHA-L/BDA/non-retro AAV
+   expressing a fluorophore = anterograde) and note the inference in "notes".
+2. volume_injected_lh - the injection volume placed in the LH (e.g. "50 nL", "0.1-0.2 uL"),
+   including infusion rate if given.
+3. stereotaxic_coordinates - the stereotaxic coordinates used to target the LH (AP/ML/DV
+   relative to bregma, in mm), e.g. "AP -1.4, ML +/-1.0, DV -5.2".
+4. lha_subdivided - describe whether the paper targeted the LH/LHA as a single, undifferentiated
+   ("whole" or "middle") region, or deliberately subdivided it into distinct subregions (e.g.
+   rostral/caudal, anterior/tuberal/mammillary zones, dorsomedial vs ventral, a named subregion
+   like the "subfornical LH", or multiple separate injection coordinates within LH/ZI). Answer
+   "single/undivided site" or name the specific subregion(s) targeted - never leave this blank;
+   if truly not discussed, write "not explicitly stated".
+5. tracer - the specific tracer/virus and any conjugate/serotype used (e.g. "CTB-Alexa Fluor
+   555", "AAVretro-hSyn-Cre", "fluorogold", "BDA 10kDa").
+6. projections_found - for a retrograde experiment, the regions reported as projecting TO the LH
+   (where the retrogradely-labeled cell bodies were found); for an anterograde experiment, the
+   regions reported as receiving LH efferents (where labeled axon terminals were found). State
+   which direction the list represents.
+7. survival_time - the survival time between injection and perfusion (e.g. "7 days", "2-3
+   weeks").
+8. Also capture "figure_ref" (figure/table this data comes from, or "not explicitly stated")
+   and "source_quote" (a short verbatim quote from the text supporting the coordinates or
+   tracer, or "not explicitly stated").
+
+If a value is not explicitly stated in the provided text, write "not explicitly stated" for it -
+never estimate or infer a number that isn't given (transmission_type and lha_subdivided are the
+two exceptions where you should reason from context per steps above, since leaving those blank
+defeats the purpose of the table).
+
+Step 4 - Write a one-sentence "notes" field: for a genuine match, briefly note anything a reader
+should know (e.g. "abstract-only text, coordinates may be in the full text figures/tables"); for
+a non-match, explain why the paper doesn't fit.

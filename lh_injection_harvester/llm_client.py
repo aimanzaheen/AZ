@@ -22,8 +22,10 @@ RETRYABLE_ERRORS = (
 )
 
 EXPERIMENT_FIELDS = [
+    "transmission_type",
     "volume_injected_lh",
     "stereotaxic_coordinates",
+    "lha_subdivided",
     "tracer",
     "projections_found",
     "survival_time",
@@ -31,24 +33,31 @@ EXPERIMENT_FIELDS = [
 
 RECORD_LH_INJECTIONS_TOOL = {
     "name": "record_lh_injections",
-    "description": "Record whether this paper reports retrograde tracer injection(s) into the "
-    "mouse lateral hypothalamus (LH), and the extracted data for each such experiment.",
+    "description": "Record whether this paper reports tracer injection(s) into the mouse "
+    "lateral hypothalamus (LH), retrograde or anterograde, and the extracted data for each "
+    "such experiment.",
     "input_schema": {
         "type": "object",
         "properties": {
-            "lh_retrograde_injection_present": {
+            "lh_injection_present": {
                 "type": "boolean",
-                "description": "True if the paper reports at least one retrograde tracer "
-                "injection placed in the mouse LH.",
+                "description": "True if the paper reports at least one retrograde or "
+                "anterograde tracer injection placed in the mouse LH itself.",
             },
             "experiments": {
                 "type": "array",
-                "description": "One entry per distinct LH retrograde injection experiment "
-                "(different tracer, coordinates, or mouse line). Empty if "
-                "lh_retrograde_injection_present is false.",
+                "description": "One entry per distinct LH injection experiment (different "
+                "tracer, transmission direction, coordinates, or mouse line). Empty if "
+                "lh_injection_present is false.",
                 "items": {
                     "type": "object",
                     "properties": {
+                        "transmission_type": {
+                            "type": "string",
+                            "enum": ["retrograde", "anterograde", "both"],
+                            "description": "Direction of tracing for this experiment - inferred "
+                            "from the tracer identity if not stated directly.",
+                        },
                         "volume_injected_lh": {
                             "type": "string",
                             "description": "Injection volume placed in the LH, or 'not "
@@ -59,6 +68,13 @@ RECORD_LH_INJECTIONS_TOOL = {
                             "description": "AP/ML/DV stereotaxic coordinates used to target "
                             "the LH, or 'not explicitly stated'.",
                         },
+                        "lha_subdivided": {
+                            "type": "string",
+                            "description": "'single/undivided site' if the LH/LHA was targeted "
+                            "as one region, or the name(s) of the specific subregion(s) "
+                            "targeted (e.g. 'subfornical LH', 'rostral vs caudal LH') if the "
+                            "paper deliberately subdivided it, or 'not explicitly stated'.",
+                        },
                         "tracer": {
                             "type": "string",
                             "description": "The specific tracer/virus and conjugate/serotype "
@@ -66,8 +82,9 @@ RECORD_LH_INJECTIONS_TOOL = {
                         },
                         "projections_found": {
                             "type": "string",
-                            "description": "Regions reported as projecting to the LH based on "
-                            "this retrograde tracer, or 'not explicitly stated'.",
+                            "description": "Regions reported as projecting to the LH "
+                            "(retrograde) or receiving LH efferents (anterograde), or 'not "
+                            "explicitly stated'.",
                         },
                         "survival_time": {
                             "type": "string",
@@ -93,7 +110,7 @@ RECORD_LH_INJECTIONS_TOOL = {
                 "paper doesn't fit for a non-match.",
             },
         },
-        "required": ["lh_retrograde_injection_present", "experiments", "notes"],
+        "required": ["lh_injection_present", "experiments", "notes"],
     },
 }
 

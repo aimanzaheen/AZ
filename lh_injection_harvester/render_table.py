@@ -26,6 +26,11 @@ tr:hover td { background: #fafafa; }
 td.na { color: #999; font-style: italic; }
 a { color: #2454b8; }
 .quote { max-width: 260px; color: #666; font-size: 0.78rem; }
+.badge { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 999px; font-size: 0.75rem;
+         font-weight: 600; color: #fff; white-space: nowrap; }
+.badge-retro { background: #2454b8; }
+.badge-antero { background: #b8622a; }
+.badge-both { background: #7a3ab8; }
 """
 
 JS = """
@@ -67,6 +72,21 @@ def cell(value: str) -> str:
     return f"<td>{esc(value)}</td>"
 
 
+TRANSMISSION_BADGE = {
+    "retrograde": "badge-retro",
+    "anterograde": "badge-antero",
+    "both": "badge-both",
+}
+
+
+def transmission_cell(value: str) -> str:
+    value = (value or "").strip()
+    cls = TRANSMISSION_BADGE.get(value.lower(), "")
+    if not cls:
+        return cell(value)
+    return f"<td><span class='badge {cls}'>{esc(value)}</span></td>"
+
+
 def render(rows: list[dict], query: str) -> str:
     n_papers = len({r["pmid"] for r in rows})
     body_rows = []
@@ -75,7 +95,16 @@ def render(rows: list[dict], query: str) -> str:
         search_blob = esc(
             " ".join(
                 str(r.get(k, ""))
-                for k in ["paper_name", "year", "journal", "tracer", "stereotaxic_coordinates", "projections_found"]
+                for k in [
+                    "paper_name",
+                    "year",
+                    "journal",
+                    "tracer",
+                    "transmission_type",
+                    "stereotaxic_coordinates",
+                    "lha_subdivided",
+                    "projections_found",
+                ]
             )
         ).lower()
         source_label = {"pmc_fulltext": "full text", "pubmed_abstract": "abstract only"}.get(
@@ -86,8 +115,10 @@ def render(rows: list[dict], query: str) -> str:
             f"<td><a href='{pubmed_url}' target='_blank' rel='noopener'>{esc(r['paper_name']) or r['pmid']}</a></td>"
             f"<td>{esc(r.get('year', ''))}</td>"
             f"<td>{esc(r.get('journal', ''))}</td>"
+            + transmission_cell(r.get("transmission_type", ""))
             + cell(r.get("volume_injected_lh", ""))
             + cell(r.get("stereotaxic_coordinates", ""))
+            + cell(r.get("lha_subdivided", ""))
             + cell(r.get("tracer", ""))
             + cell(r.get("projections_found", ""))
             + cell(r.get("survival_time", ""))
@@ -97,18 +128,20 @@ def render(rows: list[dict], query: str) -> str:
         )
 
     return f"""<!doctype html><html><head><meta charset="utf-8">
-<title>LH retrograde injection literature table</title><style>{CSS}</style></head>
+<title>LH tracer injection literature table</title><style>{CSS}</style></head>
 <body>
-<h1>Mouse LH retrograde tracer injection papers</h1>
+<h1>Mouse LH tracer injection papers</h1>
 <div class="summary">{len(rows)} injection experiment(s) across {n_papers} paper(s).
 Search query: <code>{esc(query)}</code></div>
 <div class="controls">
-  <input id="filter" placeholder="Filter by paper, tracer, coordinates, projections...">
+  <input id="filter" placeholder="Filter by paper, tracer, direction, coordinates, subregion, projections...">
 </div>
 <table id="tbl">
 <thead><tr>
 <th data-col>Paper name</th><th data-col>Year</th><th data-col>Journal</th>
+<th data-col>Transmission type</th>
 <th data-col>Volume injected into LH</th><th data-col>Stereotaxic coordinates</th>
+<th data-col>LHA subdivided?</th>
 <th data-col>Tracer</th><th data-col>Projections found</th>
 <th data-col>Survival time before perfusion</th><th data-col>Source</th><th data-col>Quote</th>
 </tr></thead>

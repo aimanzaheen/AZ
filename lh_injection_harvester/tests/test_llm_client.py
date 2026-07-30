@@ -42,7 +42,7 @@ def _rate_limit_error():
 
 
 def test_call_extraction_returns_tool_input_on_success():
-    payload = {"lh_retrograde_injection_present": True, "experiments": [], "notes": "ok"}
+    payload = {"lh_injection_present": True, "experiments": [], "notes": "ok"}
     response = FakeResponse([FakeBlock("tool_use", name="record_lh_injections", input_=payload)])
     client = FakeClient([response])
 
@@ -53,7 +53,7 @@ def test_call_extraction_returns_tool_input_on_success():
 
 def test_call_extraction_retries_on_rate_limit_then_succeeds(monkeypatch):
     monkeypatch.setattr(llm_client.time, "sleep", lambda _: None)
-    payload = {"lh_retrograde_injection_present": False, "experiments": [], "notes": "not a match"}
+    payload = {"lh_injection_present": False, "experiments": [], "notes": "not a match"}
     response = FakeResponse([FakeBlock("tool_use", name="record_lh_injections", input_=payload)])
     client = FakeClient([_rate_limit_error(), _rate_limit_error(), response])
 

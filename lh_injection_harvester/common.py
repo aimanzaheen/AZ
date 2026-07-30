@@ -16,15 +16,17 @@ DEFAULT_FETCH_MANIFEST_CSV = DATA_DIR / "fetch_manifest.csv"
 DEFAULT_EXTRACTED_RAW_DIR = DATA_DIR / "extracted_raw"
 DEFAULT_EXTRACTED_CSV = DATA_DIR / "extracted.csv"
 DEFAULT_TABLE_HTML = DATA_DIR / "table.html"
-PROMPT_FILE = PKG_DIR / "prompts" / "lh_retrograde_injection.txt"
+PROMPT_FILE = PKG_DIR / "prompts" / "lh_injection.txt"
 
-# Default PubMed search: retrograde tracer injections into the lateral hypothalamus (LH) in mice.
-# Tune this per your specific injection type/tracer of interest with --query.
+# Default PubMed search: tracer injections into the lateral hypothalamus (LH/LHA) in mice,
+# either direction (retrograde or anterograde). Tune this per your specific injection type of
+# interest with --query.
 DEFAULT_QUERY = (
     '("lateral hypothalamus"[tiab] OR "lateral hypothalamic area"[tiab] OR "LHA"[tiab]) '
-    "AND (retrograde[tiab]) "
+    'AND (retrograde[tiab] OR anterograde[tiab]) '
     'AND (tracer[tiab] OR tracing[tiab] OR "cholera toxin"[tiab] OR CTB[tiab] OR fluorogold[tiab] '
-    'OR retrobead*[tiab] OR "retrograde AAV"[tiab] OR AAVretro[tiab] OR rabies[tiab]) '
+    'OR retrobead*[tiab] OR "retrograde AAV"[tiab] OR AAVretro[tiab] OR rabies[tiab] OR PHA-L[tiab] '
+    'OR BDA[tiab] OR "biotinylated dextran amine"[tiab]) '
     'AND (mouse[tiab] OR mice[tiab] OR "Mus musculus"[tiab])'
 )
 
@@ -36,8 +38,10 @@ EXTRACTED_FIELDS = [
     "year",
     "journal",
     "experiment_index",
+    "transmission_type",
     "volume_injected_lh",
     "stereotaxic_coordinates",
+    "lha_subdivided",
     "tracer",
     "projections_found",
     "survival_time",
