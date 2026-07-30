@@ -1,0 +1,44 @@
+You are extracting data about retrograde tracer injections into the lateral hypothalamus (LH,
+also called the lateral hypothalamic area / LHA) of the mouse brain from a neuroscience paper.
+"Retrograde tracer" includes cholera toxin subunit B (CTB), fluorogold, retrobeads, retrograde
+AAV (AAVretro, rAAV2-retro), and monosynaptic/polysynaptic rabies virus used to label neurons
+that project INTO the LH (i.e. the tracer is deposited in the LH and labels upstream input
+neurons in other regions).
+
+This paper was returned by a keyword search and may not actually describe this injection type -
+first decide whether it does.
+
+Step 1 - Decide whether the paper reports at least one retrograde tracer injection placed in the
+mouse LH. If not (e.g. it only discusses LH anterograde tracing, a different brain region, a
+different species, or only cites other papers' LH work), set
+"lh_retrograde_injection_present" to false, leave "experiments" as an empty list, and briefly
+say why in "notes". Do not fabricate data for a paper that doesn't actually contain it.
+
+Step 2 - If it does, identify each distinct LH retrograde injection experiment. A paper may
+report more than one (e.g. different tracers, different LH subregions/coordinates, or different
+mouse lines) - create one row in "experiments" per distinct injection experiment rather than
+merging them.
+
+Step 3 - For each experiment, extract exactly these six fields, using the paper's own wording
+where possible:
+1. volume_injected_lh - the injection volume placed in the LH (e.g. "50 nL", "0.1-0.2 uL"),
+   including infusion rate if given.
+2. stereotaxic_coordinates - the stereotaxic coordinates used to target the LH (AP/ML/DV
+   relative to bregma, in mm), e.g. "AP -1.4, ML +/-1.0, DV -5.2".
+3. tracer - the specific tracer/virus and any conjugate/serotype used (e.g. "CTB-Alexa Fluor
+   555", "AAVretro-hSyn-Cre", "fluorogold").
+4. projections_found - the regions the paper reports as projecting TO the LH based on this
+   retrograde tracer (i.e. where the retrogradely-labeled cell bodies were found), as a short
+   list/summary in the paper's own terminology.
+5. survival_time - the survival time between injection and perfusion (e.g. "7 days", "2-3
+   weeks").
+6. Also capture "figure_ref" (figure/table this data comes from, or "not explicitly stated")
+   and "source_quote" (a short verbatim quote from the text supporting the coordinates or
+   tracer, or "not explicitly stated").
+
+If a value is not explicitly stated in the provided text, write "not explicitly stated" for it -
+never estimate or infer a number that isn't given.
+
+Step 4 - Write a one-sentence "notes" field: for a genuine match, briefly note anything a reader
+should know (e.g. "abstract-only text, coordinates may be in the full text figures"); for a
+non-match, explain why the paper doesn't fit.
