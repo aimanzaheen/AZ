@@ -37,6 +37,33 @@ instead of supplying papers" below. Both write the same
 `data/cache/<paper_id>.json` schema, so `reextract.py`/`verify.py` don't
 care which one produced it.
 
+## Option A: one-file web app (`webapp.py`)
+
+`webapp.py` is the whole pipeline above (scrape + reextract + compare +
+verify + both HTML views) rewritten as a single script with a local Flask
+UI, so you can drive it by clicking buttons in a browser instead of running
+6 separate CLI scripts:
+
+```bash
+pip install -r requirements.txt
+export ANTHROPIC_API_KEY=sk-ant-...
+cp /path/to/your/pdfs/*.pdf papers/
+python webapp.py
+```
+
+It prints the URL it's bound to (`http://127.0.0.1:5000` by default) —
+**always `127.0.0.1`/localhost, never a public address**: it only accepts
+connections from this machine, nothing outside can reach it. Open that URL
+in your own browser (not from inside a remote Claude Code session's
+sandbox — the server has to run on the same machine as the browser you're
+using). The dashboard shows live counts (papers matched, re-extracted,
+verified), a "Limit (papers)" field on Re-extract/Verify so a stray click
+doesn't burn through your whole API budget, a live log, and links to the
+same side-by-side review and verification triage views as `render_review.py`
+/ `render_verification.py`, rendered on the fly instead of written to disk.
+
+## Option B: modular CLI scripts
+
 ## Setup
 
 ```bash
@@ -184,11 +211,12 @@ pip install pytest
 pytest
 ```
 
-44 tests cover CSV loading, DOI normalization, JATS XML parsing (including
+54 tests cover CSV loading, DOI normalization, JATS XML parsing (including
 a regression test for double-counting `<caption><p>` text), local PDF/TXT
 extraction, the filename/DOI/title paper-matching cascade (including
 duplicate-match handling), the flatten/render logic, the otto/reextraction
-join in `compare.py`, the verification flatten/HTML rendering, and the
-Anthropic call wrapper's retry/backoff behavior for both extraction and
+join in `compare.py`, the verification flatten/HTML rendering, `webapp.py`'s
+routes via Flask's test client, and the Anthropic call wrapper's
+retry/backoff behavior for both extraction and
 verification calls — all against fixtures, fake clients, or generated
 sample PDFs, no network or API key required.

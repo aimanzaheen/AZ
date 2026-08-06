@@ -37,7 +37,11 @@ def run(args: argparse.Namespace) -> int:
     cache_dir.mkdir(parents=True, exist_ok=True)
 
     otto_rows = common.load_otto_rows(args.otto_csv)
-    files = sorted(p for p in papers_dir.rglob("*") if p.suffix.lower() in pdf_text.SUPPORTED_SUFFIXES)
+    files = sorted(
+        p
+        for p in papers_dir.rglob("*")
+        if p.suffix.lower() in pdf_text.SUPPORTED_SUFFIXES and p.stem.lower() != "readme"
+    )
     if not files:
         print(f"error: no {sorted(pdf_text.SUPPORTED_SUFFIXES)} files found under {papers_dir}", file=sys.stderr)
         return 1
