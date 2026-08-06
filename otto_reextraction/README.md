@@ -29,6 +29,14 @@ papers/*.pdf (you supply these)
         → data/review.html             → data/verification.html
           per-paper side-by-side          flat, sortable/filterable triage table,
           browsing view                   mismatches-first
+
+4c. render_dashboard.py (reads data/otto_output.csv + data/scrape_manifest.csv
+        + data/verification.csv directly - independent of steps 2/3a/3b/4a/4b)
+        → data/dashboard.html
+          one page: paper-match status + Otto's anatomical/photometry/ephys
+          text (click to expand) alongside the verification triage table -
+          runs fine even before verify.py has been run (verification table
+          is just empty)
 ```
 
 An alternate `fetch_papers.py` (DOI → PMC/PubMed via NCBI E-utilities) is
@@ -90,6 +98,8 @@ python render_review.py                # data/side_by_side.csv -> data/review.ht
 
 python verify.py                       # audit otto vs. paper text (+ reextraction as a cross-check) -> data/verification.csv
 python render_verification.py          # data/verification.csv -> data/verification.html
+
+python render_dashboard.py             # combined single-page view -> data/dashboard.html
 ```
 
 **Always check `data/scrape_manifest.csv` (also printed at the end of the
@@ -199,7 +209,7 @@ can reach NCBI to confirm live behavior.
 Both `papers/` (your supplied files) and everything derived from paper
 text (`data/cache/`, `data/reextracted_raw/`, `data/reextracted.csv`,
 `data/side_by_side.csv`, `data/review.html`, `data/verification_raw/`,
-`data/verification.csv`, `data/verification.html`,
+`data/verification.csv`, `data/verification.html`, `data/dashboard.html`,
 `data/scrape_manifest.csv`) are gitignored — full article text shouldn't be
 committed to a git repo. Only `data/otto_output.csv` (your own extraction)
 is tracked.
