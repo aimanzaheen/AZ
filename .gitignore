@@ -6,3 +6,4 @@ build/
 dist/
 extracted/
 .venv/
+ihc_antibody_validation/output/
