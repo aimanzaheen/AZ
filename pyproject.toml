@@ -6,6 +6,7 @@ requires-python = ">=3.10"
 dependencies = [
     "pdfplumber>=0.10",
     "pypdf>=4.0",
+    "DeepSlice>=1.2.8",
 ]
 
 [project.optional-dependencies]
