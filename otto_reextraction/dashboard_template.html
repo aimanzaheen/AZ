@@ -710,8 +710,8 @@ function render() {
   document.querySelectorAll('#papers-table thead th').forEach(th => {
     th.classList.toggle('sorted', th.dataset.key === sortKey);
     const arrow = th.querySelector('.arrow');
-    if (th.dataset.key === sortKey) arrow.textContent = sortDir === 1 ? '↑' : '↓';
-    else arrow.textContent = '';
+    if (!arrow) return;
+    arrow.textContent = th.dataset.key === sortKey ? (sortDir === 1 ? '↑' : '↓') : '';
   });
 }
 
@@ -797,8 +797,8 @@ function renderVerification() {
   document.querySelectorAll('#verification-table thead th').forEach(th => {
     th.classList.toggle('sorted', th.dataset.vkey === vSortKey);
     const arrow = th.querySelector('.arrow');
-    if (th.dataset.vkey === vSortKey) arrow.textContent = vSortDir === 1 ? '↑' : '↓';
-    else if (arrow) arrow.textContent = '';
+    if (!arrow) return;
+    arrow.textContent = th.dataset.vkey === vSortKey ? (vSortDir === 1 ? '↑' : '↓') : '';
   });
 }
 
