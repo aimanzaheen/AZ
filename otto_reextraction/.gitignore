@@ -10,5 +10,6 @@ data/verification.html
 data/scrape_manifest.csv
 data/dashboard.html
 data/otto_values/
+data/pmc_mapping.json
 papers/*
 !papers/README.md
