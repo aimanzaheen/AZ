@@ -235,10 +235,21 @@ def _extract_pdf_text(path: Path) -> str | None:
 
 _DOI_RE = re.compile(r"\b10\.\d{4,9}/[^\s\"'<>,;]+", re.IGNORECASE)
 _WORD_RE = re.compile(r"[a-z0-9]+")
+_SEPARATOR_RE = re.compile(r"[-_\s]+")
+
+# A paper's own DOI is essentially always on the first page (title block, running header,
+# or abstract). Bibliography citations are not - so restricting the DOI search to a header
+# window avoids matching on a DOI the paper merely *cites*, which matters a lot in a corpus
+# where every paper is about the same circuit and heavily cites the other papers in it.
+DOI_SEARCH_WINDOW = 3000
 
 
 def _normalize_key(s: str) -> str:
-    return re.sub(r"[^a-z0-9]", "", s.lower())
+    # Collapse dashes/underscores/whitespace only (the separators real Reference IDs use,
+    # e.g. "AIM-50") - do NOT strip other punctuation. Stripping everything would merge
+    # unrelated digit groups together, e.g. a browser's duplicate-download suffix
+    # "AIM-1(1).pdf" would otherwise collapse to "aim11" and collide with "AIM-11".
+    return _SEPARATOR_RE.sub("", s.lower())
 
 
 def _words(s: str) -> set[str]:
@@ -256,10 +267,20 @@ def filename_match(filename_stem: str, otto_rows: list[OttoRow]) -> OttoRow | No
 
 
 def doi_match(pdf_text: str, otto_rows: list[OttoRow]) -> OttoRow | None:
-    found = {normalize_doi(m.group(0).rstrip(").,;")) for m in _DOI_RE.finditer(pdf_text)}
-    found.discard(None)
     by_doi = {row.doi: row for row in otto_rows if row.doi}
-    for doi in found:
+    if not by_doi:
+        return None
+
+    # Ordered, de-duplicated (not a set - iteration order of a set of strings is not
+    # stable across runs, which previously made this function pick a different, wrong
+    # paper depending on Python's per-process hash seed).
+    seen: list[str] = []
+    for m in _DOI_RE.finditer(pdf_text[:DOI_SEARCH_WINDOW]):
+        doi = normalize_doi(m.group(0).rstrip(").,;"))
+        if doi and doi not in seen:
+            seen.append(doi)
+
+    for doi in seen:
         if doi in by_doi:
             return by_doi[doi]
     return None

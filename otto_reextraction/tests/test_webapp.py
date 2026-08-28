@@ -44,6 +44,37 @@ def test_matching_cascade():
     assert webapp.match_paper("unnamed", "totally unrelated crustacean text", rows).method == "unmatched"
 
 
+def test_filename_match_does_not_collide_on_duplicate_download_suffix():
+    # Regression test: normalization used to strip ALL punctuation, so a browser's
+    # duplicate-download suffix "AIM-1(1).pdf" collapsed to "aim11" and collided with
+    # a completely different paper, "AIM-11" - a silent wrong match at confidence 1.0.
+    rows = [
+        webapp.OttoRow(paper_id="AIM-1", doi="10.1000/aim1", title="", raw={}),
+        webapp.OttoRow(paper_id="AIM-11", doi="10.1000/aim11", title="", raw={}),
+    ]
+    assert webapp.filename_match("AIM-1(1)", rows) is None
+    assert webapp.filename_match("AIM50", [webapp.OttoRow(paper_id="AIM-50", doi=None, title="", raw={})]).paper_id == "AIM-50"
+
+
+def test_doi_match_prefers_own_doi_over_a_cited_doi_deterministically():
+    # Regression test: doi_match used to collect candidates in a `set`, whose iteration
+    # order (and thus which paper got matched) depended on Python's per-process string
+    # hash seed - and it could pick up a DOI cited in the References section instead of
+    # the paper's own DOI near the top.
+    rows = [
+        webapp.OttoRow(paper_id="AIM-1", doi="10.1000/aim1", title="", raw={}),
+        webapp.OttoRow(paper_id="AIM-11", doi="10.1000/aim11", title="", raw={}),
+    ]
+    paper_text = (
+        "The Real Paper\nDOI: 10.1000/aim1\n\n"
+        + ("filler text " * 400)
+        + "\nReferences\n1. Other Author. DOI: 10.1000/aim11\n"
+    )
+    for _ in range(20):
+        result = webapp.doi_match(paper_text, rows)
+        assert result is not None and result.paper_id == "AIM-1"
+
+
 def test_flatten_raw_with_and_without_rows():
     with_rows = webapp.flatten_raw("AIM-TEST", "anatomical", {"summary_paragraph": "s", "rows": [{"row_label": "L", "fields": {"a": "b"}}]})
     assert len(with_rows) == 1 and with_rows[0]["row_label"] == "L"
