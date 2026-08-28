@@ -604,7 +604,30 @@ document.getElementById('stage-verify-state').textContent = verifiedCount >= mat
 document.getElementById('stage-verify-detail').textContent = mismatchCount + ' mismatch, ' + partialCount + ' partial found so far';
 
 document.getElementById('pilot-note').textContent =
-  'Verification audit: ' + verifiedCount + ' of ' + total + ' papers run (' + VDATA.length + ' field verdicts) — read directly by the model in place of the Anthropic API, since no API key was configured for this pipeline run. ' + (total - verifiedCount) + ' paper(s) still awaiting a supplied PDF.';
+  'Verification audit: ' + verifiedCount + ' of ' + total + ' papers run (' + VDATA.length + ' field verdicts) — read directly by the model in place of the Anthropic API, since no API key was configured for this pipeline run. ' + (total - verifiedCount) + ' paper(s) still awaiting a supplied PDF. ' +
+  'Reliability score is a confidence-weighted average of verdicts (match=1, partial=0.5, mismatch=0), shrunk toward a neutral 5/10 prior so a small audited sample cannot look more precise than it is - see reliability_score.py. ' +
+  (verifiedCount < total * 0.2 ? 'With only ' + verifiedCount + '/' + total + ' papers audited, treat this score as provisional - it will move as more papers are checked.' : '');
+
+// Reliability score: confidence-weighted average of verdicts, shrunk toward a
+// neutral 5/10 prior so a small audited sample can't look falsely precise.
+// Kept in exact sync with reliability_score.py's VERDICT_POINTS/CONFIDENCE_WEIGHT/
+// PRIOR_STRENGTH/PRIOR_SCORE - if you change one, change the other.
+const VERDICT_POINTS = { match: 1.0, partial: 0.5, mismatch: 0.0 };
+const CONFIDENCE_WEIGHT = { high: 1.0, medium: 0.65, low: 0.35 };
+const PRIOR_STRENGTH = 5.0;
+const PRIOR_SCORE = 0.5;
+
+let weightedPoints = 0, weightedWeight = 0;
+VDATA.forEach(v => {
+  if (!(v.verdict in VERDICT_POINTS)) return; // excludes 'unverifiable'
+  const w = CONFIDENCE_WEIGHT[v.confidence];
+  if (w === undefined) return;
+  weightedPoints += VERDICT_POINTS[v.verdict] * w;
+  weightedWeight += w;
+});
+const rawScore10 = weightedWeight > 0 ? Math.round((weightedPoints / weightedWeight) * 10 * 10) / 10 : null;
+const shrunkScore10 = Math.round(((weightedPoints + PRIOR_STRENGTH * PRIOR_SCORE) / (weightedWeight + PRIOR_STRENGTH)) * 10 * 10) / 10;
+const scoreLabel = 'Otto reliability score' + (rawScore10 !== null ? ' (raw ' + rawScore10.toFixed(1) + ')' : '');
 
 const statsEl = document.getElementById('stats');
 const stats = [
@@ -613,6 +636,7 @@ const stats = [
   { num: missingCount, label: 'Still missing a file', cls: 'crit' },
   { num: verifiedCount, label: 'Papers audited', cls: 'accent' },
   { num: mismatchCount, label: 'Mismatches found so far', cls: mismatchCount > 0 ? 'crit' : '' },
+  { num: shrunkScore10.toFixed(1) + '/10', label: scoreLabel, cls: 'accent' },
 ];
 statsEl.innerHTML = stats.map(s =>
   '<div class="tile ' + s.cls + '"><div class="num">' + s.num + '</div><div class="label">' + s.label + '</div></div>'

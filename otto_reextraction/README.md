@@ -99,7 +99,8 @@ python render_review.py                # data/side_by_side.csv -> data/review.ht
 python verify.py                       # audit otto vs. paper text (+ reextraction as a cross-check) -> data/verification.csv
 python render_verification.py          # data/verification.csv -> data/verification.html
 
-python render_dashboard.py             # combined single-page view -> data/dashboard.html
+python reliability_score.py            # data/verification.csv -> a single 0-10 confidence-weighted, shrunk score
+python render_dashboard.py             # combined single-page view (includes the score) -> data/dashboard.html
 ```
 
 **Always check `data/scrape_manifest.csv` (also printed at the end of the
@@ -176,6 +177,44 @@ population-epoch / cell-type group) with its own quote and figure
 reference — so you can check the coarse summary and drill into individual
 data points from the same CSV.
 
+## Reliability score (`reliability_score.py`)
+
+`python reliability_score.py` turns `data/verification.csv` into a single
+0-10 "how much should you trust Otto's extraction" number, plus a
+breakdown by field and modality. It is **not** a raw pass rate — two
+things are deliberately built in:
+
+1. **Confidence weighting.** Each verdict contributes
+   `match=1.0, partial=0.5, mismatch=0.0` points, but scaled by how
+   confident the audit itself was (`high=1.0, medium=0.65, low=0.35`).
+   A high-confidence mismatch should hurt the score more than a
+   low-confidence one we're not sure about, and the same logic applies
+   to matches. `unverifiable` verdicts are excluded entirely — they say
+   nothing about whether Otto was right or wrong.
+2. **Small-sample shrinkage.** The confidence-weighted average is then
+   pulled toward a neutral 5/10 prior by `PRIOR_STRENGTH = 5` pseudo-verdicts
+   (an IMDB-style weighted rating). With only a handful of fields audited,
+   this keeps the headline number appropriately cautious instead of
+   reporting, say, "10/10" off of two lucky matches; as real audits
+   accumulate, the prior's influence shrinks toward irrelevance. Both the
+   raw and shrunk scores are always reported side by side — shrinkage is a
+   stated methodological choice, not a way to hide an inconvenient number.
+
+```bash
+python reliability_score.py
+# Otto reliability score: 7.2/10  (raw, unshrunk: 8.3/10)
+# Based on 12 scored field-verdicts across 2/71 papers audited ...
+# CAUTION: only 2/71 papers have been audited so far - this score is a
+# provisional estimate, not a corpus-wide reliability figure.
+```
+
+`render_dashboard.py`/`dashboard_template.html` compute the identical
+formula client-side as a stat tile on the dashboard, so the number you see
+there always matches what this script reports from the same
+`verification.csv`. **Treat any score based on a small fraction of the 71
+papers as provisional** — it's a running estimate, not a verdict on Otto
+as a whole, until most of the corpus has actually been audited.
+
 ## How paper matching works (`scrape_papers.py`)
 
 For each file in `papers/`, in order of confidence:
@@ -221,12 +260,15 @@ pip install pytest
 pytest
 ```
 
-54 tests cover CSV loading, DOI normalization, JATS XML parsing (including
+74 tests cover CSV loading, DOI normalization, JATS XML parsing (including
 a regression test for double-counting `<caption><p>` text), local PDF/TXT
 extraction, the filename/DOI/title paper-matching cascade (including
-duplicate-match handling), the flatten/render logic, the otto/reextraction
-join in `compare.py`, the verification flatten/HTML rendering, `webapp.py`'s
-routes via Flask's test client, and the Anthropic call wrapper's
-retry/backoff behavior for both extraction and
+duplicate-match handling and two real bugs found via adversarial synthetic
+data), the flatten/render logic, the otto/reextraction join in
+`compare.py`, the verification flatten/HTML rendering, the reliability
+score's shrinkage/weighting behavior at edge cases (empty input, all-match,
+all-mismatch, small vs. large sample size), `webapp.py`'s routes via
+Flask's test client, and the Anthropic call wrapper's retry/backoff
+behavior for both extraction and
 verification calls — all against fixtures, fake clients, or generated
 sample PDFs, no network or API key required.
