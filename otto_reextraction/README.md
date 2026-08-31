@@ -59,6 +59,17 @@ cp /path/to/your/pdfs/*.pdf papers/
 python webapp.py
 ```
 
+Instead of copying files into `papers/`, you can point the app straight at
+a folder elsewhere on disk (e.g. a folder on your Desktop) with
+`--papers-dir` or `$OTTO_PAPERS_DIR`:
+
+```bash
+python webapp.py --papers-dir "/Users/you/Desktop/OTTO Full text pdfs"
+# or
+export OTTO_PAPERS_DIR="/Users/you/Desktop/OTTO Full text pdfs"
+python webapp.py
+```
+
 It prints the URL it's bound to (`http://127.0.0.1:5000` by default) —
 **always `127.0.0.1`/localhost, never a public address**: it only accepts
 connections from this machine, nothing outside can reach it. Open that URL

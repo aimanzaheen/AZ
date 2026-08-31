@@ -35,6 +35,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import re
 import sys
 import threading
@@ -51,7 +52,10 @@ from flask import Flask, Response, jsonify, request
 
 PKG_DIR = Path(__file__).parent
 OTTO_CSV = PKG_DIR / "data" / "otto_output.csv"
-PAPERS_DIR = PKG_DIR / "papers"
+# Defaults to papers/ next to this script, but can point straight at a folder
+# elsewhere on disk (e.g. your Desktop) via --papers-dir or $OTTO_PAPERS_DIR,
+# so you don't have to copy every PDF into papers/ first.
+PAPERS_DIR = Path(os.environ["OTTO_PAPERS_DIR"]).expanduser() if os.environ.get("OTTO_PAPERS_DIR") else PKG_DIR / "papers"
 CACHE_DIR = PKG_DIR / "data" / "cache"
 RAW_DIR = PKG_DIR / "data" / "reextracted_raw"
 VERIFICATION_RAW_DIR = PKG_DIR / "data" / "verification_raw"
@@ -1044,14 +1048,30 @@ def verification() -> Response:
 
 
 def main() -> None:
+    global PAPERS_DIR
+
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--host", default="127.0.0.1", help="Bind address (default: 127.0.0.1, localhost only)")
     parser.add_argument("--port", type=int, default=5000)
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Folder of PDF/TXT/MD papers to scan (default: papers/ next to this script, "
+        "or $OTTO_PAPERS_DIR if set). Point this straight at a folder elsewhere on disk, "
+        'e.g. --papers-dir "/Users/you/Desktop/OTTO Full text pdfs", instead of copying files.',
+    )
     args = parser.parse_args()
+
+    if args.papers_dir:
+        PAPERS_DIR = Path(args.papers_dir).expanduser()
+        if not PAPERS_DIR.is_dir():
+            print(f"error: --papers-dir {PAPERS_DIR} is not a directory", file=sys.stderr)
+            raise SystemExit(1)
 
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     PAPERS_DIR.mkdir(parents=True, exist_ok=True)
 
+    print(f"Reading papers from: {PAPERS_DIR}")
     url = f"http://{args.host}:{args.port}"
     print(f"Starting Otto pipeline web app LOCALLY at {url} (bound to {args.host} - not reachable from outside this machine)")
     print("Open that URL in your browser. Press Ctrl+C to stop.")
