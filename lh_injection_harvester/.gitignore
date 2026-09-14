@@ -1,0 +1,6 @@
+data/search_results.csv
+data/cache/
+data/fetch_manifest.csv
+data/extracted_raw/
+data/extracted.csv
+data/table.html
