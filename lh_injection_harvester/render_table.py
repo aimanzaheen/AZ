@@ -18,6 +18,9 @@ h1 { font-size: 1.3rem; }
 .summary { font-size: 0.85rem; color: #555; margin-bottom: 0.75rem; }
 .controls { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
 input#filter { flex: 1; min-width: 240px; padding: 0.5rem; font-size: 1rem; box-sizing: border-box; }
+button#exportCsv { padding: 0.5rem 0.9rem; font-size: 0.9rem; border: 1px solid #2454b8; border-radius: 4px;
+                    background: #2454b8; color: #fff; cursor: pointer; white-space: nowrap; }
+button#exportCsv:hover { background: #1c4396; }
 table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
 th, td { text-align: left; padding: 0.45rem 0.6rem; vertical-align: top; border-bottom: 1px solid #eee; }
 th { position: sticky; top: 0; background: #fff; cursor: pointer; user-select: none; }
@@ -57,6 +60,31 @@ document.querySelectorAll('th[data-col]').forEach((th, colIdx) => {
     });
     sorted.forEach(r => tbody.appendChild(r));
   });
+});
+
+function csvField(text) {
+  const s = (text ?? '').replace(/\\s+/g, ' ').trim();
+  return /[",\\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+}
+
+document.getElementById('exportCsv').addEventListener('click', () => {
+  const headers = Array.from(document.querySelectorAll('#tbl thead th')).map(th => th.innerText);
+  const visibleRows = rows.filter(r => r.style.display !== 'none');
+  const lines = [headers.map(csvField).join(',')];
+  visibleRows.forEach(r => {
+    const cells = Array.from(r.children).map(td => td.innerText);
+    lines.push(cells.map(csvField).join(','));
+  });
+  const csv = lines.join('\\r\\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'lh_tracer_injection_table.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 });
 """
 
@@ -135,6 +163,7 @@ def render(rows: list[dict], query: str) -> str:
 Search query: <code>{esc(query)}</code></div>
 <div class="controls">
   <input id="filter" placeholder="Filter by paper, tracer, direction, coordinates, subregion, projections...">
+  <button id="exportCsv">Export CSV</button>
 </div>
 <table id="tbl">
 <thead><tr>

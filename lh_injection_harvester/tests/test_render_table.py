@@ -71,6 +71,16 @@ def test_render_marks_not_explicitly_stated_cells():
     assert out.count("class='na'") >= 3
 
 
+def test_render_includes_csv_export_button_and_handler():
+    out = render_table.render(SAMPLE_ROWS, common.DEFAULT_QUERY)
+    assert "id=\"exportCsv\"" in out
+    assert "getElementById('exportCsv')" in out
+    assert "text/csv" in out
+    assert "lh_tracer_injection_table.csv" in out
+    # only visible (unfiltered) rows should be exported
+    assert "r.style.display !== 'none'" in out
+
+
 def test_run_writes_html_file(tmp_path):
     csv_path = tmp_path / "extracted.csv"
     common.write_csv(csv_path, common.EXTRACTED_FIELDS, SAMPLE_ROWS)
