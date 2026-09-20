@@ -1,0 +1,994 @@
+[
+  {
+    "num": 1,
+    "title": "Inhibitory medial zona incerta pathway drives exploratory behavior by inhibiting glutamatergic cuneiform neurons",
+    "citation": "Nature Communications, DOI: 10.1038/s41467-024-45288-x (PMCID: PMC10850156, PMID: 38326327)",
+    "pathways": [
+      "mZI -> CnF (Vgat+, retrograde AAVrg from CnF)",
+      "mZI -> CnF (Vgat+, anterograde synaptophysin tracing, onto vGlut2+ cells)",
+      "mZI -> PAG (Vgat+, anterograde synaptophysin tracing)",
+      "mZI -> PPN (Vgat+, anterograde synaptophysin tracing)"
+    ],
+    "purpose": "The mZI\u2192CnF GABAergic circuit promotes exploratory behavior by inhibiting glutamatergic CnF neurons.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 2,
+    "title": "Multimodal analysis reveals cellular diversity and divergent circuits of the zona incerta",
+    "citation": "Proceedings of the National Academy of Sciences (PNAS), DOI: 10.1073/pnas.2509781123 (PMCID: PMC13143026, PMID: 42054363)",
+    "pathways": [
+      "ZI (Vgat+, general) -> SC, PAG, PRN, thalamus (Re, PM, CL, PF), hypothalamus (AH, LPO)",
+      "ZI-SC vs ZI-PRN (Vgat+, retrograde CTB, segregated populations)",
+      "ZI Slc30a3+ (ventral ZI) -> PAG (dorsomedial and ventrolateral subdivisions)",
+      "ZI Slc30a3+ and Spp1+ (ventral ZI) -> SC",
+      "ZI Slc30a3+ and Spp1+ (ventral ZI) -> thalamus (LP and POm)",
+      "ZI Spp1+ and Nos1+ (dorsal ZI) -> pons/midbrain brainstem tegmentum",
+      "Brain-wide inputs -> ZI-SC neurons (Spp1+/Slc30a3+ subtypes), monosynaptic rabies",
+      "Brain-wide inputs -> ZI-PRN neurons (Spp1+/Nos1+ subtypes), monosynaptic rabies",
+      "Basal ganglia (SNr, GPi) -> ZI (general), monosynaptic rabies"
+    ],
+    "purpose": "To define genetically and anatomically distinct ZI GABAergic neuron subtypes, map their brain-wide inputs and outputs, and determine their functional recruitment during an approach-avoidance conflict between reward consumption and visual threat.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "correlation",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 3,
+    "title": "Neural correlates of multidimensional motor outputs in an excitatory parafascicular-zona incerta circuit",
+    "citation": "Park, Shin, Park et al. 2022, Biochemical and Biophysical Research Communications 591:102-109. DOI: 10.1016/j.bbrc.2021.12.036",
+    "pathways": [
+      "Pf (CaMKIIa+) -> ZI (anterograde, excitatory; denser than parallel Pf -> STN projection)"
+    ],
+    "purpose": "To characterize the anatomical and genetic properties of an excitatory PF\u2192ZI circuit and determine how its activity correlates with multidimensional motor outputs, especially directional and dimensional changes in behavior.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": null,
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 4,
+    "title": "Modulation of accumbens dopamine by MCH neurons during learning and consummatory behavior",
+    "citation": "Neuropsychopharmacology, DOI: 10.1038/s41386-026-02351-z (PMCID: PMC13212990, PMID: 41554955)",
+    "pathways": [
+      "MCH neurons (LH/ZI) -> NAc (mNAcSh dense, lNAcc sparser), anterograde"
+    ],
+    "purpose": "To determine how hypothalamic MCH neurons modulate nucleus accumbens dopamine release during feeding and associative learning.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Sufficiency",
+    "necessity_sufficiency_confidence": "partial"
+  },
+  {
+    "num": 5,
+    "title": "Parvalbumin Neurons in Zona Incerta Regulate Itch in Mice",
+    "citation": "Frontiers in Molecular Neuroscience, 2022 (DOI: 10.3389/fnmol.2022.843754; PMCID: PMC8920991)",
+    "pathways": [],
+    "purpose": "ZI PV neurons function as an endogenous negative modulator of itch processing, suppressing scratching behavior.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "sufficiency",
+    "necessity_sufficiency_confidence": "partial"
+  },
+  {
+    "num": 6,
+    "title": "Activity of GABA neurons in the zona incerta and ventral lateral periaqueductal grey is biased towards sleep",
+    "citation": "Blanco-Centurion, Vidal-Ortiz, Sato & Shiromani, 2023, SLEEP, Vol. 46, No. 3 (DOI: 10.1093/sleep/zsac306)",
+    "pathways": [
+      "ZI -> vlPAG (vGAT+, anterograde, opsin/terminal labeling; optogenetic functional test not completed)"
+    ],
+    "purpose": "To characterize the in vivo activity patterns of GABAergic neurons in the ZI and vlPAG across sleep\u2013wake states to determine their bias toward sleep and identify sleep\u2010promoting roles.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Correlation only",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 7,
+    "title": "Serotonin activates paraventricular thalamic neurons through direct depolarization and indirect disinhibition from zona incerta",
+    "citation": "Ye & Zhang, 2021, The Journal of Physiology, 599.21, pp 4883-4900 (DOI: 10.1113/JP282088)",
+    "pathways": [
+      "ZI -> PVT (vGAT+ GABAergic, anterograde, optogenetically confirmed functional inhibitory synapse, modulated by 5-HT)",
+      "DR -> PVT (5-HT+, retrograde tracing of PVT-projecting dorsal raphe neurons)"
+    ],
+    "purpose": "To elucidate how serotonin directly excites and indirectly disinhibits PVT neurons via ZI GABA inputs and how this modulation is altered by high\u2010fat diet, with implications for feeding control and obesity.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": null,
+    "necessity_sufficiency_confidence": "partial"
+  },
+  {
+    "num": 8,
+    "title": "Sleep need-dependent plasticity of a thalamic circuit promotes homeostatic recovery sleep",
+    "citation": "Science, 2024/2025 (DOI: 10.1126/science.adm8203; PMCID: PMC12315381; PMID: 40536979)",
+    "pathways": [
+      "mRE -> vmZI (glutamatergic/CaMKIIa+, anterograde; sleep-need-dependent structural and functional plasticity)",
+      "mRE -> VLPO (glutamatergic, anterograde/functional; contrasted with mRE -> vmZI, does not reproduce the persistent-sleep phenotype)"
+    ],
+    "purpose": "To sense sleep deprivation\u2013induced sleep need via CaMKII-dependent plasticity in the mRE\u2192ZI circuit and thereby promote persistent, deep, homeostatic recovery NREM sleep.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 9,
+    "title": "Zona incerta subpopulations differentially encode and modulate anxiety",
+    "citation": "Li et al. 2021, Science Advances (DOI: 10.1126/sciadv.abf6709; PMID: 34516764)",
+    "pathways": [
+      "ZI (SOM+) -> LHb (anterograde)",
+      "ZI (SOM+) -> PAG, all subregions (dmPAG/lPAG/vlPAG) (anterograde)",
+      "ZI (CR+) -> LHb (anterograde)",
+      "ZI (CR+) -> dmPAG, sparse (anterograde)",
+      "ZI (Vglut2+) -> LHb (anterograde)",
+      "ZI (Vglut2+) -> l/vlPAG, dense (anterograde)",
+      "ZI (SOM+) -> local ZI neurons (ChR2-assisted circuit mapping)",
+      "ZI (CR+) -> local ZI neurons, inhibitory (ChR2-assisted circuit mapping)",
+      "ZI (Vglut2+) -> local ZI neurons, excitatory (ChR2-assisted circuit mapping)"
+    ],
+    "purpose": "To determine how ZI subpopulations encode anxiety and differentially modulate anxiety-related behaviors.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Sufficiency",
+    "necessity_sufficiency_confidence": "partial"
+  },
+  {
+    "num": 10,
+    "title": "A cell type\u2013specific cortico-subcortical brain circuit for investigatory and novelty-seeking behavior",
+    "citation": "Ahmadlou et al. 2021, Science 372(6543):eabe9681 (DOI: 10.1126/science.abe9681)",
+    "pathways": [
+      "PL -> ZIm (GAD2+ starter cells), retrograde monosynaptic rabies",
+      "PL -> ZIm, anterograde ChR2 functional connectivity mapping",
+      "ZIm (GAD2+) -> MLR (mesencephalic locomotor region), anterograde + functional",
+      "ZIm (GAD2+) -> PnO (pontine reticular formation, oral part), anterograde + functional",
+      "ZIm (GAD2+) -> lPAG (lateral periaqueductal gray), anterograde + functional (key pathway)",
+      "PL -> ZImTAC1 (starter cells), retrograde monosynaptic rabies",
+      "ZImTAC1 -> lPAG, retrograde AAV tracing"
+    ],
+    "purpose": "To drive and gate curiosity-driven investigatory and novelty-seeking behavior.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 11,
+    "title": "Zona incerta distributes a broad movement signal that modulates behavior",
+    "citation": "eLife 2023, DOI: 10.7554/eLife.89366 (PMID: 38048270) - author list not present in the retrieved verbatim text",
+    "pathways": [
+      "ZI (Vgat+/GABAergic) -> PO thalamus (posterior thalamic nucleus), axon-terminal optogenetic functional mapping",
+      "ZI (Vgat+/GABAergic) -> PPT (pedunculopontine tegmentum), axon-terminal optogenetic functional mapping",
+      "ZI (Vgat+/GABAergic) -> Superior colliculus (SC), axon-terminal optogenetic functional mapping"
+    ],
+    "purpose": "ZI GABAergic neurons distribute a generalized corollary motor signal of movement occurrence to their diverse projection targets to modulate exploratory and goal-directed behaviors.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "partial"
+  },
+  {
+    "num": 12,
+    "title": "Zona incerta modulation of the inferior olive and the pontine nuclei",
+    "citation": "Bhuvanasundaram et al. 2024, Network Neuroscience (MIT Press), DOI: 10.1162/netn_a_00350 (PMID: 38562296)",
+    "pathways": [
+      "ZI -> Pontine nuclei (PN), anterograde ChR2 + in vivo functional connectivity",
+      "ZI -> Inferior olive (IO), anterograde ChR2 + in vivo and in vitro functional connectivity"
+    ],
+    "purpose": "These ZI\u2192PN and ZI\u2192IO pathways may modulate the cerebellar network and underlie the efficacy of ZI deep brain stimulation in tremor-related movement disorders.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 14,
+    "title": "Activity of a subset of vesicular GABA-transporter neurons in the ventral zona incerta anticipates sleep onset",
+    "citation": "Blanco-Centurion et al. 2021, SLEEP (SLEEPJ), Vol 44(6), doi:10.1093/sleep/zsaa268",
+    "pathways": [],
+    "purpose": "To identify vGAT neuron subsets in ventral ZI whose activity anticipates sleep onset and may induce sleep by inhibiting arousal neurons.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Neither \u2013 only correlational evidence without tests of necessity or sufficiency.",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 15,
+    "title": "Prelimbic cortex to zona incerta pathway mediates recognition memory recovery delay through down-regulating astrocytic GAT-3",
+    "citation": "Gao et al. 2026, iScience, DOI: 10.1016/j.isci.2026.115078 (PMCID: PMC12961289; PMID: 41797906)",
+    "pathways": [
+      "PL -> ZI (retrograde tracing, non-cell-type-specific)",
+      "PL -> ZI (optogenetic, CaMKII+/glutamatergic, functional anterograde)",
+      "IL -> ZI (optogenetic, CaMKII+/glutamatergic, functional anterograde; comparison pathway)",
+      "PL -> ZI, ZI-projecting-neuron-specific chemogenetic activation (intersectional retrograde-Cre + Cre-dependent DREADD)"
+    ],
+    "purpose": "To alleviate surgery-induced recognition memory impairment by activating the PL\u2192ZI pathway, thereby up-regulating astrocytic GAT-3 expression in the ZI and promoting cognitive recovery.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 16,
+    "title": "Frequency-selective control of cortical and subcortical networks by central thalamus",
+    "citation": "Liu et al. 2015, eLife, DOI: 10.7554/eLife.09215 (PMCID: PMC4721962; PMID: 26652162)",
+    "pathways": [
+      "Central thalamus (CL/PC intralaminar nuclei) -> ZI (CaMKIIa+/excitatory, anterograde viral labeling + functional optogenetic test)",
+      "ZI -> somatosensory cortex (GABAergic, incerto-cortical, anterograde viral labeling + functional optogenetic silencing test)",
+      "ZI -> central thalamus (GABAergic incerto-thalamic feedback; cited from prior literature, not directly traced or functionally tested in this paper)"
+    ],
+    "purpose": "To regulate forebrain arousal state via frequency-dependent control of cortical activation: low-frequency stimulation recruits ZI to inhibit sensory cortex and induce behavioral arrest, while high-frequency stimulation activates cortex and promotes wakefulness.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Necessity",
+    "necessity_sufficiency_confidence": "partial"
+  },
+  {
+    "num": 17,
+    "title": "Involvement of A13 dopaminergic neurons in prehensile movements but not reward in the rat",
+    "citation": "Garau et al. 2023, Current Biology 33, 4786-4797, DOI: 10.1016/j.cub.2023.09.044",
+    "pathways": [
+      "A13 -> SC (DpG layer), retrograde tracing (tracer injected into SC)",
+      "A13 -> RF/MDv (intermediate nucleus, IRt), retrograde tracing (tracer injected into RF)",
+      "A13 -> SC (DpG layer), anterograde tracing (direct A13 injection)",
+      "A13 -> RF (IRt division), anterograde tracing (direct A13 injection) - novel projection"
+    ],
+    "purpose": "To control skilled prehensile actions such as grasping and handling of objects independently of reward.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "necessity",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 18,
+    "title": "Microglial Engulfment of Spines in the Ventral Zona Incerta Regulates Anxiety-Like Behaviors in a Mouse Model of Acute Pain",
+    "citation": "Frontiers in Cellular Neuroscience, 2022 (PMID: 35910255; DOI: 10.3389/fncel.2022.898346) - author names not given in retrieved text",
+    "pathways": [],
+    "purpose": "To determine how ZIV GABA neuron activity modulates pain sensitivity and anxiety-like behaviors in acute inflammatory pain",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 19,
+    "title": "Hypothalamic dopamine signaling regulates brown fat thermogenesis",
+    "citation": "Nature Metabolism, 2019 (PMID: 31579887; DOI: 10.1038/s42255-019-0099-7) - author names not given in retrieved text",
+    "pathways": [],
+    "purpose": "To activate hypothalamic D2R-expressing neurons in the LHA/ZI, drive sympathetic outflow to brown adipose tissue, increase thermogenesis and energy expenditure, and thereby reduce body weight and adiposity",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 20,
+    "title": "Inhibitory top-down projections from zona incerta mediate neocortical memory",
+    "citation": "Schroeder, Pardi, Keijser, Dalmay, Groisman, Schuman, Sprekeler, and Letzkus, 2023, Neuron 111, 727-738 (DOI: 10.1016/j.neuron.2022.12.010)",
+    "pathways": [
+      "ZI -> ACx/VCx/SSCx (triple retrograde tracing, comparing cortical targets)",
+      "ZI (GAD2+/GABAergic) -> ACx (retrograde, cell-type colocalization)",
+      "ZI (GAD2-Cre, GABAergic) -> ACx L1 (anterograde AAV axon-density mapping)",
+      "ZI (GAD2+, ChR2) -> ACx Layer 1 interneurons (functional circuit mapping)",
+      "ZI (GAD2+, ChR2) -> ACx Layer 2/3 pyramidal neurons (functional circuit mapping)",
+      "ZI (GAD2+, ChR2) -> ACx Layer 5 pyramidal neurons (functional circuit mapping)",
+      "ZI (GAD2+, GABAergic) -> ACx interneurons expressing Pvalb/Sst/Ndnf (AAV1 anterograde transsynaptic tracing + FISH)",
+      "Brain-wide inputs -> ZI (ACx-projecting subset, starter cells) (TRIO monosynaptic rabies tracing)"
+    ],
+    "purpose": "To transmit learned top-down relevance of auditory stimuli via disinhibitory projections, enabling experience-dependent plasticity and the formation of auditory threat memory in neocortex.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Necessity",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 21,
+    "title": "A hypoxia-sensitive medullary nucleus modulates cerebral blood flow via a disynaptic pathway to cortex",
+    "citation": "bioRxiv preprint, 2026 (PMID: 41757077; PMCID: PMC12934959; DOI: 10.64898/2026.02.20.707130) - author names not given in retrieved text",
+    "pathways": [
+      "RVLM (Dbh+/adrenergic) -> ZI (anterograde monosynaptic AAV tracing)",
+      "RVLM (Dbh+/adrenergic) -> LH (anterograde monosynaptic AAV tracing)",
+      "RVLM (Dbh+/adrenergic) -> cortex, direct projection (tested and NOT found)",
+      "RVLM (Dbh+/adrenergic) -> LC and/or ZI+LH ('subthalamic' node) -> cortex (disynaptic/polysynaptic anterograde transsynaptic tracing, functionally confirmed by chemogenetic inhibition)"
+    ],
+    "purpose": "To provide an adaptive, hypoxia-sensitive pathway from RVLM to cortex that rapidly increases cerebral blood flow across the cortical mantle",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 22,
+    "title": "Involvement of A13 dopaminergic neurons located in the zona incerta in nociceptive processing: a fiber photometry study",
+    "citation": "Molecular Brain, DOI: 10.1186/s13041-020-00600-w (PMID: 32290851)",
+    "pathways": [],
+    "purpose": "To measure how A13 dopaminergic neurons in the zona incerta respond to acute nociceptive stimuli and assess their role in nociceptive processing",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": null,
+    "necessity_sufficiency_confidence": "unverifiable"
+  },
+  {
+    "num": 23,
+    "title": "Divergent BLA engram circuits orchestrate social preference dynamics in bystander male mice with self-experienced stress",
+    "citation": "Yang et al. 2026, PNAS, Vol. 123, No. 11, e2516904123, DOI: 10.1073/pnas.2516904123",
+    "pathways": [
+      "BLA engram cells (BLA^EC) -> ACC (anterograde whole-brain mapping + functional connectivity)",
+      "BLA (presynaptic to ACC) -> ACC (monosynaptic retrograde rabies validation)",
+      "ACC^Glu (BLA-recipient, CaMKII+) -> dorsal hippocampus (dHPC)",
+      "ACC^Glu (BLA-recipient, CaMKII+) -> ventral hippocampus (vHPC)",
+      "ACC^Glu (BLA-recipient, CaMKII+) -> zona incerta (ZI)"
+    ],
+    "purpose": "To orchestrate social preference dynamics\u2014promoting interaction with defeat-experienced cagemates and avoidance of aggressors\u2014via divergent BLA engram cell circuits.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 24,
+    "title": "A GABAergic Projection from the Zona Incerta to the Rostral Ventromedial Medulla Modulates Descending Control of Neuropathic Pain",
+    "citation": "Brain Sciences (MDPI), DOI: 10.3390/brainsci16010072 (PMID: 41594793)",
+    "pathways": [
+      "ZI -> RVM (Vgat+, anterograde, EGFP axon tracing)",
+      "ZI -> RVM (monosynaptic anterograde transsynaptic tracing, scAAV2/1-Cre + DIO-mCherry, mixed with CTB-647)",
+      "ZI (Vgat+) neuronal activation by peripheral nerve injury (Fos mapping, not a tracing pathway per se but circuit-relevant activity mapping)"
+    ],
+    "purpose": "To inhibit RVM output and thereby modulate descending control of neuropathic pain via a GABAergic ZI\u2192RVM pathway",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 25,
+    "title": "Activation of GABAergic neurons in the zona incerta accelerates anesthesia induction with sevoflurane and propofol without affecting anesthesia maintenance or awakening in mice",
+    "citation": "Cao et al., Journal of Southern Medical University, 2023, DOI: 10.12122/j.issn.1673-4254.2023.05.06 (PMID: 37313812)",
+    "pathways": [],
+    "purpose": "To explore the regulatory effects of ZI GABAergic neurons on the induction and emergence of sevoflurane and propofol anesthesia.",
+    "purpose_confidence": "partial",
+    "necessity_sufficiency": "sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 26,
+    "title": "The zona incerta negatively regulates the red nucleus during movement cued by sound signals",
+    "citation": "PLOS Biology, DOI: 10.1371/journal.pbio.3003092 (PMID: 40193390)",
+    "pathways": [
+      "RN (excitatory/VGlut2+) -> upstream inputs (motor cortex, SNr, STN, ZI) (monosynaptic rabies, retrograde)",
+      "ZI (PV+) -> RN (anterograde, Cre-dependent anatomical tracing)",
+      "ZI (Lhx6+) -> RN (anterograde, tested and found negative)",
+      "ZI (SST+) -> RN (anterograde, tested and found negative)",
+      "ZI Lhx6+ neurons -> local ZI (PV+) neurons (intra-ZI functional connection, in vitro/in vivo)",
+      "ZI PV+ neurons -> local ZI neurons (intra-ZI functional connection, tested and found largely absent)"
+    ],
+    "purpose": "To provide an inhibitory ZI-RN pathway that shapes auditory-cued goal-directed movement by modulating contralateral movement choices.",
+    "purpose_confidence": "partial",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 28,
+    "title": "Zona incerta dopamine neurons encode motivational vigor in food seeking",
+    "citation": "Science Advances, DOI: 10.1126/sciadv.adi5326 (PMID: 37976360)",
+    "pathways": [
+      "ZI (TH+/DA) -> PVT (anterograde, AAV-EGFP mapping)",
+      "ZI (TH+/DA) -> PVT (retrograde confirmation, AAVrg-EGFP)",
+      "ZI (TH+/DA) -> PAG (anterograde mapping and functional photostimulation)"
+    ],
+    "purpose": "To encode and drive motivational vigor in fasting\u2010induced food\u2010seeking behaviors via ZI\u2192PVT DA projections.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 29,
+    "title": "Thalamic input to orbitofrontal cortex drives brain-wide, frequency-dependent inhibition mediated by GABA and zona incerta",
+    "citation": "Neuron, DOI: 10.1016/j.neuron.2019.09.023 (PMID: 31668484)",
+    "pathways": [
+      "Submedial thalamic nucleus -> VLO (anterograde, ChR2-EYFP viral expression/projection mapping)",
+      "Zona incerta (ZI) -> cortex/VLO region (GABAergic, causal/functional circuit manipulation rather than classical tracing)"
+    ],
+    "purpose": "This circuit mediates frequency-dependent, brain-wide inhibition by transmitting thalamic input to VLO through GABAergic and zona incerta pathways.",
+    "purpose_confidence": "partial",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 31,
+    "title": "Electroacupuncture suppresses premature ventricular complexes occurring post-myocardial infarction through corticothalamic circuit",
+    "citation": "Zhang et al. 2026, Cell Reports 45, 116734, DOI: 10.1016/j.celrep.2025.116734",
+    "pathways": [
+      "Heart -> M1L5 (retrograde polysynaptic, PRV531)",
+      "HT7 acupoint (forelimb) -> T3 DRG -> spinal cord -> M1L5/S1L5 (anterograde, multisynaptic, HSV/CTB)",
+      "M1L5 (Glu) -> ZI / vlPAG (anterograde, AAV-mCherry projection mapping)",
+      "M1L5 -> ZI (retrograde trans-monosynaptic rabies tracing, confirms input identity)",
+      "M1L5 (Glu) -> ZI dorsal, non-GABAergic neurons (Zld-non-GABA) (anterograde viral labeling + functional optogenetic/slice-recording confirmation)",
+      "M1L5 (Glu) -> ZI ventral, GABAergic neurons (Zlv-GABA) - tested, no direct monosynaptic connection found",
+      "ZI dorsal non-GABAergic neurons (Zld-non-GABA) -> ZI ventral GABAergic neurons (Zlv-GABA) (intra-ZI microcircuit, anterograde + retrograde trans-monosynaptic tracing, functionally confirmed)",
+      "Zona incerta (ZI-GABA, predominantly Zlv) -> RVLM (anterograde trans-monosynaptic tracing, confirmed with HSV and retrograde rabies from RVLM)",
+      "M1L5 -> RVLM - tested directly and found NOT to be a direct monosynaptic connection"
+    ],
+    "purpose": null,
+    "purpose_confidence": "mismatch",
+    "necessity_sufficiency": null,
+    "necessity_sufficiency_confidence": "mismatch"
+  },
+  {
+    "num": 32,
+    "title": "Paradoxical effects of posterior intralaminar thalamic calretinin neurons on hippocampal seizure via distinct downstream circuits",
+    "citation": "Wang et al. 2022, iScience (Cell Press), DOI: 10.1016/j.isci.2022.104218",
+    "pathways": [
+      "PIL (CR+/Calb2+) -> LA, anterograde mapping + terminal opto circuit test",
+      "PIL (CR+/Calb2+) -> ZI, anterograde mapping + terminal opto circuit test",
+      "PIL (CR+/Calb2+) -> secondary auditory cortex, anterograde (anatomical mapping only)",
+      "PIL (CR+/Calb2+) -> central amygdaloid nucleus (CeA), anterograde (anatomical mapping only)",
+      "LA -> PIL, retrograde (identifying LA-projecting PIL CR neurons)",
+      "ZI -> PIL, retrograde (identifying ZI-projecting PIL CR neurons)"
+    ],
+    "purpose": "To determine how posterior intralaminar thalamic calretinin neuron circuits modulate hippocampal seizure progression via distinct downstream pathways.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 33,
+    "title": "Systematic Input\u2013Output Mapping Reveals Structural Plasticity of VTA Dopamine Neurons-Zona Incerta Loop Underlying the Social Buffering Effects in Learned Helplessness",
+    "citation": "Cai, Zhang et al. 2022, Molecular Neurobiology 59:856-871, DOI: 10.1007/s12035-021-02614-4",
+    "pathways": [
+      "ZI -> VTA (TH+/putative dopamine neurons), retrograde monosynaptic rabies (whole-brain input mapping)",
+      "VTA (TH+/putative dopamine neurons) -> ZI, anterograde AAV-ChR2-EYFP (whole-brain output mapping)",
+      "CEA -> VTA (TH+/putative dopamine neurons), retrograde monosynaptic rabies",
+      "ACB (nucleus accumbens) -> VTA (TH+/putative dopamine neurons), retrograde monosynaptic rabies",
+      "AAA -> VTA (TH+/putative dopamine neurons), retrograde monosynaptic rabies",
+      "SI (substantia innominata) -> VTA (TH+/putative dopamine neurons), retrograde monosynaptic rabies",
+      "BST -> VTA (TH+/putative dopamine neurons), retrograde monosynaptic rabies",
+      "LHA (lateral hypothalamic area) -> VTA (TH+/putative dopamine neurons), retrograde monosynaptic rabies",
+      "PCG (pontine central gray) -> VTA (TH+/putative dopamine neurons), retrograde monosynaptic rabies",
+      "VTA (TH+/putative dopamine neurons) -> CP (caudoputamen), anterograde AAV-ChR2-EYFP",
+      "VTA (TH+/putative dopamine neurons) -> PSTN (parasubthalamic nucleus), anterograde AAV-ChR2-EYFP",
+      "VTA (TH+/putative dopamine neurons) -> IO (inferior olivary complex), anterograde AAV-ChR2-EYFP"
+    ],
+    "purpose": "To reveal the structural plasticity of the VTA dopamine neuron\u2013ZI loop that underlies social buffering in learned helplessness",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 34,
+    "title": "Morphine- and foot shock-responsive neuronal ensembles in the VTA possess different connectivity and biased GPCR signaling pathway",
+    "citation": "Theranostics, DOI: 10.7150/thno.90792 (PMCID: PMC10797299, PMID: 38250036)",
+    "pathways": [
+      "VTA morphine-responsive ensemble (Mor-Ens) -> ZI, anterograde",
+      "VTA foot-shock-responsive ensemble (Shock-Ens) -> ZI, anterograde (comparator)",
+      "VTA morphine-responsive ensemble (Mor-Ens) -> ventral pallidum (VP), anterograde",
+      "VTA foot-shock-responsive ensemble (Shock-Ens) -> ventral pallidum (VP), anterograde (comparator)",
+      "Dorsal medial striatum (DMStr) -> VTA (Mor-Ens vs Shock-Ens), retrograde monosynaptic rabies",
+      "Hypothalamic medial zone (MEZ: VMH/DMH) -> VTA (Mor-Ens vs Shock-Ens), retrograde monosynaptic rabies",
+      "Ventral pallidum (VP) -> VTA (Mor-Ens vs Shock-Ens), retrograde monosynaptic rabies",
+      "Lateral habenular nucleus (LHb) -> VTA (Mor-Ens vs Shock-Ens), retrograde monosynaptic rabies"
+    ],
+    "purpose": "To delineate how morphine- versus foot shock-responsive VTA neuronal ensembles differ in connectivity and GPCR signaling bias, and to link these differences to divergent behavioral outcomes (reward vs. anxiety) for potential targeted interventions.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 36,
+    "title": "Glutamatergic Neurons in the Zona Incerta Modulate Pain and Itch Behaviors in Mice",
+    "citation": "Li, Peng, Zhang et al. 2023, Molecular Neurobiology 60:5866-5877, DOI: 10.1007/s12035-023-03431-7",
+    "pathways": [],
+    "purpose": "To act as an endogenous negative modulatory center suppressing pain and itch behaviors",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 37,
+    "title": "An inhibitory circuit from central amygdala to zona incerta drives pain-related behaviors in mice",
+    "citation": "eLife 2022 (DOI: 10.7554/eLife.68760; PMCID: PMC9635874; PMID: 36269044)",
+    "pathways": [
+      "CeA-PKC\u03b4 -> ZI (anterograde, AAV-mCherry/ChrimsonR)",
+      "CeA-PKC\u03b4 -> ZI (retrograde, CTB-647)",
+      "CeA (Vgat+) -> ZI (anterograde ChR2, functional/optogenetic connectivity, inhibitory)"
+    ],
+    "purpose": "This CeA-PKC\u03b4\u2192ZI pathway serves to inhibit ZI GABAergic neurons, thereby increasing pain sensitivity after nerve injury and promoting bidirectional modulation of pain-related behaviors.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 38,
+    "title": "Raphe serotonin projections dynamically regulate feeding behavior through targeting inhibitory circuits from rostral zona incerta to paraventricular thalamus",
+    "citation": "Molecular Metabolism 2022 (DOI: 10.1016/j.molmet.2022.101634; PMCID: PMC9672487; PMID: 36351530)",
+    "pathways": [
+      "Raphe (DR+MnR) 5-HT -> ZIR (anterograde)",
+      "Raphe (DR+MnR) 5-HT -> PVT (anterograde)",
+      "Dual retrograde tracing: raphe 5-HT neurons collateralizing to ZIR and PVT",
+      "ZIR GABA (GAD+) -> PVT (retrograde CTB-555, identifies presynaptic ZIR neurons)"
+    ],
+    "purpose": "To elucidate how raphe serotonin projections modulate the inhibitory ZIR \u2192 PVT pathway to regulate feeding motivation and food intake.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 39,
+    "title": "Somatostatin-Positive Neurons in the Rostral Zona Incerta Modulate Innate Fear-Induced Defensive Response in Mice",
+    "citation": "Neuroscience Bulletin 2023 (DOI: 10.1007/s12264-022-00958-y; PMCID: PMC9905479; PMID: 36260252)",
+    "pathways": [
+      "ZIr (SST+) -> Re (nucleus reuniens), GABAergic, anterograde + functional",
+      "Broad upstream inputs (mPFC, cingulate cortex, secondary visual cortex, PAG, lateral septal nucleus, lateral hypothalamus) -> ZIr (SST+)",
+      "SC (superior colliculus, IL/DL layers) -> ZIr (SST+)",
+      "SC (IL/DL) -> Re-projecting ZIr (SST+) neurons (tri-synaptic SC-ZIr-Re circuit)"
+    ],
+    "purpose": "To mediate and modulate innate visual threat-induced defensive behaviors (flight and freezing) via SST-positive neurons in the rostral ZI and the SC-ZIrSST-Re tri-synaptic circuit.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both necessity and sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 40,
+    "title": "The multilevel exploration test, a novel paradigm to measure exploratory behavior in depression animal models and the involvement of the PL-ZI circuit",
+    "citation": "Xu et al. 2026, Acta Pharmacologica Sinica (DOI: 10.1038/s41401-026-01812-x)",
+    "pathways": [
+      "PL -> ZI (retrograde identification of ZI-projecting PL neurons)",
+      "PL (ZI-projecting) -> ZI, chemogenetic inhibition (intersectional CAV-Cre + DIO-hM4Di)",
+      "PL (ZI-projecting) -> ZI, chemogenetic activation in CSDS-susceptible mice (intersectional AAVretro-Flp + fDIO-hM3Dq)",
+      "PL (ZI-projecting) collateral axon mapping (whole-brain)"
+    ],
+    "purpose": "To test whether the PL\u2192ZI projection mediates exploratory motivation and can rescue depression-like behavioral deficits.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 41,
+    "title": "Bidirectional modulation of accumbens dopamine by MCH neurons during learning and consummatory behavior",
+    "citation": "Authors not stated in retrieved text; bioRxiv preprint (2025), DOI: 10.1101/2025.06.05.658170, PMCID: PMC12157353, PMID: 40502131",
+    "pathways": [],
+    "purpose": "To bidirectionally modulate dopamine release in the nucleus accumbens medial shell by MCH neurons during food consumption and Pavlovian reward learning.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 42,
+    "title": "Delta Opioid Receptors within the Cortico-Thalamic Circuitry Underlie Hyperactivity Induced by High-Dose Morphine",
+    "citation": "Advanced Science (2025), DOI: 10.1002/advs.202503831, PMCID: PMC12904023, PMID: 41319286",
+    "pathways": [
+      "Cg (Vglut2+) -> ZIm (anterograde, non-transsynaptic)",
+      "Cg -> ZIm/ZIr/ZIc (retrograde, CTB-555, comparison across ZI subdivisions)",
+      "Cg -> ZIm (Gad2+ starter neurons), monosynaptic rabies retrograde tracing",
+      "Cg -> ZIm (Vglut2+ starter neurons), monosynaptic rabies retrograde tracing",
+      "Cg (Vglut2+) -> ZIm postsynaptic (Gad2+) neurons, anterograde transsynaptic Cre-transfer",
+      "Cg (Gad2+/GABAergic) -> ZIm, anterograde (sparse projection, functionally tested)",
+      "ZIm -> Motor cortex (M1/M2) and striatum (anterograde, brief mention)"
+    ],
+    "purpose": "Mediation of high-dose morphine-induced hyperlocomotion (psychomotor activation).",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 43,
+    "title": "The zona incerta regulates burying behavior and normalizes anxiety-like behavior in inescapable stressful male mice by object cue",
+    "citation": "Neurobiology of Stress (2024), DOI: 10.1016/j.ynstr.2024.100704, PMCID: PMC11846496, PMID: 39991142",
+    "pathways": [
+      "ZI -> vPAG (anterograde anatomical mapping, non-cell-type-specific)",
+      "ZI -> vPAG (vPAG-projecting ZI neurons, functionally targeted via retrograde-Cre + Cre-dependent DREADD)"
+    ],
+    "purpose": "To normalize anxiety-like behavior induced by inescapable stress via ZI\u2192vPAG projections, without altering defensive burying behavior.",
+    "purpose_confidence": "partial",
+    "necessity_sufficiency": "Both necessity and sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 44,
+    "title": "Zona Incerta GABAergic Neurons Facilitate Emergence from Isoflurane Anesthesia in Mice",
+    "citation": "Molecular Neurobiology (2024), DOI: 10.1007/s11064-024-04230-9, PMCID: PMC11502554, PMID: 39312079",
+    "pathways": [],
+    "purpose": "To investigate the involvement of ZI GABAergic neurons in modulating induction and emergence from isoflurane anesthesia.",
+    "purpose_confidence": "partial",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 45,
+    "title": "Projections from the Rostral Zona Incerta to the Thalamic Paraventricular Nucleus Mediate Nociceptive Neurotransmission in Mice",
+    "citation": "MDPI (Metabolites) 2023, DOI: 10.3390/metabo13020226 (PMID: 36837844)",
+    "pathways": [
+      "PVT -> ZIR (retrograde, 594 retroBeads)",
+      "PVT -> ZIR (retrograde, CTB, GABAergic co-localization)",
+      "ZIR -> PVT (anterograde, GAD2+, eGFP, with formalin/FOS)",
+      "ZIR -> PVT (Vgat+/GABAergic, anterograde transsynaptic, fiber photometry)",
+      "PVT -> ZIR (retrograde Cre, VGAT1-DIO-hM3Dq, for pathway-specific chemogenetics)"
+    ],
+    "purpose": "To mediate nociceptive neurotransmission by providing GABAergic inhibition from rostral ZI to PVT, thereby modulating mechanical and thermal pain sensitivity.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 46,
+    "title": "A zona incerta-basomedial amygdala circuit modulates aversive expectation in emotional stress-induced aversive learning deficits",
+    "citation": "Zeng et al. 2022, Frontiers in Cellular Neuroscience, DOI: 10.3389/fncel.2022.910699 (PMID: 36090791)",
+    "pathways": [
+      "ZI (TH+) -> BMA (anterograde)",
+      "BMA -> ZI (TH+) (monosynaptic rabies retrograde tracing)"
+    ],
+    "purpose": "This ZI-to-BMA TH+ circuit modulates aversive expectation during fear conditioning and rescues emotional stress-induced aversive learning deficits, making it a potential target for intervention in maladaptive fear learning.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 47,
+    "title": "Modulation of fear generalization by the zona incerta",
+    "citation": "Venkataraman, Brody, Reddi, Guo, Rainnie & Dias, 2019, Proceedings of the National Academy of Sciences (PNAS), vol. 116, no. 18, pp. 9072-9077. DOI: 10.1073/pnas.1820541116",
+    "pathways": [
+      "ZI (GABAergic, vGAT+) -> nucleus reuniens (anterograde)",
+      "ZI (GABAergic, vGAT+) -> PAG (periaqueductal gray) (anterograde)"
+    ],
+    "purpose": "To test whether the zona incerta modulates fear generalization and to evaluate its potential as a therapeutic target to reduce maladaptive fear generalization.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 48,
+    "title": "Cerebellar climbing fibers impact experience-dependent plasticity in the mouse primary somatosensory cortex",
+    "citation": "bioRxiv preprint (2025), DOI: 10.1101/2025.04.18.649578 (PMID: 41040356; PMCID: PMC12485812)",
+    "pathways": [
+      "Deep cerebellar nuclei (DCN) -> ZI (anterograde transsynaptic, AAV1-Flpo dual-virus)",
+      "Deep cerebellar nuclei (DCN) -> ZI (monosynaptic, direct ChR2 anterograde + retrograde fluoro-Ruby from POm, patch-clamp confirmation)",
+      "ZI (POm-projecting, predominantly PV+) -> POm -> S1 cortex (anterograde, multisynaptic pathway)",
+      "DCN -> thalamic reticular nucleus (TRN) (tested and ruled out; negative anatomical finding)"
+    ],
+    "purpose": null,
+    "purpose_confidence": "mismatch",
+    "necessity_sufficiency": null,
+    "necessity_sufficiency_confidence": "mismatch"
+  },
+  {
+    "num": 50,
+    "title": "Rapid binge-like eating and body weight gain driven by zona incerta GABA neuron activation",
+    "citation": "Zhang & van den Pol, 2017, Science (DOI: 10.1126/science.aam7100; PMID: 28546212; PMCID: PMC6602535)",
+    "pathways": [
+      "ZI -> PVT (VGAT+/GABA, anterograde)",
+      "ZI -> PVT glutamate neurons (retrograde monosynaptic rabies, confirms direct innervation)",
+      "PSTh -> PVT glutamate neurons (retrograde monosynaptic rabies)",
+      "PSTh -> PVT (vGlut2+/glutamatergic, anterograde)"
+    ],
+    "purpose": "Mediation of rapid binge-like eating and body weight gain via ZI GABA\u2192PVT inhibition of thalamic glutamatergic neurons",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 51,
+    "title": "Incerto-thalamic modulation of fear via GABA and dopamine",
+    "citation": "Neuropsychopharmacology, 2021 (DOI: 10.1038/s41386-021-01006-5; PMID: 33864008; PMCID: PMC8280196)",
+    "pathways": [
+      "ZI -> RE (GABAergic/VGAT+, anterograde, optogenetic)",
+      "ZI A13 (dopaminergic/TH+, co-expressing GABA) -> RE (anterograde, optogenetic)"
+    ],
+    "purpose": "To suppress fear generalization and enhance extinction recall via incerto-thalamic (ZI\u2192RE) pathways.",
+    "purpose_confidence": "partial",
+    "necessity_sufficiency": "Sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 52,
+    "title": "Low-frequency stimulation in the zona incerta attenuates seizure via driving GABAergic neuronal activity",
+    "citation": "Zhang, Yang, Li et al., 2024, Neurobiology of Disease 192:106424 (DOI: 10.1016/j.nbd.2024.106424)",
+    "pathways": [],
+    "purpose": "To attenuate seizure severity in hippocampal and cortical seizure models by activating ZI GABAergic neurons with low-frequency DBS.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both necessity and sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 53,
+    "title": "Dopaminergic Neurons in Zona Incerta Drives Appetitive Self-Grooming",
+    "citation": "Advanced Science (Wiley), 2024 (DOI: 10.1002/advs.202308974; PMID: 39099402; PMCID: PMC11422805) - full author names not given in this reconstructed source; author-contribution initials listed are Q.T., Z.J., M.H., C.Y., J.C., Y.J., Y.X., H.L., M.Y.",
+    "pathways": [
+      "ZI TH+ (A13 dopaminergic/GABAergic) -> PAG (anterograde + functional DA release)",
+      "ZI TH+ (A13) -> NAc shell, BNST, locus coeruleus (LC), lateral reticular nucleus (LRt) (anterograde, whole-brain output mapping)",
+      "Multiple upstream regions -> ZI TH+ neurons (retrograde monosynaptic rabies, whole-brain input mapping)",
+      "PVH -> ZI TH+ neurons (retrograde monosynaptic rabies; specifically highlighted glutamatergic input)"
+    ],
+    "purpose": "To promote appetitive self-grooming via dopamine release from ZITH neurons to the PAG, integrating sensory stimuli to drive grooming behavior.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 54,
+    "title": "Zona incerta mediates early life isoflurane-induced fear memory deficits",
+    "citation": "Scientific Reports, 2024 (DOI: 10.1038/s41598-024-66106-w)",
+    "pathways": [],
+    "purpose": "Mediating the impairment and rescue of fear memory retrieval following early-life isoflurane exposure",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 55,
+    "title": "Demonstrating the ability of GABAergic cells in the zona incerta to modulate motivation",
+    "citation": "bioRxiv preprint, 2026 (DOI: 10.64898/2026.05.10.724142)",
+    "pathways": [],
+    "purpose": "To modulate effort\u2010based motivational drive and integrate reward\u2010predictive sensory cues into goal\u2010directed action, including rescuing stress\u2010induced motivational deficits",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "partial"
+  },
+  {
+    "num": 56,
+    "title": "Unilateral optogenetic stimulation of Lhx6 neurons in the zona incerta increases REM sleep",
+    "citation": "Vidal-Ortiz, Blanco-Centurion, and Shiromani 2024, Sleep, 47(3):1-13, doi:10.1093/sleep/zsad217",
+    "pathways": [],
+    "purpose": null,
+    "purpose_confidence": "mismatch",
+    "necessity_sufficiency": null,
+    "necessity_sufficiency_confidence": "mismatch"
+  },
+  {
+    "num": 57,
+    "title": "Inhibitory gain modulation of defense behaviors by zona incerta",
+    "citation": "Nature Communications, 2018 (DOI: 10.1038/s41467-018-03581-6; PMID: 29559622)",
+    "pathways": [
+      "ZIr -> dlPAG/vlPAG (GAD2+/GABAergic, anterograde AAV; also monosynaptic IPSC confirmation)",
+      "ZIv/ZId -> PAG (PV+, anterograde AAV) - sparse/negative control comparison",
+      "PAG (dlPAG, vlPAG) -> ZI, retrograde rabies tracing (confirms PAG-projecting ZI neurons are in ZIr)",
+      "ZI -> PAG (GABAergic identity confirmation via retrograde CTB + GAD67-GFP colocalization)",
+      "mPFC (ILA/PL/ACA) -> ZIr, retrograde (rAAV2-retro-Cre)",
+      "mPFC (ILA/PL) -> ZIr (anterograde AAV-ChR2, with monosynaptic EPSC confirmation)",
+      "ZIr -> SC / RN / MRN / PRN / thalamus (PO) (anterograde AAV, GAD2+; broader collateral targets of the same injection as ZIr->PAG)"
+    ],
+    "purpose": "To modulate the gain of innate and learned defensive behaviors via inhibitory ZIr\u2192PAG projections and to mediate experience-dependent fear extinction through mPFC inputs.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 58,
+    "title": "Chemogenetic and optogenetic stimulation of zona incerta GABAergic neurons ameliorates motor impairment in Parkinson's disease",
+    "citation": "iScience (Cell Press), 2023 (DOI: 10.1016/j.isci.2023.107149; PMID: 37416450)",
+    "pathways": [],
+    "purpose": "To determine whether and how ZI GABAergic neuron activity regulates motor behaviors in a Parkinson\u2019s disease mouse model",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 59,
+    "title": "Transcriptomic and spatial GABAergic neuron subtypes in zona incerta mediate distinct innate behaviors",
+    "citation": "Nature Communications, DOI: 10.1038/s41467-025-57896-2 (PMID: 40169544)",
+    "pathways": [
+      "ZIr -> PAG (Ecel1+/Vgat+, anterograde, functionally tested)",
+      "ZIr -> other targets (LS, POA, PVT, Re, LH, MD) (Ecel1+/Vgat+, anterograde, non-behaviorally-effective)",
+      "ZIm -> PRF (Pde11a+/Vgat+, anterograde, functionally tested)",
+      "ZIm -> other targets (PO, AuV L1, APTD, Dk, RN, SC) (Pde11a+/Vgat+, anterograde)"
+    ],
+    "purpose": "Rostral ZI Ecel1+ projection to PAG mediates self-grooming; medial ZI Pde11a+ projection to PRF promotes transition from sleep to wakefulness.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 60,
+    "title": "Virally encoded connectivity transgenic overlay RNA sequencing (VECTORseq) defines projection neurons involved in sensorimotor integration",
+    "citation": "Cheung et al., Cell Reports, DOI: 10.1016/j.celrep.2021.110131 (PMID: 34936877)",
+    "pathways": [
+      "ZI (ventral subdivision) -> VM (ventromedial thalamus) (GABAergic, retrograde tracing + transcriptomic marker ID)"
+    ],
+    "purpose": "To develop a multiplexed high-throughput method for transcriptionally profiling projection neurons by using viral transgene mRNA as barcodes to define anatomical connectivity.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": null,
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 62,
+    "title": "Prefrontal - subthalamic pathway supports action selection in a spatial working memory task",
+    "citation": "Scientific Reports, DOI: 10.1038/s41598-020-67185-1 (PMID: 32591609)",
+    "pathways": [
+      "mPFC -> subthalamic region (ZI and STN, combined 'ST') (anterograde, cortical afferent mapping)"
+    ],
+    "purpose": "Supports action selection during spatial working memory by theta-rhythmic coordination of gamma oscillations in the prefrontal-subthalamic pathway.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "necessity",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 64,
+    "title": "Acoustic Motor Cortex Stimulation Enhances the Descending Analgesic Pathway to Alleviate Chronic Pain in Mice",
+    "citation": "Fu, Yang, Ke, et al., IEEE Transactions on Neural Systems and Rehabilitation Engineering, Vol. 33, 2025, DOI: 10.1109/TNSRE.2025.3564033",
+    "pathways": [],
+    "purpose": "To non-invasively stimulate the primary motor cortex and thereby enhance the descending analgesic pathway to alleviate chronic pain",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 65,
+    "title": "Identification of a Hippocampus-to-Zona Incerta Projection involved in Motor Learning",
+    "citation": "Zhang, Wang, et al. 2024, Advanced Science (DOI: 10.1002/advs.202307185)",
+    "pathways": [
+      "dHPC (mixed DG+CA1) -> ZI (anterograde, AAV-EF1a-mCherry)",
+      "dHPC (mixed DG+CA1) -> ZI (anterograde, AAV-hSyn-GFP, confirmatory replicate)",
+      "Dorsal DG and CA1 -> ZI (retrograde, AAV2-retro-hSyn-eGFP injected into ZI)",
+      "Perirhinal cortex, lateral parietal association cortex, and central amygdala -> ZI (retrograde, AAV2-retro-hSyn-eGFP, same experiment as above)",
+      "Dorsal DG -> ZI (Vglut/CaMKII+ excitatory, anterograde, AAV-hSyn-GFP)",
+      "Dorsal CA1 -> ZI (CaMKII+ excitatory, anterograde, AAV-hSyn-GFP)"
+    ],
+    "purpose": "Regulation of motor learning stages: dorsal CA1\u2192ZI for acquisition and consolidation; dorsal DG\u2192ZI for retrieval/retention",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Necessity",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 66,
+    "title": "Cerebellar climbing fibers impact experience-dependent plasticity in the mouse primary somatosensory cortex",
+    "citation": "Author names not stated in retrieved text, 2025, eLife (DOI: 10.7554/eLife.109183)",
+    "pathways": [
+      "Contralateral cerebellar nuclei (CBN/DCN) -> Zona incerta (ZI) (anterograde transsynaptic + confirmed monosynaptic)",
+      "Zona incerta (CBN-recipient, PV+) -> Posterior medial thalamic nucleus (POm) (anterograde)",
+      "Zona incerta (CBN-recipient, PV+) -> Primary somatosensory cortex (S1), layers L1 and L5a (anterograde)",
+      "Contralateral cerebellar nuclei (CBN) -> Thalamic reticular nucleus (TRN) [ruled out / negative finding]",
+      "Contralateral cerebellar nuclei (CBN) -> VPM/POm (direct, weak) (anterograde, same experiment as TRN check)"
+    ],
+    "purpose": "To convey cerebellar climbing fiber signals via ZI to POm and S1 cortex in order to gate experience-dependent plasticity of L2/3 pyramidal neurons in S1, acting as an instructive error signal",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 67,
+    "title": "Monosynaptic-collicular pathways link mouse whisker circuits to integrate somatosensory and motor cortical signals",
+    "citation": "Author names not stated in retrieved text, 2023, PLOS Biology (DOI: 10.1371/journal.pbio.3002126)",
+    "pathways": [
+      "Whisker motor cortex (MC, M1/M2, L5) -> Lateral superior colliculus (LSC)",
+      "Barrel cortex (BC, L5) -> Lateral superior colliculus (LSC)",
+      "Contralateral trigeminal complex (spinal trigeminal nucleus, Sp5) -> Lateral superior colliculus (LSC)",
+      "LSC recipient neurons (MC-RN, BC-RN, Bs-RN) -> Zona incerta (ZI) (anterograde trans-synaptic output mapping)",
+      "LSC recipient neurons (MC-RN, BC-RN, Bs-RN) -> higher-order thalamic nuclei (PO, VM, PF, and LP for Bs-RN) (anterograde)",
+      "LSC recipient neurons (MC-RN, BC-RN, Bs-RN) -> brainstem motor/reticular targets (PnC, Gi, 7N facial nucleus) (anterograde)",
+      "LSC inhibitory (GABAergic) recipient neurons (MC-iRN, BC-iRN, Bs-iRN) -> Zona incerta (ZI) and PO/PF (no brainstem projection)",
+      "Convergent LSC neurons receiving both MC and BC monosynaptic input (CVG-RNs)"
+    ],
+    "purpose": "To integrate somatosensory and motor cortical signals within the whisker-sensitive superior colliculus via parallel excitatory and inhibitory trans-collicular pathways for somato-motor integration.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Correlation",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 68,
+    "title": "Most dynorphin neurons in the zona incerta-perifornical area are active in waking relative to non-rapid-eye movement and rapid-eye movement sleep",
+    "citation": "Shiromani & Vidal-Ortiz, 2024, SLEEP (47(5), 1-10; DOI: 10.1093/sleep/zsae065)",
+    "pathways": [],
+    "purpose": "Determine activity patterns of dynorphin neurons across wake, NREM, and REM sleep using in vivo calcium imaging",
+    "purpose_confidence": "partial",
+    "necessity_sufficiency": "correlation",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 69,
+    "title": "Zona incerta neurons projecting to the ventral tegmental area promote action initiation towards feeding",
+    "citation": "Journal of Physiology, 2021, DOI: 10.1113/JP276513, PMID: 33296086 (author surnames not given in the retrieved verbatim text, which lists only initials KG, EH, MN, ML, GP, RA)",
+    "pathways": [
+      "ZI-region -> VTA (TetTox inactivation cohort, retrograde CAV2Cre + anterograde Cre-dependent GFP:TetTox reporter)",
+      "ZI -> VTA (DREADD hM3D(Gq) activation cohort, retrograde CAV2Cre + anterograde Cre-dependent hM3Dq-mCherry reporter)"
+    ],
+    "purpose": "To promote feeding by facilitating action initiation towards food.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 70,
+    "title": "Activation of zona incerta gamma-aminobutyric acid-ergic neurons alleviates depression-like and anxiety-like behaviors induced by chronic restraint stress",
+    "citation": "World Journal of Psychiatry, DOI: 10.5498/wjp.v15.i2.101807, PMCID: PMC11758062, PMID: 39974487 (author surnames not given in the retrieved verbatim text)",
+    "pathways": [],
+    "purpose": "To regulate and alleviate depression-like and anxiety-like behaviors induced by chronic restraint stress in mice via modulation of ZI GABAergic neuron activity.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 71,
+    "title": "Reactive astrocytes mediate postoperative surgery-induced anxiety through modulation of GABAergic signalling in the zona incerta of mice",
+    "citation": "Tong K, Song Y-T, Jing S-Q, You Y, Wang S-J, Wu T, Xu H, Zhang J-W, Liu L, Hao J-R, Sun N, Cao J-L, Gao C. British Journal of Anaesthesia, 2025, 134(1): 111-123. DOI: 10.1016/j.bja.2024.08.043",
+    "pathways": [
+      "ZI^GABA -> median raphe nucleus (MRN), anterograde ChR2, optogenetic activation",
+      "ZI^GABA -> ventral periaqueductal gray (vPAG), anterograde ChR2, optogenetic activation",
+      "ZI^GABA -> median raphe nucleus (MRN), anterograde NpHR3.0, optogenetic inhibition"
+    ],
+    "purpose": "To elucidate how ZI astrocytes and GABAergic ZI\u2192MRN projections control surgery-induced anxiety-like behaviour",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 72,
+    "title": "Aberrant outputs of cerebellar nuclei and targeted rescue of social deficits in an autism mouse model",
+    "citation": "Protein & Cell, DOI: 10.1093/procel/pwae040, PMCID: PMC11637611, PMID: 39066574 (author names not given in the retrieved verbatim text)",
+    "pathways": [
+      "Fastigial nucleus (FN) -> zona incerta (ZI), anterograde transsynaptic tracing",
+      "Interposed nucleus (IN) -> zona incerta (ZI, posterodorsal), anterograde transsynaptic tracing + retrograde confirmation + causal functional manipulation",
+      "Dentate nucleus (DN) -> zona incerta (ZI, posterodorsal), anterograde transsynaptic tracing + retrograde confirmation + causal functional manipulation",
+      "Zona incerta (posterodorsal, IN/DN-recipient subpopulation) -> multiple downstream targets (CPu, S2, Ect, PF, Po, SC, PAG, pontine reticular nucleus), anterograde nontranssynaptic mapping"
+    ],
+    "purpose": "To test whether excessive cerebellar nucleus\u2192ZI innervation causes social novelty deficits in Nlgn3R451C mice and whether inhibiting ZI\u2010receiving neurons can rescue these deficits.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 73,
+    "title": "A neural circuit from thalamic paraventricular nucleus via zona incerta to periaqueductal gray for the facilitation of neuropathic pain",
+    "citation": "Li et al. 2024, Neurobiology of Disease 202:106699",
+    "pathways": [
+      "ZIr (GABA) -> vlPAG (CaMKIIa), retrograde monosynaptic rabies",
+      "ZIr -> vlPAG (CaMKIIa), anterograde transsynaptic AAV1-Cre",
+      "PVP (CaMKIIa) -> ZIr (GABA), retrograde monosynaptic rabies",
+      "PVP -> ZIr (GABA), anterograde transsynaptic AAV1-Cre",
+      "PVP -> ZIr (GABA) -> vlPAG (CaMKIIa), triple retrograde trans-monosynaptic rabies (disynaptic circuit confirmation)"
+    ],
+    "purpose": "To facilitate the development and maintenance of neuropathic pain hypersensitivity via descending facilitation.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 74,
+    "title": "Opposing collicular influences on the parafascicular (Pf) and posteromedial (POm) thalamic nuclei: relationship to POm-induced inhibition in the substantia nigra pars reticulata (SNR)",
+    "citation": "Watson & Alloway 2018, Brain Structure and Function 223:535-543",
+    "pathways": [
+      "SC -> ZIv (GABA) -> POm (feed-forward inhibitory; functionally confirmed, not newly traced with dye)",
+      "SC -> Pf (direct excitatory activation)",
+      "POm -> DLS (direct pathway, excitatory)",
+      "POm -> SNR (lateral), inhibitory, presumed indirect via DLS direct pathway"
+    ],
+    "purpose": "To determine how superior colliculus activation differentially influences Pf and POm and to assess how POm stimulation affects downstream basal ganglia output in the substantia nigra pars reticulata.",
+    "purpose_confidence": "partial",
+    "necessity_sufficiency": "sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 76,
+    "title": "Zona incerta dopamine neurons encode motivational vigor in food seeking",
+    "citation": "Ye, Nunez, and Zhang 2023, Science Advances 9(46):eadi5326",
+    "pathways": [
+      "ZI (TH+/DA) -> PVT, anterograde AAV axonal mapping",
+      "PVT <- ZI (TH+/DA), retrograde confirmation",
+      "ZI (TH+/DA) -> PAG, anterograde/optogenetic mapping (functional comparison pathway)"
+    ],
+    "purpose": "To encode motivational vigor in homeostatic food-seeking behaviors to drive meal frequency and to transmit positive-valence signals via the ZI\u2192PVT DA pathway to support contextual food memory.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 77,
+    "title": "Ventral zona incerta parvalbumin neurons modulate sensory-induced and stress-induced self-grooming via input-dependent mechanisms in mice",
+    "citation": "Wang et al. 2024, iScience, DOI 10.1016/j.isci.2024.110165 (PMCID PMC11228785)",
+    "pathways": [
+      "S1 (CaMKII+, glutamatergic) -> Ziv (PV neurons), excitatory",
+      "CeA (SST+, GABAergic) -> Ziv (PV neurons), inhibitory",
+      "Additional presynaptic inputs to Ziv (PV) identified by retrograde monosynaptic rabies tracing (not functionally tested)"
+    ],
+    "purpose": "To integrate primary sensory (S1 glutamatergic) and emotional (CeA GABAergic) inputs in ventral ZI PV neurons to modulate spontaneous, sensory\u2010induced, and stress\u2010induced self\u2010grooming behavior.",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both necessity and sufficiency",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 79,
+    "title": "Activation of the Intrinsic Pain Inhibitory Circuit from the Midcingulate Cg2 to Zona Incerta Alleviates Neuropathic Pain",
+    "citation": "Hu, Wang, Du, Guo, Wu, Wang, Wang, Li, Zhang & Chen 2019, Journal of Neuroscience 39(46):9130-9144",
+    "pathways": [
+      "MCC Cg2 (CaMKII\u03b1+/Glu) -> ZI (anterograde tracing + functional, activates ZI-GABA, pain-inhibitory)",
+      "MCC Cg2 (CaMKII\u03b1+/Glu) -> DLPAG (anterograde tracing + functional, no effect on nociception)",
+      "MCC Cg2 -> other targets (cortex, mediorostral lateral posterior thalamic nucleus, brainstem, retrosplenial granular cortex) - descriptive mapping only, not functionally tested",
+      "MCC Cg2 -> ZI-GABA (retrograde monosynaptic rabies tracing, presynaptic input mapping)",
+      "MCC Cg1 -> ZI-GABA (retrograde monosynaptic rabies tracing, weaker presynaptic input than Cg2)"
+    ],
+    "purpose": "Mediates intrinsic inhibition of multimodal nociception and relieves neuropathic pain",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  },
+  {
+    "num": 80,
+    "title": "Activation of the zona incerta GABAergic circuit for the treatment of pain hypersensitivity in Parkinson's disease mice model",
+    "citation": "Cui et al. 2025, The Journal of Headache and Pain (doi:10.1186/s10194-025-02198-7, PMC12595850)",
+    "pathways": [
+      "ZI (GAD67+/GABAergic) -> multiple ipsilateral downstream targets (anterograde)",
+      "ZI -> VTA (GABAergic, GAD67+, intersectional retrograde-Cre targeting; functionally manipulated)"
+    ],
+    "purpose": "To modulate mechanical and thermal pain hypersensitivity in a Parkinson\u2019s disease mouse model by activating or inhibiting ZI GABAergic neurons and their projections to the VTA",
+    "purpose_confidence": "match",
+    "necessity_sufficiency": "Both",
+    "necessity_sufficiency_confidence": "match"
+  }
+]
