@@ -238,7 +238,7 @@ def build(out_dir: Path, pdf: Path) -> None:
         for r in lit[ucols].itertuples(index=False):
             rows.append([fmt(v, 1) if isinstance(v, float) and k in (3, 4, 5, 6) else fmt(v)
                          for k, v in enumerate(r)])
-        story.append(table(header_white(rows), [1.2 * cm, 3.4 * cm] + [(W - 4.6 * cm) / 10] * 10))
+        story.append(table(header_white(rows), [1.5 * cm, 3.4 * cm] + [(W - 4.9 * cm) / 10] * 10))
 
     # ---- Sessions --------------------------------------------------------
     story += [PageBreak(), Paragraph("5. Sessions", H2)]
