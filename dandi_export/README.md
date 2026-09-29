@@ -3,13 +3,10 @@
 Plain-table (CSV / Parquet) export of
 [DANDI:000017 v0.240329.1926](https://dandiarchive.org/dandiset/000017/0.240329.1926),
 "Distributed coding of choice, action and engagement across the mouse brain"
-(Steinmetz, Zatka-Haas, Carandini & Harris, *Nature* 2019). 39 sessions,
-10 mice, Neuropixels recordings from ~70 brain regions during a visual
-two-alternative contrast discrimination task. The regions include **ZI** (zona incerta, 4 sessions,
-289 good units), so its firing rates can be compared with the values
-extracted from the literature in `otto_reextraction/`. There are no units in
-**LHA** (lateral hypothalamic area). Region labels are Allen CCF acronyms,
-and Allen `LH` is the *lateral habenula*, not the lateral hypothalamus.
+(DANDI citation: Steinmetz, Zatka-Haas, Carandini, Harris & Wang, 2024; dataset
+description: "Data from 'Distributed coding of choice, action and engagement
+across the mouse brain' Steinmetz et. al Nature 2019"). 39 sessions from 10 mice.
+Region labels are the electrode `location` strings stored in the NWB files.
 
 ## Reproduce
 
@@ -39,7 +36,7 @@ re-run the script to regenerate them.
 | `peak_channel`, `depth_um` | peak channel (1-based) and depth along probe (0 = tip) |
 | `phy_annotation`, `good` | 1 = multi-unit, 2 = good, 3 = unsorted; `good` = annotation ≥ 2 (the units the paper analysed) |
 | `waveform_duration_ms` | trough-to-peak width of the mean extracellular waveform, which separates narrow-spiking (putative fast-spiking interneuron) from wide-spiking units. This is **not** the same measurement as intracellular AP half-width. |
-| `waveform_duration_source` | `nwb` = the published value; `recomputed_from_waveform_mean` = recomputed (trough-to-peak on the highest-amplitude channel of `waveform_mean`) because in 11 of the 39 sessions the published `waveform_duration` column is actually a copy of `cluster_depths` |
+| `waveform_duration_source` | `nwb` = the published value; `recomputed_from_waveform_mean` = recomputed (trough-to-peak on the highest-amplitude channel of `waveform_mean`) because in 12 of the 39 sessions the published `waveform_duration` column holds implausible values (> 100 samples; in the session checked in detail they equal `cluster_depths`) |
 | `n_spikes`, `mean_rate_hz` | total spikes and rate over the whole recording |
 | `task_rate_hz` | rate during the task block (first trial start to last trial end) |
 | `spontaneous_rate_hz` | rate during the `spontaneous` intervals (no task or stimulus running) |
@@ -85,8 +82,8 @@ voltage is omitted because `lick_times` is the extracted signal.
 import pandas as pd
 units  = pd.read_csv("dandi_export/output/tables/units.csv")
 trials = pd.read_csv("dandi_export/output/tables/trials.csv")
-zi = units[(units.region == "ZI") & units.good]
-print(zi.spontaneous_rate_hz.describe())
+good = units[units.good]
+print(good.groupby("region").spontaneous_rate_hz.describe())
 
 counts = pd.read_parquet("dandi_export/output/trial_unit_counts.parquet")
 stim_rate = counts.merge(units, on=["session_id", "unit_id"]) \

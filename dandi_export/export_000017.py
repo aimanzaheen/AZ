@@ -11,8 +11,7 @@ Outputs (see dandi_export/README.md for column descriptions):
                                  waveform width, mean + spontaneous firing rate
     tables/trials.csv            one row per trial: stimulus, choice, feedback
     tables/region_summary.csv    per brain region firing-rate summary
-                                 (good units only) - directly comparable to
-                                 literature values like "spontaneous firing rate"
+                                 (good units only)
     trial_unit_counts.parquet    spike counts per (trial, unit) in fixed
                                  windows around stimulus / response / feedback
     spikes/<session>.parquet     every spike: unit_id, time (s), amp, depth
@@ -114,8 +113,9 @@ def export_behavior(nwb, sid: str, out: Path) -> None:
 def waveform_duration_samples(u) -> tuple[np.ndarray, str]:
     """Trough-to-peak waveform duration in samples, plus where it came from.
 
-    In 11 of the 39 sessions the published `waveform_duration` column is
-    actually a copy of `cluster_depths` (r > 0.9999, values up to ~3800).
+    In 12 of the 39 sessions the published `waveform_duration` column holds
+    values > 100 samples (up to ~3800); in the session checked in detail it
+    equals `cluster_depths` (r > 0.9999).
     There it is recomputed from `waveform_mean` (82 samples x 50 nearest
     channels) on the highest-amplitude channel, which reproduces the stored
     value closely (r ~ 0.96) in the sessions where the stored value is valid.

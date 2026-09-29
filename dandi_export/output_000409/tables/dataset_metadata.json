@@ -1,0 +1,586 @@
+{
+ "name": "IBL - Brain Wide Map",
+ "description": "The International Brain lab (IBL) aims to understand the neural basis of decision-making in the mouse by gathering a whole-brain activity map composed of electrophysiological recordings pooled from multiple laboratories. We have systematically recorded from nearly all major brain areas with Neuropixels probes, using a grid system for unbiased sampling and replicating each recording site in at least two laboratories. These data have been used to construct a brain-wide map of activity at single-spike cellular resolution during a decision-making task. In addition to the map, this data set contains other information gathered during the task: sensory stimuli presented to the mouse; mouse decisions and response times; and mouse pose information from video recordings and DeepLabCut analysis.",
+ "citation": "International Brain Laboratory; Benson, Brandon; Benson, Julius; Birman, Daniel; Bonacchi, Niccol\u00f2; Carandini, Matteo; Catarino, Joana; Chapuis, Gaelle; Dayan, Peter; DeWitt, Eric; Engel, Tatiana; Fabbri, Michele; Faulkner, Mayo; Fiete, Ila; Findling, Charles; Freitas-Silva, Laura; Ger\u00e7ek, Berk; Harris, Kenneth; Hofer, Sonja; Hu, Fei; Hubert, F\u00e9lix; Huntenburg, Julia; Khanal, Anup; Langdon, Christopher; Lau, Petrina; Meijer, Guido; Miska, Nathaniel; Noel, Jean-Paul; Nylund, Kai; Pan-Vazquez, Alejandro; Pouget, Alexandre; Rossant, Cyrille; Roth, Noam; Schaeffer, Rylan; Schartner, Michael; Shi, Yanliang; Socha, Karolina; Steinmetz, Nicholas; Svoboda, Karel; Urai, Anne; Wells, Miles; West, Steven; Whiteway, Mathew; Winter, Olivier; Witten, Ilana (2026) IBL - Brain Wide Map (Version 0.260309.1324) [Data set]. DANDI Archive. https://doi.org/10.48324/dandi.000409/0.260309.1324",
+ "doi": "10.48324/dandi.000409/0.260309.1324",
+ "url": "https://dandiarchive.org/dandiset/000409/0.260309.1324",
+ "version": "0.260309.1324",
+ "license": [
+  "spdx:CC-BY-4.0"
+ ],
+ "keywords": [
+  "International Brain Laboratory",
+  "multi-probe",
+  "Neuropixels",
+  "Allen Mouse Brain CCFv3",
+  "Allen Mouse Brain Atlas",
+  "head-fixed",
+  "decision-making",
+  "face-tracking"
+ ],
+ "ethicsApproval": [],
+ "relatedResource": [
+  {
+   "url": "https://www.biorxiv.org/content/10.1101/2023.07.04.547681v2",
+   "name": "A Brain-Wide Map of Neural Activity during Complex Behaviour",
+   "relation": "dcite:IsDescribedBy",
+   "schemaKey": "Resource",
+   "identifier": "https://doi.org/10.1101/2023.07.04.547681",
+   "resourceType": "dcite:Preprint"
+  },
+  {
+   "url": "https://figshare.com/articles/preprint/Data_release_-_Brainwide_map_-_Q4_2022/21400815",
+   "name": "Data release - Brainwide map - Q4 2022",
+   "relation": "dcite:IsDescribedBy",
+   "schemaKey": "Resource"
+  },
+  {
+   "url": "https://figshare.com/articles/preprint/A_standardized_and_reproducible_method_to_measure_decision-making_in_mice_Appendix_2_IBL_protocol_for_mice_training/11634729",
+   "name": "Behavior: Appendix 2: IBL protocol for mice training",
+   "relation": "dcite:IsDescribedBy",
+   "schemaKey": "Resource",
+   "identifier": "https://doi.org/10.1101/2020.01.17.909838"
+  },
+  {
+   "url": "https://github.com/catalystneuro/IBL-to-nwb",
+   "name": "Conversion Software",
+   "relation": "dcite:IsSourceOf",
+   "schemaKey": "Resource",
+   "identifier": "",
+   "repository": "catalystneuro/IBL-to-nwb",
+   "resourceType": "dcite:Software"
+  }
+ ],
+ "about": [],
+ "wasGeneratedBy": [],
+ "assetsSummary": {
+  "species": [
+   {
+    "name": "Mus musculus - House mouse",
+    "schemaKey": "SpeciesType",
+    "identifier": "http://purl.obolibrary.org/obo/NCBITaxon_10090"
+   }
+  ],
+  "approach": [
+   {
+    "name": "electrophysiological approach",
+    "schemaKey": "ApproachType"
+   },
+   {
+    "name": "behavioral approach",
+    "schemaKey": "ApproachType"
+   }
+  ],
+  "schemaKey": "AssetsSummary",
+  "dataStandard": [
+   {
+    "name": "Neurodata Without Borders (NWB)",
+    "schemaKey": "StandardsType",
+    "identifier": "RRID:SCR_015242"
+   }
+  ],
+  "numberOfBytes": 49700602778159,
+  "numberOfFiles": 2048,
+  "numberOfSubjects": 139,
+  "variableMeasured": [
+   "ElectricalSeries",
+   "ElectrodeGroup",
+   "SpatialSeries",
+   "Units",
+   "ProcessingModule"
+  ],
+  "measurementTechnique": [
+   {
+    "name": "surgical technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "multi electrode extracellular electrophysiology recording technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "analytical technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "behavioral technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "spike sorting technique",
+    "schemaKey": "MeasurementTechniqueType"
+   }
+  ]
+ },
+ "datePublished": "2026-03-09T13:24:10.741911+00:00",
+ "dateCreated": "2023-01-31T21:47:46.772688+00:00",
+ "contributor": [
+  {
+   "name": "International Brain Laboratory",
+   "roleName": [
+    "dcite:ContactPerson"
+   ]
+  },
+  {
+   "name": "Wellcome Trust",
+   "roleName": [
+    "dcite:Funder"
+   ],
+   "awardNumber": "209558, 216324"
+  },
+  {
+   "name": "Simons Foundation",
+   "roleName": [
+    "dcite:Funder"
+   ]
+  },
+  {
+   "name": "National Institutes of Health",
+   "roleName": [
+    "dcite:Funder"
+   ],
+   "awardNumber": "1U19NS123716, Diversity Supplement, Administrative Supplement to Support Enhancement of Software Tools for Open Science"
+  },
+  {
+   "name": "Benson, Brandon",
+   "affiliation": [
+    {
+     "name": "Stanford University",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/00f54p054"
+    }
+   ]
+  },
+  {
+   "name": "Benson, Julius",
+   "affiliation": [
+    {
+     "name": "New York University",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/0190ak572"
+    }
+   ]
+  },
+  {
+   "name": "Birman, Daniel",
+   "affiliation": [
+    {
+     "name": "University of Washington",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/00cvxb145"
+    }
+   ]
+  },
+  {
+   "name": "Bonacchi, Niccol\u00f2",
+   "affiliation": [
+    {
+     "name": "Champalimaud Foundation",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/03g001n57"
+    }
+   ]
+  },
+  {
+   "name": "Carandini, Matteo",
+   "affiliation": [
+    {
+     "name": "University College London",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/02jx3x895"
+    }
+   ]
+  },
+  {
+   "name": "Catarino, Joana",
+   "affiliation": [
+    {
+     "name": "Champalimaud Foundation",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/03g001n57"
+    }
+   ]
+  },
+  {
+   "name": "Chapuis, Gaelle",
+   "affiliation": [
+    {
+     "name": "University of Geneva",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/01swzsf04"
+    }
+   ]
+  },
+  {
+   "name": "Dayan, Peter",
+   "affiliation": [
+    {
+     "name": "Max Planck Society",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/01hhn8329"
+    }
+   ]
+  },
+  {
+   "name": "DeWitt, Eric",
+   "affiliation": [
+    {
+     "name": "Champalimaud Foundation",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/03g001n57"
+    }
+   ]
+  },
+  {
+   "name": "Engel, Tatiana",
+   "affiliation": [
+    {
+     "name": "Princeton Universty",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/00hx57361"
+    }
+   ]
+  },
+  {
+   "name": "Fabbri, Michele",
+   "affiliation": [
+    {
+     "name": "Champalimaud Foundation",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/03g001n57"
+    }
+   ]
+  },
+  {
+   "name": "Faulkner, Mayo",
+   "affiliation": [
+    {
+     "name": "University College London",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/02jx3x895"
+    }
+   ]
+  },
+  {
+   "name": "Fiete, Ila",
+   "affiliation": [
+    {
+     "name": "Massachusetts Institute of Technology",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/042nb2s44"
+    }
+   ]
+  },
+  {
+   "name": "Findling, Charles",
+   "affiliation": [
+    {
+     "name": "University of Geneva",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/01swzsf04"
+    }
+   ]
+  },
+  {
+   "name": "Freitas-Silva, Laura",
+   "affiliation": [
+    {
+     "name": "Champalimaud Foundation",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/03g001n57"
+    }
+   ]
+  },
+  {
+   "name": "Ger\u00e7ek, Berk",
+   "affiliation": [
+    {
+     "name": "University of Geneva",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/01swzsf04"
+    }
+   ]
+  },
+  {
+   "name": "Harris, Kenneth",
+   "affiliation": [
+    {
+     "name": "University College London",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/02jx3x895"
+    }
+   ]
+  },
+  {
+   "name": "Hofer, Sonja",
+   "affiliation": [
+    {
+     "name": "University College London",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/02jx3x895"
+    }
+   ]
+  },
+  {
+   "name": "Hu, Fei",
+   "affiliation": [
+    {
+     "name": "University of California, Berkeley",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/01an7q238"
+    }
+   ]
+  },
+  {
+   "name": "Hubert, F\u00e9lix",
+   "affiliation": [
+    {
+     "name": "University of Geneva",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/01swzsf04"
+    }
+   ]
+  },
+  {
+   "name": "Huntenburg, Julia",
+   "affiliation": [
+    {
+     "name": "Max Planck Society",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/01hhn8329"
+    }
+   ]
+  },
+  {
+   "name": "Khanal, Anup",
+   "affiliation": [
+    {
+     "name": "University of California Los Angeles",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/046rm7j60"
+    }
+   ]
+  },
+  {
+   "name": "Langdon, Christopher",
+   "affiliation": [
+    {
+     "name": "Cold Spring Harbor Laboratory",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/02qz8b764"
+    }
+   ]
+  },
+  {
+   "name": "Lau, Petrina",
+   "affiliation": [
+    {
+     "name": "University College London",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/02jx3x895"
+    }
+   ]
+  },
+  {
+   "name": "Meijer, Guido",
+   "affiliation": [
+    {
+     "name": "Champalimaud Foundation",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/03g001n57"
+    }
+   ]
+  },
+  {
+   "name": "Miska, Nathaniel",
+   "affiliation": [
+    {
+     "name": "University College London",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/02jx3x895"
+    }
+   ]
+  },
+  {
+   "name": "Noel, Jean-Paul",
+   "affiliation": [
+    {
+     "name": "New York University",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/0190ak572"
+    }
+   ]
+  },
+  {
+   "name": "Nylund, Kai",
+   "affiliation": [
+    {
+     "name": "University of Washington",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/00cvxb145"
+    }
+   ]
+  },
+  {
+   "name": "Pan-Vazquez, Alejandro",
+   "affiliation": [
+    {
+     "name": "Princeton Universty",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/00hx57361"
+    }
+   ]
+  },
+  {
+   "name": "Pouget, Alexandre",
+   "affiliation": [
+    {
+     "name": "University of Geneva",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/01swzsf04"
+    }
+   ]
+  },
+  {
+   "name": "Rossant, Cyrille",
+   "affiliation": [
+    {
+     "name": "University College London",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/02jx3x895"
+    }
+   ]
+  },
+  {
+   "name": "Roth, Noam",
+   "affiliation": [
+    {
+     "name": "University of Washington",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/00cvxb145"
+    }
+   ]
+  },
+  {
+   "name": "Schaeffer, Rylan",
+   "affiliation": [
+    {
+     "name": "Stanford University",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/00f54p054"
+    }
+   ]
+  },
+  {
+   "name": "Schartner, Michael",
+   "affiliation": [
+    {
+     "name": "Champalimaud Foundation",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/03g001n57"
+    }
+   ]
+  },
+  {
+   "name": "Shi, Yanliang",
+   "affiliation": [
+    {
+     "name": "Princeton Universty",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/00hx57361"
+    }
+   ]
+  },
+  {
+   "name": "Socha, Karolina",
+   "affiliation": [
+    {
+     "name": "University College London",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/02jx3x895"
+    }
+   ]
+  },
+  {
+   "name": "Steinmetz, Nicholas",
+   "affiliation": [
+    {
+     "name": "University of Washington",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/00cvxb145"
+    }
+   ]
+  },
+  {
+   "name": "Svoboda, Karel",
+   "affiliation": [
+    {
+     "name": "Allen Institute for Neural Dynamics",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/04szwah67"
+    }
+   ]
+  },
+  {
+   "name": "Urai, Anne",
+   "affiliation": [
+    {
+     "name": "Leiden University",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/027bh9e22"
+    }
+   ]
+  },
+  {
+   "name": "Wells, Miles",
+   "affiliation": [
+    {
+     "name": "University College London",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/02jx3x895"
+    }
+   ]
+  },
+  {
+   "name": "West, Steven",
+   "affiliation": [
+    {
+     "name": "University College London",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/02jx3x895"
+    }
+   ]
+  },
+  {
+   "name": "Whiteway, Mathew",
+   "affiliation": [
+    {
+     "name": "Columbia University",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/00hj8s172"
+    }
+   ]
+  },
+  {
+   "name": "Winter, Olivier",
+   "affiliation": [
+    {
+     "name": "Champalimaud Foundation",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/03g001n57"
+    }
+   ]
+  },
+  {
+   "name": "Witten, Ilana",
+   "affiliation": [
+    {
+     "name": "Princeton Universty",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/00hx57361"
+    }
+   ]
+  }
+ ],
+ "identifier": "000409"
+}

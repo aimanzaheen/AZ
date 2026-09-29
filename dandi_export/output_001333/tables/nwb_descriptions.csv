@@ -1,0 +1,8 @@
+location,name,description
+electrodes,(table),metadata about extracellular electrodes
+electrodes,location,the location of channel within the subject e.g. brain region
+electrodes,group,a reference to the ElectrodeGroup this electrode is a part of
+electrodes,group_name,the name of the ElectrodeGroup this electrode is a part of
+electrodes,label,label of electrode
+processing/ecephys,(module),Processed electrophysiology data
+processing/ecephys/LFP,LFP,no description

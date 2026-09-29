@@ -1,0 +1,24 @@
+{
+ "institution": "Sainsbury Wellcome Centre",
+ "lab": "hoferlab",
+ "protocol": "_iblrig_tasks_ephysChoiceWorld6.5.3",
+ "subject": {
+  "subject_id": "SWC_066",
+  "species": "Mus musculus",
+  "strain": null,
+  "genotype": null,
+  "sex": "F",
+  "age": null,
+  "description": null
+ },
+ "devices": {
+  "Probe00": "A PRB_1_4_0480_1_C probe. Additional metadata: {\"model_name\": \"PRB_1_4_0480_1_C\", \"manufacturer\": \"imec\", \"port\": \"1\", \"slot\": \"3\", \"part_number\": \"PRB_1_4_0480_1_C\"}"
+ },
+ "electrode_groups": {
+  "Probe00": {
+   "description": "Electrode group for probe00",
+   "location": "Unresolved"
+  }
+ },
+ "source_file": "sub-SWC-066_ses-a4747ac8-6a75-444f-b99b-696fff0243fd_desc-processed_behavior+ecephys.nwb"
+}

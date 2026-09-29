@@ -1,0 +1,115 @@
+{
+ "name": "Distributed coding of choice, action and engagement across the mouse brain",
+ "description": "Data from \"Distributed coding of choice, action and engagement across the mouse brain\" Steinmetz et. al Nature 2019",
+ "citation": "Steinmetz, Nicholas; Zatka-Haas, Peter; Carandini, Matteo; Harris, Kenneth; Wang, Renee (2024) Distributed coding of choice, action and engagement across the mouse brain (Version 0.240329.1926) [Data set]. DANDI archive. https://doi.org/10.48324/dandi.000017/0.240329.1926",
+ "doi": "10.48324/dandi.000017/0.240329.1926",
+ "url": "https://dandiarchive.org/dandiset/000017/0.240329.1926",
+ "version": "0.240329.1926",
+ "license": [
+  "spdx:CC-BY-4.0"
+ ],
+ "keywords": [
+  "neuropixels"
+ ],
+ "relatedResource": [
+  {
+   "url": "https://www.nature.com/articles/s41586-019-1787-x",
+   "relation": "dcite:IsDescribedBy",
+   "schemaKey": "Resource",
+   "identifier": "DOI:10.1038/s41586-019-1787-x"
+  }
+ ],
+ "assetsSummary": {
+  "species": [
+   {
+    "name": "House mouse",
+    "schemaKey": "SpeciesType",
+    "identifier": "http://purl.obolibrary.org/obo/NCBITaxon_10090"
+   }
+  ],
+  "approach": [
+   {
+    "name": "electrophysiological approach",
+    "schemaKey": "ApproachType"
+   },
+   {
+    "name": "behavioral approach",
+    "schemaKey": "ApproachType"
+   }
+  ],
+  "schemaKey": "AssetsSummary",
+  "dataStandard": [
+   {
+    "name": "Neurodata Without Borders (NWB)",
+    "schemaKey": "StandardsType",
+    "identifier": "RRID:SCR_015242"
+   }
+  ],
+  "numberOfBytes": 14682586049,
+  "numberOfFiles": 39,
+  "numberOfSubjects": 10,
+  "variableMeasured": [
+   "ProcessingModule",
+   "PupilTracking",
+   "BehavioralEpochs",
+   "Units",
+   "BehavioralEvents",
+   "BehavioralTimeSeries",
+   "ElectrodeGroup"
+  ],
+  "measurementTechnique": [
+   {
+    "name": "analytical technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "spike sorting technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "behavioral technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "surgical technique",
+    "schemaKey": "MeasurementTechniqueType"
+   }
+  ]
+ },
+ "datePublished": "2024-03-29T19:26:55.755552+00:00",
+ "dateCreated": "2020-03-19T20:04:34.727000+00:00",
+ "contributor": [
+  {
+   "name": "Steinmetz, Nicholas",
+   "roleName": [
+    "dcite:Author",
+    "dcite:ContactPerson"
+   ]
+  },
+  {
+   "name": "Zatka-Haas, Peter",
+   "roleName": [
+    "dcite:Author"
+   ]
+  },
+  {
+   "name": "Carandini, Matteo",
+   "roleName": [
+    "dcite:Author"
+   ]
+  },
+  {
+   "name": "Harris, Kenneth",
+   "roleName": [
+    "dcite:Author"
+   ]
+  },
+  {
+   "name": "Wang, Renee",
+   "roleName": [
+    "dcite:DataCurator"
+   ]
+  }
+ ],
+ "identifier": "000017"
+}

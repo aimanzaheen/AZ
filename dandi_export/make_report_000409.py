@@ -1,8 +1,13 @@
 """Build a PDF report of the DANDI:000409 (IBL Brain Wide Map) export.
 
+The report quotes the dataset's own published metadata and NWB descriptions,
+then summarises the exported data. No brain region is singled out; every
+region is summarised the same way. Numbers computed by the export are
+labelled as such.
+
 Usage:
     python dandi_export/make_report_000409.py dandi_export/output_000409 \
-        dandi_export/DANDI_000409_report.pdf
+        dandi_export/DANDI_000409_report.pdf [--note "..."]
 """
 
 from __future__ import annotations
@@ -12,51 +17,44 @@ import sys
 import tempfile
 from pathlib import Path
 
-import matplotlib
-
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from reportlab.lib import colors
-from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.units import cm
-from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table
+from reportlab.platypus import PageBreak, Paragraph, Spacer, Table
 
 sys.path.insert(0, str(Path(__file__).parent))
 from export_000409 import VERSION, WINDOWS  # noqa: E402
-from make_report import BODY, H1, H2, SMALL, fig_to_image, fmt, header_white, table  # noqa: E402
+from report_common import (  # noqa: E402
+    BAR, BODY, H1, H2, NOTE, SMALL, SRC_EXPORT, SRC_NWB, W, descriptions_section, doc, esc,
+    fig_to_image, fmt, legend_para, load_metadata, published_section, table,
+)
 
-# Zona incerta + lateral hypothalamic area, as in otto_reextraction/.
-# (Allen "LH" is the lateral habenula.)
-LIT_REGIONS = {"ZI", "LHA"}
-MAX_UNIT_ROWS = 600
+N_FIG_REGIONS = 70
 
 
 def figures(units, trials, regsum, tmp):
     imgs = {}
     good = units[units.good & units.region.isin(regsum.region)]
 
-    top = regsum[regsum.n_units >= 20].nlargest(70, "n_units")
-    top = pd.concat([top, regsum[regsum.region.isin(LIT_REGIONS) & ~regsum.region.isin(top.region)]])
-    top = top.sort_values("prestim_rate_median_hz")
+    top = regsum.nlargest(N_FIG_REGIONS, "n_units").sort_values("firing_rate_median_hz")
     fig, ax = plt.subplots(figsize=(11, 3.6))
-    data = [good.loc[good.region == r, "prestim_rate_hz"].values for r in top.region]
+    data = [good.loc[good.region == r, "firing_rate_hz"].values for r in top.region]
     bp = ax.boxplot(data, showfliers=False, patch_artist=True, widths=0.6)
-    for patch, r in zip(bp["boxes"], top.region):
-        patch.set_facecolor("#e8a33d" if r in LIT_REGIONS else "#9db8d3")
+    for patch in bp["boxes"]:
+        patch.set_facecolor("#9db8d3")
     ax.set_xticks(range(1, len(top) + 1), top.region, rotation=90, fontsize=5.5)
-    ax.set_ylabel("Pre-stimulus rate (Hz)")
-    ax.set_title("Pre-stimulus (quiescent) firing rate by region: good units, 70 best-sampled regions plus ZI/LHA (orange)", fontsize=9)
+    ax.set_ylabel("firing_rate (Hz)")
+    ax.set_title(f"NWB units.firing_rate by region: units with ibl_quality_score = 1, the {len(top)} regions with the most such units "
+                 "(outliers hidden)", fontsize=8.5)
     ax.spines[["top", "right"]].set_visible(False)
     imgs["rate"] = fig_to_image(fig, tmp, "rate", 24)
 
-    fig, ax = plt.subplots(figsize=(5, 3.2))
-    ax.hist(good.peak_to_trough_ms.dropna(), bins=np.arange(0, 1.6, 0.0333), color="#5b85aa")
-    ax.axvline(0.4, color="k", ls="--", lw=0.8)
-    ax.set_xlabel("Peak-to-trough waveform duration (ms)")
+    fig, ax = plt.subplots(figsize=(5, 2.8))
+    ax.hist(good.peak_to_trough_ms.dropna(), bins=np.arange(0, 1.6, 0.0333), color=BAR)
+    ax.set_xlabel("peak_to_trough_duration_ms")
     ax.set_ylabel("Units")
-    ax.set_title("Narrow (<0.4 ms) vs wide-spiking units", fontsize=9)
+    ax.set_title("Distribution of peak_to_trough_duration_ms", fontsize=9)
     ax.spines[["top", "right"]].set_visible(False)
     imgs["wave"] = fig_to_image(fig, tmp, "wave", 12)
 
@@ -67,12 +65,12 @@ def figures(units, trials, regsum, tmp):
     fig, ax = plt.subplots(figsize=(5, 2.8))
     for p, c in [(0.2, "#c0504d"), (0.5, "#555555"), (0.8, "#2f5d8a")]:
         g = t[np.isclose(t.probability_left, p)].groupby("signed").ccw.mean()
-        ax.plot(g.index, g.values, "o-", ms=3, color=c, label=f"P(left stim) = {p}")
-    ax.set_xlabel("Signed contrast (%; + = right)")
-    ax.set_ylabel("P(counter-clockwise turn)")
+        ax.plot(g.index, g.values, "o-", ms=3, color=c, label=f"probability_left = {p}")
+    ax.set_xlabel("gabor_stimulus_contrast (%), signed: + right, − left")
+    ax.set_ylabel("Fraction 'counter_clockwise'")
     ax.set_ylim(0, 1)
     ax.legend(fontsize=7, frameon=False)
-    ax.set_title("Behaviour by block prior, all sessions", fontsize=9)
+    ax.set_title("mouse_wheel_choice by contrast and block, all sessions", fontsize=8.5)
     ax.spines[["top", "right"]].set_visible(False)
     imgs["psy"] = fig_to_image(fig, tmp, "psy", 12)
     return imgs
@@ -85,159 +83,108 @@ def build(out_dir: Path, pdf: Path, note: str | None = None) -> None:
     units["region"] = units.region.fillna("")
     trials = pd.read_csv(tables / "trials.csv", low_memory=False)
     regsum = pd.read_csv(tables / "region_summary.csv", keep_default_na=False, na_values=[""])
+    dm, fm, desc = load_metadata(out_dir)
     good = units[units.good]
-
-    doc = SimpleDocTemplate(
-        str(pdf), pagesize=landscape(A4),
-        leftMargin=1.5 * cm, rightMargin=1.5 * cm, topMargin=1.3 * cm, bottomMargin=1.3 * cm,
-        title="DANDI:000409 IBL Brain Wide Map: parameters and data",
-    )
-    W = landscape(A4)[0] - 3 * cm
-    story = []
     tmp = Path(tempfile.mkdtemp())
     imgs = figures(units, trials, regsum, tmp)
 
-    story += [
-        Paragraph("DANDI:000409: IBL Brain Wide Map, Parameters and Data", H1),
-        Paragraph(
-            "International Brain Laboratory, <i>A brain-wide map of neural activity during complex behaviour</i> "
-            f"(Nature 2025). Dandiset version {VERSION}. Only the processed "
-            "<font face='Courier'>desc-processed_behavior+ecephys.nwb</font> files were used "
-            "(spike-sorted units, trials, behaviour); the ~43 TB of raw voltage and video was not downloaded. "
-            "Converted with <font face='Courier'>dandi_export/export_000409.py</font>.", BODY),
-        Spacer(1, 6),
-    ]
+    d, footer = doc(pdf, f"DANDI:000409 {dm['name']}", f"DANDI:000409 v{VERSION} · {dm['name']}")
+    story = [Paragraph(f"DANDI:000409: {esc(dm['name'])}", H1)]
     if note:
-        story += [Paragraph(f"<b>{note}</b>", BODY), Spacer(1, 6)]
-    zi, lha = good[good.region == "ZI"], good[good.region == "LHA"]
-    overview = [
-        ["Quantity", "Value"],
-        ["Sessions / mice / labs", f"{len(sessions)} / {sessions.subject_id.nunique()} / {sessions.lab.nunique()}"],
-        ["Probe insertions", f"{int(sessions.n_probes.sum())}"],
-        ["Trials", f"{len(trials):,}"],
-        ["Units (good: IBL quality score = 1)", f"{len(units):,} ({len(good):,})"],
-        ["Brain regions with good units", f"{len(regsum)}"],
-        ["Total spikes", f"{int(units.spike_count.clip(lower=0).sum()):,}"],
-        ["ZI (zona incerta) good units / sessions / mice",
-         f"{len(zi)} / {zi.session_id.nunique()} / {zi.subject_id.nunique()}"],
-        ["LHA (lateral hypothalamic area) good units / sessions / mice",
-         f"{len(lha)} / {lha.session_id.nunique()} / {lha.subject_id.nunique()}"],
+        story.append(Paragraph(f"<b>{esc(note)}</b>", NOTE))
+    story += [
+        Paragraph("Scope of this export (computed by this export): only the 459 "
+                  "<font face='Courier'>desc-processed_behavior+ecephys.nwb</font> files were used (spike-sorted units, "
+                  "trials and behaviour, ~0.5 TB). The raw electrophysiology and video files (~49 TB) were not downloaded.", BODY),
+        Spacer(1, 4), legend_para(), Spacer(1, 4),
     ]
-    story.append(table(header_white(overview), [9 * cm, 8 * cm]))
+    story += published_section(dm, fm, "1")
 
-    story.append(Paragraph("1. Parameters", H2))
-    contrasts = ", ".join(f"{c:g}" for c in sorted(trials.gabor_stimulus_contrast.dropna().unique()))
-    priors = ", ".join(f"{p:g}" for p in sorted(trials.probability_left.dropna().unique()))
-    labs = ", ".join(f"{k} ({v})" for k, v in sessions.lab.value_counts().items())
-    params = [
-        ["Group", "Parameter", "Value"],
-        ["Subjects", "Species / sex", f"Mus musculus (C57BL/6J); " + ", ".join(f"{k}: {v}" for k, v in sessions.drop_duplicates('subject_id').sex.value_counts().items())],
-        ["Subjects", "Age at recording", f"median {sessions.age_days.median():.0f} days (range {sessions.age_days.min():.0f}–{sessions.age_days.max():.0f})"],
-        ["Subjects", "Labs (sessions)", labs],
-        ["Recording", "Probes", "Neuropixels 1.0 (384 channels), 1–2 probes per session; 30 kHz AP band"],
-        ["Recording", "Spike sorting", "IBL pykilosort pipeline. 'good' = ibl_quality_score 1.0, i.e. passes all three IBL metrics (sliding refractory-period, noise cutoff, median amplitude > 50 µV)"],
-        ["Recording", "Anatomy", "Histology-aligned channel locations in Allen CCF; region = Allen structure at each unit's max-amplitude electrode (acronym mapped from the full name)"],
-        ["Task", "Paradigm", "IBL choice world: Gabor patch appears left or right; mouse turns a wheel to centre it. The wheel must be held still for a quiescence period before the stimulus "
-         f"(observed {trials.quiescence_period.min():.2f}–{trials.quiescence_period.max():.2f} s, median {trials.quiescence_period.median():.2f} s)"],
-        ["Task", "Contrasts (%)", contrasts],
-        ["Task", "Block priors P(left)", f"{priors}: first 90 trials unbiased, then alternating 0.2/0.8 blocks"],
-        ["Task", "Events", "stimulus onset + go cue (5 kHz, 100 ms) → wheel movement onset → choice registration (±35°) → feedback (water, or white noise + 2 s timeout)"],
-        ["Task", "Choice coding", "mouse_wheel_choice: counter_clockwise / clockwise / no-go; is_mouse_rewarded True/False"],
-        ["Protocol", "Task version(s)", "; ".join(sorted(sessions.protocol.dropna().unique()))[:400]],
-    ]
+    story += [Spacer(1, 6), Paragraph("2. Contents of the processed files", H2)]
+    ages = sessions.age_days.dropna()
+    q = trials.quiescence_period
+    rows = [["Quantity", "Value", "Source"],
+            ["Sessions / subjects / labs", f"{len(sessions)} / {sessions.subject_id.nunique()} / {sessions.lab.nunique()}", SRC_NWB],
+            ["Sessions per lab (NWB lab field)", ", ".join(f"{k} ({v})" for k, v in sessions.lab.value_counts().items()), SRC_NWB],
+            ["Sex, by subject", ", ".join(f"{k}: {v}" for k, v in sessions.drop_duplicates('subject_id').sex.value_counts().items()), SRC_NWB],
+            ["Age at session (session start − subject.date_of_birth)",
+             f"median {ages.median():.0f} days (range {ages.min():.0f}–{ages.max():.0f})" if len(ages) else "n/a", SRC_EXPORT],
+            ["Probes per session", ", ".join(f"{k}: {v} sessions" for k, v in sessions.n_probes.value_counts().sort_index().items()), SRC_NWB],
+            ["Probe device description (example file)", "; ".join(f"{k}: {v}" for k, v in fm.get("devices", {}).items()), SRC_NWB],
+            ["Task protocol(s) (NWB protocol field)", "; ".join(sorted(sessions.protocol.dropna().unique())), SRC_NWB],
+            ["Trials", f"{len(trials):,}", SRC_NWB],
+            ["gabor_stimulus_contrast values (%)", ", ".join(f"{c:g}" for c in sorted(trials.gabor_stimulus_contrast.dropna().unique())), SRC_NWB],
+            ["probability_left values", ", ".join(f"{p:g}" for p in sorted(trials.probability_left.dropna().unique())), SRC_NWB],
+            ["mouse_wheel_choice values", ", ".join(f"{k} ({v:,})" for k, v in trials.mouse_wheel_choice.value_counts().items()), SRC_NWB],
+            ["quiescence_period range", f"{q.min():.2f}–{q.max():.2f} s (median {q.median():.2f} s)", SRC_NWB],
+            ["Units (ibl_quality_score = 1)", f"{len(units):,} ({len(good):,})", SRC_NWB],
+            ["ibl_quality_score counts", ", ".join(f"{k:.2f}: {v:,}" for k, v in units.ibl_quality_score.round(2).value_counts().sort_index().items()), SRC_NWB],
+            ["kilosort2_label counts", ", ".join(f"{k}: {v:,}" for k, v in units.kilosort2_label.value_counts().items()), SRC_NWB],
+            ["Distinct electrode location labels at units' max_electrode", f"{units.region_name.nunique():,}", SRC_NWB],
+            ["Total spikes (sum of spike_count)", f"{int(units.spike_count.clip(lower=0).sum()):,}", SRC_NWB]]
+    story.append(table(rows, [6.5 * cm, W - 10.5 * cm, 4 * cm]))
+    story.append(Paragraph("Definitions of ibl_quality_score, the trial columns and the electrode columns are quoted in section 8.", SMALL))
+
+    story += [Paragraph("3. Export parameters", H2)]
+    rows = [["Parameter", "Definition", "Source"],
+            ["region_name", "electrodes.location at the unit's max_electrode", SRC_NWB],
+            ["region", "Allen acronym matched to region_name (punctuation-insensitive) using allen_structures.csv, a snapshot of the Allen Mouse Brain Atlas ontology", SRC_EXPORT],
+            ["good", "ibl_quality_score = 1.0 (the NWB description: '1.0 = all three passed')", SRC_NWB],
+            ["firing_rate_hz", "units.firing_rate as stored in the NWB file", SRC_NWB],
+            ["peak_to_trough_ms", "units.peak_to_trough_duration_ms (values of −1 treated as missing)", SRC_NWB],
+            ["task_rate_hz", "spikes between first trial start and last trial stop / that duration", SRC_EXPORT],
+            ["prestim_rate_hz, stim_rate_hz", "mean over trials of count_prestim / 0.3 s and count_stim / 0.25 s", SRC_EXPORT]]
     for w, (ev, lo, hi) in WINDOWS.items():
-        params.append(["Export", f"Spike-count window '{w}'", f"{lo:+g} to {hi:+g} s relative to {ev}"])
-    params += [
-        ["Export", "Firing rates", "firing_rate = IBL's whole-recording average; task = first trial start to last trial end; "
-         "prestim = mean over trials of −0.4…−0.1 s before stimulus (mouse quiescent: the closest analogue to a spontaneous/baseline rate)"],
-        ["Export", "Waveform", "peak_to_trough_ms = trough-to-peak of mean extracellular waveform (not equivalent to intracellular AP half-width)"],
-    ]
-    story.append(table(header_white(params), [2.3 * cm, 4.2 * cm, W - 6.5 * cm]))
+        rows.append([f"count_{w}", f"spikes from {lo:+g} to {hi:+g} s relative to trials.{ev}", SRC_EXPORT])
+    story.append(table(rows, [4 * cm, W - 8 * cm, 4 * cm]))
 
-    story += [PageBreak(), Paragraph("2. Overview figures", H2), imgs["rate"], Spacer(1, 6),
+    story += [PageBreak(), Paragraph(f"4. Overview figures ({SRC_EXPORT})", H2), imgs["rate"], Spacer(1, 4),
               Table([[imgs["wave"], imgs["psy"]]], colWidths=[W / 2, W / 2])]
 
-    story += [PageBreak(), Paragraph("3. Firing rates by brain region (good units)", H2),
-              Paragraph("ZI (zona incerta) and LHA (lateral hypothalamic area), the regions in the literature extraction, are highlighted. "
-                        "These are extracellular recordings in awake, head-fixed mice performing a task, not slice patch-clamp. "
-                        "Sorted by number of units.", SMALL), Spacer(1, 4)]
+    story += [PageBreak(), Paragraph(f"5. All regions ({SRC_EXPORT})", H2),
+              Paragraph("One row per region for units with ibl_quality_score = 1, excluding unassigned labels ('root', 'void', "
+                        "or names not found in the Allen ontology). Sorted by number of units. firing_rate is the NWB value; "
+                        "pre-stimulus and stimulus rates are computed by this export (section 3).", SMALL), Spacer(1, 4)]
     cols = ["region", "region_name", "n_units", "n_sessions", "n_mice", "firing_rate_mean_hz", "firing_rate_sd_hz",
             "firing_rate_median_hz", "prestim_rate_mean_hz", "prestim_rate_median_hz", "stim_rate_mean_hz",
             "peak_to_trough_ms_median"]
-    rows = [["Acronym", "Region", "Units", "Sessions", "Mice", "Rate mean (Hz)", "Rate SD (Hz)", "Rate median (Hz)",
-             "Pre-stim mean (Hz)", "Pre-stim median (Hz)", "Stim mean (Hz)", "Peak-trough median (ms)"]]
-    hl = []
-    for i, r in enumerate(regsum[cols].itertuples(index=False), start=1):
-        rows.append([fmt(v) for v in r])
-        if r.region in LIT_REGIONS:
-            hl.append(i)
-    story.append(table(header_white(rows), [1.6 * cm, 6 * cm] + [(W - 7.6 * cm) / 10] * 10, highlight=hl))
+    rows = [["Acronym", "Region (NWB location)", "Units", "Sessions", "Mice", "firing_rate mean (Hz)", "SD (Hz)",
+             "Median (Hz)", "Pre-stim mean (Hz)", "Pre-stim median (Hz)", "Stim mean (Hz)", "peak_to_trough median (ms)"]]
+    rows += [[fmt(v) for v in r] for r in regsum[cols].itertuples(index=False)]
+    story.append(table(rows, [1.6 * cm, 6 * cm] + [(W - 7.6 * cm) / 10] * 10))
 
-    lit = good[good.region.isin(LIT_REGIONS)]
-    if len(lit):
-        story += [PageBreak(), Paragraph("4. ZI and LHA by session", H2)]
-        g = lit.groupby(["region", "session_id", "subject_id"]).agg(
-            n=("unit_id", "size"), fr=("firing_rate_hz", "mean"), pre=("prestim_rate_hz", "mean"),
-            stim=("stim_rate_hz", "mean"), ptt=("peak_to_trough_ms", "median")).reset_index()
-        rows = [["Region", "Session", "Mouse", "Good units", "Rate mean (Hz)", "Pre-stim mean (Hz)", "Stim mean (Hz)", "Peak-trough median (ms)"]]
-        rows += [[r.region, r.session_id, r.subject_id, r.n, fmt(r.fr), fmt(r.pre), fmt(r.stim), fmt(r.ptt)]
-                 for r in g.itertuples(index=False)]
-        story.append(table(header_white(rows), [1.6 * cm, 4.5 * cm, 3.5 * cm] + [(W - 9.6 * cm) / 5] * 5))
-
-        story += [PageBreak(), Paragraph("5. Unit-level data: ZI and LHA (good units)", H2)]
-        shown = lit.sort_values(["region", "session_id", "unit_id"])
-        if len(shown) > MAX_UNIT_ROWS:
-            story.append(Paragraph(f"First {MAX_UNIT_ROWS} of {len(shown)} units shown; all are in tables/units.csv.", SMALL))
-            shown = shown.head(MAX_UNIT_ROWS)
-        ucols = ["region", "session_id", "unit_id", "ccf_x", "ccf_y", "ccf_z", "peak_to_trough_ms",
-                 "median_amplitude_uV", "spike_count", "firing_rate_hz", "prestim_rate_hz", "stim_rate_hz"]
-        rows = [["Region", "Session", "Unit", "CCF x", "CCF y", "CCF z", "Peak-trough (ms)", "Amp. (µV)",
-                 "Spikes", "Rate (Hz)", "Pre-stim (Hz)", "Stim (Hz)"]]
-        for r in shown[ucols].itertuples(index=False):
-            rows.append([r.region, r.session_id, r.unit_id, fmt(r.ccf_x, 0), fmt(r.ccf_y, 0), fmt(r.ccf_z, 0),
-                         fmt(r.peak_to_trough_ms), fmt(r.median_amplitude_uV, 1), r.spike_count,
-                         fmt(r.firing_rate_hz), fmt(r.prestim_rate_hz), fmt(r.stim_rate_hz)])
-        story.append(table(header_white(rows), [1.5 * cm, 4.2 * cm] + [(W - 5.7 * cm) / 10] * 10))
-
-    story += [PageBreak(), Paragraph("6. Mice", H2)]
+    unmatched = units.loc[units.region == "", "region_name"].value_counts()
+    story += [PageBreak(), Paragraph("6. Subjects", H2)]
     t = trials.merge(sessions[["session_id", "subject_id"]], on="session_id")
     perf = t.groupby("subject_id").is_mouse_rewarded.mean()
     m = sessions.groupby("subject_id").agg(
-        lab=("lab", "first"), sex=("sex", "first"), sessions=("session_id", "size"),
-        age=("age_days", "median"), trials=("n_trials", "sum"), units=("n_units", "sum"),
-        good=("n_good_units", "sum")).reset_index()
-    rows = [["Mouse", "Lab", "Sex", "Sessions", "Median age (d)", "Trials", "% rewarded", "Units", "Good units"]]
+        lab=("lab", "first"), sex=("sex", "first"), n=("session_id", "size"), age=("age_days", "median"),
+        trials=("n_trials", "sum"), units=("n_units", "sum"), good=("n_good_units", "sum")).reset_index()
+    rows = [["Subject", "Lab", "Sex", "Sessions", "Median age (d)", "Trials", "is_mouse_rewarded (%)", "Units", "Score = 1"]]
     for r in m.itertuples(index=False):
-        rows.append([r.subject_id, r.lab, r.sex, r.sessions, fmt(r.age, 0), r.trials,
+        rows.append([r.subject_id, r.lab, r.sex, r.n, fmt(r.age, 0), r.trials,
                      f"{100 * perf.get(r.subject_id, np.nan):.1f}", r.units, r.good])
-    story.append(table(header_white(rows), [3.5 * cm, 4 * cm, 1.2 * cm] + [(W - 8.7 * cm) / 6] * 6))
+    story.append(table(rows, [3.5 * cm, 4 * cm, 1.2 * cm] + [(W - 8.7 * cm) / 6] * 6))
 
-    story += [PageBreak(), Paragraph("7. Data files and columns", H2)]
-    dd = [
-        ["File", "Rows", "Columns"],
-        ["tables/sessions.csv", f"{len(sessions)}", ", ".join(sessions.columns)],
-        ["tables/units.csv", f"{len(units):,}", ", ".join(units.columns)],
-        ["tables/trials.csv", f"{len(trials):,}", ", ".join(trials.columns)],
-        ["tables/region_summary.csv", f"{len(regsum)}", ", ".join(regsum.columns)],
-        ["trial_unit_counts.parquet", "trials × units per session",
-         "session_id, trial_id, unit_id, " + ", ".join(f"count_{w}" for w in WINDOWS)],
-    ]
-    story.append(table(header_white(dd), [5 * cm, 3.5 * cm, W - 8.5 * cm]))
-    story += [Spacer(1, 6), Paragraph(
-        "Keys: <font face='Courier'>(session_id, unit_id)</font> joins units ↔ trial counts; "
-        "<font face='Courier'>(session_id, trial_id)</font> joins trials ↔ trial counts; "
-        "<font face='Courier'>cluster_uuid</font> links a unit to the IBL database (ONE API). "
-        "All times are seconds on the session clock. Column descriptions: dandi_export/README_000409.md.", BODY)]
+    story += [PageBreak(), Paragraph("7. Data checks performed by this export", H2),
+              Paragraph(f"<b>Region labels.</b> {len(unmatched)} distinct location names ({int(unmatched.sum()):,} units) did not "
+                        "match an Allen ontology name and have an empty <i>region</i> acronym; their <i>region_name</i> is kept. "
+                        + ", ".join(f"'{esc(k)}' ({v:,})" for k, v in unmatched.head(15).items()), NOTE),
+              Paragraph(f"<b>peak_to_trough_duration_ms.</b> {int(units.peak_to_trough_ms.isna().sum()):,} units have the value "
+                        "−1 in the NWB file; they are treated as missing.", NOTE)]
+    story += [PageBreak()]
+    story += descriptions_section(desc, "8", fm.get("source_file"))
 
-    def footer(canvas, doc_):
-        canvas.saveState()
-        canvas.setFont("Helvetica", 7)
-        canvas.setFillColor(colors.grey)
-        canvas.drawString(1.5 * cm, 0.7 * cm, f"DANDI:000409 v{VERSION} · IBL Brain Wide Map")
-        canvas.drawRightString(landscape(A4)[0] - 1.5 * cm, 0.7 * cm, f"Page {doc_.page}")
-        canvas.restoreState()
-
-    doc.build(story, onFirstPage=footer, onLaterPages=footer)
+    story += [PageBreak(), Paragraph("9. Exported files", H2)]
+    dd = [["File", "Rows", "Columns"],
+          ["tables/sessions.csv", f"{len(sessions)}", ", ".join(sessions.columns)],
+          ["tables/units.csv", f"{len(units):,}", ", ".join(units.columns)],
+          ["tables/trials.csv", f"{len(trials):,}", ", ".join(trials.columns)],
+          ["tables/region_summary.csv", f"{len(regsum)}", ", ".join(regsum.columns)],
+          ["tables/dataset_metadata.json, nwb_file_metadata.json, nwb_descriptions.csv", "", "the published metadata quoted in sections 1 and 8"],
+          ["trial_unit_counts.parquet", "trials × units per session", "session_id, trial_id, unit_id, " + ", ".join(f"count_{w}" for w in WINDOWS)]]
+    story.append(table(dd, [6 * cm, 3.5 * cm, W - 9.5 * cm]))
+    d.build(story, onFirstPage=footer, onLaterPages=footer)
 
 
 def main(argv=None) -> int:

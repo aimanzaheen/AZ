@@ -1,0 +1,45 @@
+{
+ "session_description": "Neuropixels recording during visual discrimination in awake mice.",
+ "experiment_description": "Large-scale Neuropixels recordings across brain regions of mice during a head-fixed visual discrimination task. ",
+ "institution": "University College London",
+ "lab": "The Carandini and Harris Lab",
+ "experimenter": [
+  "Nick Steinmetz"
+ ],
+ "keywords": [
+  "Neural coding",
+  "Neuropixels",
+  "mouse",
+  "brain-wide",
+  "vision",
+  "visual discrimination",
+  "electrophysiology"
+ ],
+ "related_publications": [
+  "DOI 10.1038/s41586-019-1787-x"
+ ],
+ "subject": {
+  "subject_id": "Cori",
+  "species": "Mus musculus",
+  "strain": null,
+  "genotype": "tetO-G6s x CaMK-tTA",
+  "sex": "F",
+  "age": "77 days",
+  "description": "strain: C57Bl6/J"
+ },
+ "devices": {
+  "0": null,
+  "1": null
+ },
+ "electrode_groups": {
+  "Probe1": {
+   "description": "Neuropixels Phase3A opt3",
+   "location": ""
+  },
+  "Probe2": {
+   "description": "Neuropixels Phase3A opt3",
+   "location": ""
+  }
+ },
+ "source_file": "sub-Cori_ses-20161214T120000.nwb"
+}
