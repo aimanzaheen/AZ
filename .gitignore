@@ -10,3 +10,5 @@ extracted/
 dandi_export/output/spikes/
 dandi_export/output/behavior/
 dandi_export/output/*.parquet
+dandi_export/output_000409/_sessions/
+dandi_export/output_000409/*.parquet

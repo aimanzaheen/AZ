@@ -36,7 +36,8 @@ from reportlab.platypus import (
 sys.path.insert(0, str(Path(__file__).parent))
 from export_000017 import WHEEL_DOWNSAMPLE_HZ, WINDOWS  # noqa: E402
 
-LIT_REGIONS = {"ZI", "LH"}  # regions studied in otto_reextraction/
+LIT_REGIONS = {"ZI", "LHA"}  # zona incerta + lateral hypothalamic area, as in otto_reextraction/
+# NB: Allen "LH" is the lateral habenula, not the lateral hypothalamus.
 ACCENT = colors.HexColor("#2f5d8a")
 HILITE = colors.HexColor("#fff2cc")
 
@@ -99,7 +100,7 @@ def figures(units, trials, regsum, tmp):
         patch.set_facecolor("#e8a33d" if r in LIT_REGIONS else "#9db8d3")
     ax.set_xticks(range(1, len(top) + 1), top.region, rotation=90, fontsize=7)
     ax.set_ylabel("Spontaneous rate (Hz)")
-    ax.set_title("Spontaneous firing rate by region (good units; regions with ≥20 units; ZI/LH in orange)", fontsize=9)
+    ax.set_title("Spontaneous firing rate by region (good units; regions with ≥20 units; ZI/LHA in orange)", fontsize=9)
     ax.spines[["top", "right"]].set_visible(False)
     imgs["spont"] = fig_to_image(fig, tmp, "spont", 25)
 
@@ -164,7 +165,7 @@ def build(out_dir: Path, pdf: Path) -> None:
         Spacer(1, 6),
     ]
     zi = good[good.region == "ZI"]
-    lh = good[good.region == "LH"]
+    lha = good[good.region == "LHA"]
     overview = [
         ["Quantity", "Value"],
         ["Sessions / mice", f"{len(sessions)} / {sessions.subject_id.nunique()}"],
@@ -174,7 +175,7 @@ def build(out_dir: Path, pdf: Path) -> None:
         ["Total spikes", f"{int(units.n_spikes.sum()):,}"],
         ["Total recording time", f"{sessions.duration_s.sum() / 3600:.1f} h"],
         ["ZI good units (sessions)", f"{len(zi)} ({zi.session_id.nunique()})"],
-        ["LH good units (sessions)", f"{len(lh)} ({lh.session_id.nunique()})"],
+        ["LHA (lateral hypothalamus) good units (sessions)", f"{len(lha)} ({lha.session_id.nunique()})"],
     ]
     story.append(table(header_white(overview), [8 * cm, 8 * cm]))
 
@@ -212,7 +213,7 @@ def build(out_dir: Path, pdf: Path) -> None:
 
     # ---- Region summary --------------------------------------------------
     story += [PageBreak(), Paragraph("3. Firing rates by brain region (good units)", H2),
-              Paragraph("Rows for regions studied in the literature extraction (ZI, LH) are highlighted. "
+              Paragraph("Rows for regions studied in the literature extraction (ZI = zona incerta, LHA = lateral hypothalamic area) are highlighted. Allen 'LH' is the lateral habenula. "
                         "Spontaneous rate is the value most directly comparable to the literature "
                         "'Spontaneous firing rate in Hz' field. Note that these are extracellular recordings in awake behaving mice, "
                         "not slice patch-clamp.", SMALL), Spacer(1, 4)]
@@ -227,10 +228,10 @@ def build(out_dir: Path, pdf: Path) -> None:
             hl.append(i)
     story.append(table(header_white(rows), [W / 8] * 8, highlight=hl))
 
-    # ---- ZI / LH unit detail --------------------------------------------
+    # ---- ZI / LHA unit detail --------------------------------------------
     lit = good[good.region.isin(LIT_REGIONS)].sort_values(["region", "session_id", "unit_id"])
     if len(lit):
-        story += [PageBreak(), Paragraph("4. Unit-level data: ZI and LH", H2)]
+        story += [PageBreak(), Paragraph("4. Unit-level data: " + " and ".join(sorted(set(lit.region))), H2)]
         ucols = ["region", "session_id", "unit_id", "ccf_ap", "ccf_dv", "ccf_lr", "depth_um",
                  "waveform_duration_ms", "n_spikes", "mean_rate_hz", "task_rate_hz", "spontaneous_rate_hz"]
         rows = [["Region", "Session", "Unit", "CCF AP", "CCF DV", "CCF LR", "Depth (µm)",

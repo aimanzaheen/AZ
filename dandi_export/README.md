@@ -5,9 +5,11 @@ Plain-table (CSV / Parquet) export of
 "Distributed coding of choice, action and engagement across the mouse brain"
 (Steinmetz, Zatka-Haas, Carandini & Harris, *Nature* 2019). 39 sessions,
 10 mice, Neuropixels recordings from ~70 brain regions during a visual
-two-alternative contrast discrimination task. The regions include **ZI** (4 sessions) and
-**LH** (2 sessions), so the spontaneous firing rates can be compared with
-the values extracted from the literature in `otto_reextraction/`.
+two-alternative contrast discrimination task. The regions include **ZI** (zona incerta, 4 sessions,
+289 good units), so its firing rates can be compared with the values
+extracted from the literature in `otto_reextraction/`. There are no units in
+**LHA** (lateral hypothalamic area). Region labels are Allen CCF acronyms,
+and Allen `LH` is the *lateral habenula*, not the lateral hypothalamus.
 
 ## Reproduce
 
