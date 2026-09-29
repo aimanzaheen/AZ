@@ -37,6 +37,7 @@ re-run the script to regenerate them.
 | `peak_channel`, `depth_um` | peak channel (1-based) and depth along probe (0 = tip) |
 | `phy_annotation`, `good` | 1 = multi-unit, 2 = good, 3 = unsorted; `good` = annotation ≥ 2 (the units the paper analysed) |
 | `waveform_duration_ms` | trough-to-peak width of the mean extracellular waveform, which separates narrow-spiking (putative fast-spiking interneuron) from wide-spiking units. This is **not** the same measurement as intracellular AP half-width. |
+| `waveform_duration_source` | `nwb` = the published value; `recomputed_from_waveform_mean` = recomputed (trough-to-peak on the highest-amplitude channel of `waveform_mean`) because in 11 of the 39 sessions the published `waveform_duration` column is actually a copy of `cluster_depths` |
 | `n_spikes`, `mean_rate_hz` | total spikes and rate over the whole recording |
 | `task_rate_hz` | rate during the task block (first trial start to last trial end) |
 | `spontaneous_rate_hz` | rate during the `spontaneous` intervals (no task or stimulus running) |

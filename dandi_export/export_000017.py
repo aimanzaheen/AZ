@@ -111,6 +111,27 @@ def export_behavior(nwb, sid: str, out: Path) -> None:
         df.to_parquet(out / f"{sid}__{name}.parquet", index=False)
 
 
+def waveform_duration_samples(u) -> tuple[np.ndarray, str]:
+    """Trough-to-peak waveform duration in samples, plus where it came from.
+
+    In 11 of the 39 sessions the published `waveform_duration` column is
+    actually a copy of `cluster_depths` (r > 0.9999, values up to ~3800).
+    There it is recomputed from `waveform_mean` (82 samples x 50 nearest
+    channels) on the highest-amplitude channel, which reproduces the stored
+    value closely (r ~ 0.96) in the sessions where the stored value is valid.
+    """
+    stored = np.asarray(u["waveform_duration"].data[:], float).ravel()
+    depth = np.asarray(u["cluster_depths"].data[:], float).ravel()
+    if stored.max() < 100 and not np.allclose(stored, depth):
+        return stored, "nwb"
+    wm = np.asarray(u["waveform_mean"].data[:], float)  # (units, samples, channels)
+    amp = wm.max(axis=1) - wm.min(axis=1)
+    best = wm[np.arange(len(wm)), :, amp.argmax(axis=1)]  # (units, samples)
+    trough = best.argmin(axis=1)
+    after = np.where(np.arange(best.shape[1]) >= trough[:, None], best, -np.inf)
+    return (after.argmax(axis=1) - trough).astype(float), "recomputed_from_waveform_mean"
+
+
 def export_session(path: Path, out: Path):
     sid = session_id(path)
     with NWBHDF5IO(str(path), "r", load_namespaces=True) as io:
@@ -174,6 +195,7 @@ def export_session(path: Path, out: Path):
         rec_dur = max(wheel_end, t_end, last_spike.max(initial=0.0))
         fs = np.asarray(u["sampling_rate"].data[:]).ravel()
         quality = np.asarray(u["phy_annotations"].data[:]).ravel().astype(int)
+        wave_samples, wave_source = waveform_duration_samples(u)
         units = pd.DataFrame(
             {
                 "session_id": sid,
@@ -187,9 +209,8 @@ def export_session(path: Path, out: Path):
                 "depth_um": np.asarray(u["cluster_depths"].data[:]).ravel(),
                 "phy_annotation": quality,
                 "good": quality >= 2,
-                "waveform_duration_ms": np.asarray(u["waveform_duration"].data[:]).ravel()
-                / fs
-                * 1000,
+                "waveform_duration_ms": wave_samples / fs * 1000,
+                "waveform_duration_source": wave_source,
                 "n_spikes": n_spikes,
                 "mean_rate_hz": n_spikes / rec_dur,
                 "task_rate_hz": task_counts / (t_end - t_start),
