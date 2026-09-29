@@ -78,7 +78,7 @@ def figures(units, trials, regsum, tmp):
     return imgs
 
 
-def build(out_dir: Path, pdf: Path) -> None:
+def build(out_dir: Path, pdf: Path, note: str | None = None) -> None:
     tables = out_dir / "tables"
     sessions = pd.read_csv(tables / "sessions.csv")
     units = pd.read_csv(tables / "units.csv", keep_default_na=False, na_values=[""], low_memory=False)
@@ -107,6 +107,8 @@ def build(out_dir: Path, pdf: Path) -> None:
             "Converted with <font face='Courier'>dandi_export/export_000409.py</font>.", BODY),
         Spacer(1, 6),
     ]
+    if note:
+        story += [Paragraph(f"<b>{note}</b>", BODY), Spacer(1, 6)]
     zi, lha = good[good.region == "ZI"], good[good.region == "LHA"]
     overview = [
         ["Quantity", "Value"],
@@ -242,8 +244,9 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("out_dir", type=Path)
     ap.add_argument("pdf", type=Path)
+    ap.add_argument("--note", help="highlighted note under the title (e.g. partial export)")
     a = ap.parse_args(argv)
-    build(a.out_dir, a.pdf)
+    build(a.out_dir, a.pdf, a.note)
     print(f"wrote {a.pdf}")
     return 0
 
