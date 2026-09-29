@@ -6,3 +6,7 @@ build/
 dist/
 extracted/
 .venv/
+# DANDI export: large regenerable outputs (tables/*.csv is committed)
+dandi_export/output/spikes/
+dandi_export/output/behavior/
+dandi_export/output/*.parquet
