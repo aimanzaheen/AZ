@@ -61,6 +61,9 @@ def series_frame(ts, downsample_hz: float | None = None) -> pd.DataFrame:
     data = np.asarray(ts.data[:])
     if ts.timestamps is not None:
         t = np.asarray(ts.timestamps[:])
+        if len(t) == 2 and len(data) > 2:
+            # Some sessions store only the first/last frame time (evenly sampled video).
+            t = np.linspace(t[0], t[1], len(data))
     else:
         t = ts.starting_time + np.arange(len(data)) / true_rate(ts)
     if downsample_hz and ts.timestamps is None and true_rate(ts) > downsample_hz:
