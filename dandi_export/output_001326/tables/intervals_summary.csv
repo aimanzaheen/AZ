@@ -1,0 +1,2 @@
+table,n_sessions,n_rows,columns
+Stimulus_presentations,13,10192,"start_time, stop_time, stimulus"

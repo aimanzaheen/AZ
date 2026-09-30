@@ -61,6 +61,12 @@ def _s(x):
 def nwb_metadata(path: Path) -> tuple[dict, pd.DataFrame]:
     from pynwb import NWBHDF5IO
 
+    with NWBHDF5IO(str(path), "r", load_namespaces=True) as io:
+        return nwb_metadata_from(io.read())
+
+
+def nwb_metadata_from(nwb) -> tuple[dict, pd.DataFrame]:
+    """Same as nwb_metadata, for an NWBFile that is already open (e.g. streamed)."""
     rows = []
 
     def table_cols(where, t):
@@ -72,8 +78,7 @@ def nwb_metadata(path: Path) -> tuple[dict, pd.DataFrame]:
                 continue
             rows.append({"location": where, "name": c.name, "description": c.description})
 
-    with NWBHDF5IO(str(path), "r", load_namespaces=True) as io:
-        nwb = io.read()
+    if True:
         subj = nwb.subject
         meta = {
             "session_description": nwb.session_description,
