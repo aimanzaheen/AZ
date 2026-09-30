@@ -1,0 +1,10 @@
+table,n_sessions,n_rows,columns
+dynamic_routing_image_set_presentations,36,187187,"start_time, stop_time, active, duration, end_frame, flashes_since_change, image_name, is_change, is_image_novel, omitted, rewarded, start_frame, stimulus_block, stimulus_name"
+flash_250ms_presentations,99,14850,"start_time, stop_time, active, color, contrast, duration, end_frame, is_change, is_image_novel, omitted, rewarded, start_frame, stimulus_block, stimulus_index, stimulus_name"
+gabor_20_deg_250ms_presentations,99,360855,"start_time, stop_time, active, contrast, duration, end_frame, is_change, is_image_novel, omitted, orientation, position_x, position_y, rewarded, spatial_frequency, start_frame, stimulus_block, stimulus_index, stimulus_name, temporal_frequency"
+image-set-im005_r_presentations,17,88421,"start_time, stop_time, active, duration, end_frame, flashes_since_change, image_name, is_change, is_image_novel, omitted, rewarded, start_frame, stimulus_block, stimulus_name"
+image-set-im087_r_presentations,14,72772,"start_time, stop_time, active, duration, end_frame, flashes_since_change, image_name, is_change, is_image_novel, omitted, rewarded, start_frame, stimulus_block, stimulus_name"
+image-set-im104_r_presentations,16,83194,"start_time, stop_time, active, duration, end_frame, flashes_since_change, image_name, is_change, is_image_novel, omitted, rewarded, start_frame, stimulus_block, stimulus_name"
+image-set-im114_r_presentations,16,83200,"start_time, stop_time, active, duration, end_frame, flashes_since_change, image_name, is_change, is_image_novel, omitted, rewarded, start_frame, stimulus_block, stimulus_name"
+spontaneous_presentations,99,198,"start_time, stop_time, active, duration, end_frame, is_change, is_image_novel, omitted, rewarded, start_frame, stimulus_block, stimulus_name"
+trials,99,66130,"start_time, stop_time, initial_image_name, change_image_name, is_change, change_time, go, catch, response_time, response_latency, reward_time, reward_volume, hit, false_alarm, miss, correct_reject, aborted, auto_rewarded, change_frame, trial_length, no_reward_epoch, omitted_reward, is_sham_change"

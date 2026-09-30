@@ -1,0 +1,10 @@
+table,n_sessions,n_rows,columns
+dot_motion_presentations,26,11070,"start_time, stop_time, stimulus_name, stimulus_block, color, opacity, units, stimulus_index, contrast, Speed, Dir, coherence, dotLife, dotSize, fieldPos, fieldShape, fieldSize, nDots, noiseDots"
+drifting_gratings_75_repeats_presentations,26,15600,"start_time, stop_time, stimulus_name, stimulus_block, temporal_frequency, color, mask, opacity, phase, size, units, stimulus_index, orientation, spatial_frequency, contrast"
+drifting_gratings_contrast_presentations,26,14040,"start_time, stop_time, stimulus_name, stimulus_block, temporal_frequency, color, mask, opacity, phase, size, units, stimulus_index, orientation, spatial_frequency, contrast"
+flashes_presentations,26,3900,"start_time, stop_time, stimulus_name, stimulus_block, color, mask, opacity, phase, size, units, stimulus_index, orientation, spatial_frequency, contrast"
+gabors_presentations,26,94770,"start_time, stop_time, stimulus_name, stimulus_block, temporal_frequency, x_position, y_position, color, mask, opacity, phase, size, units, stimulus_index, orientation, spatial_frequency, contrast"
+invalid_times,4,34,"start_time, stop_time"
+natural_movie_one_more_repeats_presentations,26,1404000,"start_time, stop_time, stimulus_name, stimulus_block, color, opacity, size, units, stimulus_index, orientation, frame, contrast"
+natural_movie_one_shuffled_presentations,26,468000,"start_time, stop_time, stimulus_name, stimulus_block, color, opacity, size, units, stimulus_index, orientation, frame, contrast"
+spontaneous_presentations,26,156,"start_time, stop_time, stimulus_name"

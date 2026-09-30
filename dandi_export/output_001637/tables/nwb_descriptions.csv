@@ -1,0 +1,361 @@
+location,name,description
+electrodes,(table),metadata about extracellular electrodes
+electrodes,location,the location of channel within the subject e.g. brain region
+electrodes,group,a reference to the ElectrodeGroup this electrode is a part of
+electrodes,group_name,the name of the ElectrodeGroup this electrode is a part of
+electrodes,channel_name,unique channel reference
+electrodes,rel_y,rel_y
+electrodes,rel_x,rel_x
+electrodes,gain_to_physical_unit,no description
+electrodes,offset_to_physical_unit,no description
+electrodes,inter_sample_shift,no description
+electrodes,physical_unit,no description
+electrodes,x,ccf x coordinate
+electrodes,y,ccf y coordinate
+electrodes,z,ccf z coordinate
+units,(table),Units from Kilosort4
+units,spike_times,the spike times for each unit
+units,electrodes,the electrodes that each spike unit came from
+units,waveform_mean,the spike waveform mean for each spike unit
+units,waveform_sd,the spike waveform standard deviation for each spike unit
+units,unit_name,Unique reference for each unit.
+units,amplitude_cutoff,No description.
+units,default_qc,No description.
+units,amplitude,No description.
+units,original_cluster_id,No description.
+units,estimated_z,No description.
+units,drift_std,No description.
+units,rp_contamination,No description.
+units,silhouette,No description.
+units,peak_trough_ratio,No description.
+units,d_prime,No description.
+units,sync_spike_2,No description.
+units,num_negative_peaks,No description.
+units,presence_ratio,No description.
+units,spread,No description.
+units,isolation_distance,No description.
+units,recovery_slope,No description.
+units,snr,The signal-to-noise ratio of the unit.
+units,sync_spike_8,No description.
+units,isi_violations_count,No description.
+units,exp_decay,No description.
+units,half_width,No description.
+units,ks_unit_id,No description.
+units,num_spikes,No description.
+units,estimated_y,No description.
+units,firing_rate,Number of spikes per unit of time.
+units,nn_hit_rate,No description.
+units,depth,No description.
+units,decoder_label,No description.
+units,repolarization_slope,No description.
+units,amplitude_median,No description.
+units,firing_range,No description.
+units,rp_violations,No description.
+units,estimated_x,No description.
+units,velocity_above,No description.
+units,device_name,No description.
+units,sync_spike_4,No description.
+units,l_ratio,No description.
+units,drift_mad,No description.
+units,num_positive_peaks,No description.
+units,drift_ptp,No description.
+units,shank,No description.
+units,decoder_probability,No description.
+units,amplitude_cv_range,No description.
+units,isi_violations_ratio,No description.
+units,velocity_below,No description.
+units,amplitude_cv_median,No description.
+units,sliding_rp_violation,No description.
+units,nn_miss_rate,No description.
+units,peak_to_valley,The duration between the negative and the positive peaks computed on the maximum channel.
+intervals/40 hz pulse train_presentations,(table),"Presentation times and stimuli details for '40 hz pulse train' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/40 hz pulse train_presentations,start_time,"Start time of epoch, in seconds"
+intervals/40 hz pulse train_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/40 hz pulse train_presentations,condition_num,Description of condition_num
+intervals/40 hz pulse train_presentations,level,Description of level
+intervals/40 hz pulse train_presentations,condition,Description of condition
+intervals/40 hz pulse train_presentations,name,Description of name
+intervals/40 hz pulse train_presentations,duration,Description of duration
+intervals/40 hz pulse train_presentations,timeseries,index into a TimeSeries object
+intervals/5 hz pulse train_presentations,(table),"Presentation times and stimuli details for '5 hz pulse train' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/5 hz pulse train_presentations,start_time,"Start time of epoch, in seconds"
+intervals/5 hz pulse train_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/5 hz pulse train_presentations,condition_num,Description of condition_num
+intervals/5 hz pulse train_presentations,level,Description of level
+intervals/5 hz pulse train_presentations,condition,Description of condition
+intervals/5 hz pulse train_presentations,name,Description of name
+intervals/5 hz pulse train_presentations,duration,Description of duration
+intervals/5 hz pulse train_presentations,timeseries,index into a TimeSeries object
+intervals/Control block 1_presentations,(table),"Presentation times and stimuli details for 'Control block 1' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/Control block 1_presentations,start_time,"Start time of epoch, in seconds"
+intervals/Control block 1_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/Control block 1_presentations,stim_name,Description of stim_name
+intervals/Control block 1_presentations,stim_type,Description of stim_type
+intervals/Control block 1_presentations,stim_block,Description of stim_block
+intervals/Control block 1_presentations,Orientation,Description of Orientation
+intervals/Control block 1_presentations,SpatialFrequency,Description of SpatialFrequency
+intervals/Control block 1_presentations,TemporalFrequency,Description of TemporalFrequency
+intervals/Control block 1_presentations,contrast,Description of contrast
+intervals/Control block 1_presentations,phase,Description of phase
+intervals/Control block 1_presentations,DiameterX,Description of DiameterX
+intervals/Control block 1_presentations,DiameterY,Description of DiameterY
+intervals/Control block 1_presentations,X,Description of X
+intervals/Control block 1_presentations,Y,Description of Y
+intervals/Control block 1_presentations,Duration,Description of Duration
+intervals/Control block 1_presentations,Delay,Description of Delay
+intervals/Control block 1_presentations,BlockNumber,Description of BlockNumber
+intervals/Control block 1_presentations,BlockLabel,Description of BlockLabel
+intervals/Control block 1_presentations,TrialNumber,Description of TrialNumber
+intervals/Control block 1_presentations,SequenceNumber,Description of SequenceNumber
+intervals/Control block 1_presentations,TrialInSequence,Description of TrialInSequence
+intervals/Control block 1_presentations,TrialType,Description of TrialType
+intervals/Control block 1_presentations,BlockType,Description of BlockType
+intervals/Control block 1_presentations,timeseries,index into a TimeSeries object
+intervals/Control block 2_presentations,(table),"Presentation times and stimuli details for 'Control block 2' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/Control block 2_presentations,start_time,"Start time of epoch, in seconds"
+intervals/Control block 2_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/Control block 2_presentations,stim_name,Description of stim_name
+intervals/Control block 2_presentations,stim_type,Description of stim_type
+intervals/Control block 2_presentations,stim_block,Description of stim_block
+intervals/Control block 2_presentations,Orientation,Description of Orientation
+intervals/Control block 2_presentations,SpatialFrequency,Description of SpatialFrequency
+intervals/Control block 2_presentations,TemporalFrequency,Description of TemporalFrequency
+intervals/Control block 2_presentations,contrast,Description of contrast
+intervals/Control block 2_presentations,phase,Description of phase
+intervals/Control block 2_presentations,DiameterX,Description of DiameterX
+intervals/Control block 2_presentations,DiameterY,Description of DiameterY
+intervals/Control block 2_presentations,X,Description of X
+intervals/Control block 2_presentations,Y,Description of Y
+intervals/Control block 2_presentations,Duration,Description of Duration
+intervals/Control block 2_presentations,Delay,Description of Delay
+intervals/Control block 2_presentations,BlockNumber,Description of BlockNumber
+intervals/Control block 2_presentations,BlockLabel,Description of BlockLabel
+intervals/Control block 2_presentations,TrialNumber,Description of TrialNumber
+intervals/Control block 2_presentations,SequenceNumber,Description of SequenceNumber
+intervals/Control block 2_presentations,TrialInSequence,Description of TrialInSequence
+intervals/Control block 2_presentations,TrialType,Description of TrialType
+intervals/Control block 2_presentations,BlockType,Description of BlockType
+intervals/Control block 2_presentations,timeseries,index into a TimeSeries object
+intervals/Control block 3_presentations,(table),"Presentation times and stimuli details for 'Control block 3' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/Control block 3_presentations,start_time,"Start time of epoch, in seconds"
+intervals/Control block 3_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/Control block 3_presentations,stim_name,Description of stim_name
+intervals/Control block 3_presentations,stim_type,Description of stim_type
+intervals/Control block 3_presentations,stim_block,Description of stim_block
+intervals/Control block 3_presentations,Orientation,Description of Orientation
+intervals/Control block 3_presentations,SpatialFrequency,Description of SpatialFrequency
+intervals/Control block 3_presentations,TemporalFrequency,Description of TemporalFrequency
+intervals/Control block 3_presentations,contrast,Description of contrast
+intervals/Control block 3_presentations,phase,Description of phase
+intervals/Control block 3_presentations,DiameterX,Description of DiameterX
+intervals/Control block 3_presentations,DiameterY,Description of DiameterY
+intervals/Control block 3_presentations,X,Description of X
+intervals/Control block 3_presentations,Y,Description of Y
+intervals/Control block 3_presentations,Duration,Description of Duration
+intervals/Control block 3_presentations,Delay,Description of Delay
+intervals/Control block 3_presentations,BlockNumber,Description of BlockNumber
+intervals/Control block 3_presentations,BlockLabel,Description of BlockLabel
+intervals/Control block 3_presentations,TrialNumber,Description of TrialNumber
+intervals/Control block 3_presentations,SequenceNumber,Description of SequenceNumber
+intervals/Control block 3_presentations,TrialInSequence,Description of TrialInSequence
+intervals/Control block 3_presentations,TrialType,Description of TrialType
+intervals/Control block 3_presentations,BlockType,Description of BlockType
+intervals/Control block 3_presentations,timeseries,index into a TimeSeries object
+intervals/Control block 4_presentations,(table),"Presentation times and stimuli details for 'Control block 4' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/Control block 4_presentations,start_time,"Start time of epoch, in seconds"
+intervals/Control block 4_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/Control block 4_presentations,stim_name,Description of stim_name
+intervals/Control block 4_presentations,stim_type,Description of stim_type
+intervals/Control block 4_presentations,stim_block,Description of stim_block
+intervals/Control block 4_presentations,Orientation,Description of Orientation
+intervals/Control block 4_presentations,SpatialFrequency,Description of SpatialFrequency
+intervals/Control block 4_presentations,TemporalFrequency,Description of TemporalFrequency
+intervals/Control block 4_presentations,contrast,Description of contrast
+intervals/Control block 4_presentations,phase,Description of phase
+intervals/Control block 4_presentations,DiameterX,Description of DiameterX
+intervals/Control block 4_presentations,DiameterY,Description of DiameterY
+intervals/Control block 4_presentations,X,Description of X
+intervals/Control block 4_presentations,Y,Description of Y
+intervals/Control block 4_presentations,Duration,Description of Duration
+intervals/Control block 4_presentations,Delay,Description of Delay
+intervals/Control block 4_presentations,BlockNumber,Description of BlockNumber
+intervals/Control block 4_presentations,BlockLabel,Description of BlockLabel
+intervals/Control block 4_presentations,TrialNumber,Description of TrialNumber
+intervals/Control block 4_presentations,SequenceNumber,Description of SequenceNumber
+intervals/Control block 4_presentations,TrialInSequence,Description of TrialInSequence
+intervals/Control block 4_presentations,TrialType,Description of TrialType
+intervals/Control block 4_presentations,BlockType,Description of BlockType
+intervals/Control block 4_presentations,timeseries,index into a TimeSeries object
+intervals/RF mapping_presentations,(table),"Presentation times and stimuli details for 'RF mapping' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/RF mapping_presentations,start_time,"Start time of epoch, in seconds"
+intervals/RF mapping_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/RF mapping_presentations,stim_name,Description of stim_name
+intervals/RF mapping_presentations,stim_type,Description of stim_type
+intervals/RF mapping_presentations,stim_block,Description of stim_block
+intervals/RF mapping_presentations,Orientation,Description of Orientation
+intervals/RF mapping_presentations,SpatialFrequency,Description of SpatialFrequency
+intervals/RF mapping_presentations,TemporalFrequency,Description of TemporalFrequency
+intervals/RF mapping_presentations,contrast,Description of contrast
+intervals/RF mapping_presentations,phase,Description of phase
+intervals/RF mapping_presentations,DiameterX,Description of DiameterX
+intervals/RF mapping_presentations,DiameterY,Description of DiameterY
+intervals/RF mapping_presentations,X,Description of X
+intervals/RF mapping_presentations,Y,Description of Y
+intervals/RF mapping_presentations,Duration,Description of Duration
+intervals/RF mapping_presentations,Delay,Description of Delay
+intervals/RF mapping_presentations,BlockNumber,Description of BlockNumber
+intervals/RF mapping_presentations,BlockLabel,Description of BlockLabel
+intervals/RF mapping_presentations,TrialNumber,Description of TrialNumber
+intervals/RF mapping_presentations,SequenceNumber,Description of SequenceNumber
+intervals/RF mapping_presentations,TrialInSequence,Description of TrialInSequence
+intervals/RF mapping_presentations,TrialType,Description of TrialType
+intervals/RF mapping_presentations,BlockType,Description of BlockType
+intervals/RF mapping_presentations,timeseries,index into a TimeSeries object
+intervals/Sensory-motor mismatch block_presentations,(table),"Presentation times and stimuli details for 'Sensory-motor mismatch block' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/Sensory-motor mismatch block_presentations,start_time,"Start time of epoch, in seconds"
+intervals/Sensory-motor mismatch block_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/Sensory-motor mismatch block_presentations,stim_name,Description of stim_name
+intervals/Sensory-motor mismatch block_presentations,stim_type,Description of stim_type
+intervals/Sensory-motor mismatch block_presentations,stim_block,Description of stim_block
+intervals/Sensory-motor mismatch block_presentations,Orientation,Description of Orientation
+intervals/Sensory-motor mismatch block_presentations,SpatialFrequency,Description of SpatialFrequency
+intervals/Sensory-motor mismatch block_presentations,TemporalFrequency,Description of TemporalFrequency
+intervals/Sensory-motor mismatch block_presentations,contrast,Description of contrast
+intervals/Sensory-motor mismatch block_presentations,phase,Description of phase
+intervals/Sensory-motor mismatch block_presentations,DiameterX,Description of DiameterX
+intervals/Sensory-motor mismatch block_presentations,DiameterY,Description of DiameterY
+intervals/Sensory-motor mismatch block_presentations,X,Description of X
+intervals/Sensory-motor mismatch block_presentations,Y,Description of Y
+intervals/Sensory-motor mismatch block_presentations,Duration,Description of Duration
+intervals/Sensory-motor mismatch block_presentations,Delay,Description of Delay
+intervals/Sensory-motor mismatch block_presentations,BlockNumber,Description of BlockNumber
+intervals/Sensory-motor mismatch block_presentations,BlockLabel,Description of BlockLabel
+intervals/Sensory-motor mismatch block_presentations,TrialNumber,Description of TrialNumber
+intervals/Sensory-motor mismatch block_presentations,SequenceNumber,Description of SequenceNumber
+intervals/Sensory-motor mismatch block_presentations,TrialInSequence,Description of TrialInSequence
+intervals/Sensory-motor mismatch block_presentations,TrialType,Description of TrialType
+intervals/Sensory-motor mismatch block_presentations,BlockType,Description of BlockType
+intervals/Sensory-motor mismatch block_presentations,timeseries,index into a TimeSeries object
+intervals/Trippy_presentations,(table),"Presentation times and stimuli details for 'Trippy' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/Trippy_presentations,start_time,"Start time of epoch, in seconds"
+intervals/Trippy_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/Trippy_presentations,stim_name,Description of stim_name
+intervals/Trippy_presentations,stim_type,Description of stim_type
+intervals/Trippy_presentations,stim_block,Description of stim_block
+intervals/Trippy_presentations,Orientation,Description of Orientation
+intervals/Trippy_presentations,SpatialFrequency,Description of SpatialFrequency
+intervals/Trippy_presentations,TemporalFrequency,Description of TemporalFrequency
+intervals/Trippy_presentations,contrast,Description of contrast
+intervals/Trippy_presentations,phase,Description of phase
+intervals/Trippy_presentations,DiameterX,Description of DiameterX
+intervals/Trippy_presentations,DiameterY,Description of DiameterY
+intervals/Trippy_presentations,X,Description of X
+intervals/Trippy_presentations,Y,Description of Y
+intervals/Trippy_presentations,Duration,Description of Duration
+intervals/Trippy_presentations,Delay,Description of Delay
+intervals/Trippy_presentations,BlockNumber,Description of BlockNumber
+intervals/Trippy_presentations,BlockLabel,Description of BlockLabel
+intervals/Trippy_presentations,TrialNumber,Description of TrialNumber
+intervals/Trippy_presentations,SequenceNumber,Description of SequenceNumber
+intervals/Trippy_presentations,TrialInSequence,Description of TrialInSequence
+intervals/Trippy_presentations,TrialType,Description of TrialType
+intervals/Trippy_presentations,BlockType,Description of BlockType
+intervals/Trippy_presentations,timeseries,index into a TimeSeries object
+intervals/Zebra_presentations,(table),"Presentation times and stimuli details for 'Zebra' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/Zebra_presentations,start_time,"Start time of epoch, in seconds"
+intervals/Zebra_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/Zebra_presentations,stim_name,Description of stim_name
+intervals/Zebra_presentations,stim_type,Description of stim_type
+intervals/Zebra_presentations,stim_block,Description of stim_block
+intervals/Zebra_presentations,Orientation,Description of Orientation
+intervals/Zebra_presentations,SpatialFrequency,Description of SpatialFrequency
+intervals/Zebra_presentations,TemporalFrequency,Description of TemporalFrequency
+intervals/Zebra_presentations,contrast,Description of contrast
+intervals/Zebra_presentations,phase,Description of phase
+intervals/Zebra_presentations,DiameterX,Description of DiameterX
+intervals/Zebra_presentations,DiameterY,Description of DiameterY
+intervals/Zebra_presentations,X,Description of X
+intervals/Zebra_presentations,Y,Description of Y
+intervals/Zebra_presentations,Duration,Description of Duration
+intervals/Zebra_presentations,Delay,Description of Delay
+intervals/Zebra_presentations,BlockNumber,Description of BlockNumber
+intervals/Zebra_presentations,BlockLabel,Description of BlockLabel
+intervals/Zebra_presentations,TrialNumber,Description of TrialNumber
+intervals/Zebra_presentations,SequenceNumber,Description of SequenceNumber
+intervals/Zebra_presentations,TrialInSequence,Description of TrialInSequence
+intervals/Zebra_presentations,TrialType,Description of TrialType
+intervals/Zebra_presentations,BlockType,Description of BlockType
+intervals/Zebra_presentations,timeseries,index into a TimeSeries object
+intervals/raised_cosine_presentations,(table),"Presentation times and stimuli details for 'raised_cosine' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/raised_cosine_presentations,start_time,"Start time of epoch, in seconds"
+intervals/raised_cosine_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/raised_cosine_presentations,condition_num,Description of condition_num
+intervals/raised_cosine_presentations,level,Description of level
+intervals/raised_cosine_presentations,condition,Description of condition
+intervals/raised_cosine_presentations,name,Description of name
+intervals/raised_cosine_presentations,duration,Description of duration
+intervals/raised_cosine_presentations,timeseries,index into a TimeSeries object
+intervals/spontaneous_presentations,(table),"Presentation times and stimuli details for 'spontaneous' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/spontaneous_presentations,start_time,"Start time of epoch, in seconds"
+intervals/spontaneous_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/spontaneous_presentations,stim_name,Description of stim_name
+intervals/spontaneous_presentations,timeseries,index into a TimeSeries object
+acquisition,raw_running_wheel_rotation,no description
+acquisition,running_wheel_signal_voltage,no description
+acquisition,running_wheel_supply_voltage,no description
+processing/ecephys,(module),"Intermediate data from extracellular electrophysiology recordings, e.g., LFP."
+processing/ecephys/LFP,ElectricalSeriesProbeA-LFP,LFP voltage traces from ProbeA
+processing/ecephys/LFP,ElectricalSeriesProbeB-LFP,LFP voltage traces from ProbeB
+processing/ecephys/LFP,ElectricalSeriesProbeC-LFP,LFP voltage traces from ProbeC
+processing/ecephys/LFP,ElectricalSeriesProbeD-LFP,LFP voltage traces from ProbeD
+processing/ecephys/LFP,ElectricalSeriesProbeE-LFP,LFP voltage traces from ProbeE
+processing/ecephys/LFP,ElectricalSeriesProbeF-LFP,LFP voltage traces from ProbeF
+processing/eye_tracking,(module),eye tracking data
+processing/eye_tracking,likely_blink_times,no description
+processing/eye_tracking/corneal_reflection,(table),
+processing/eye_tracking/corneal_reflection,reference_frame,no description
+processing/eye_tracking/corneal_reflection,data_x,no description
+processing/eye_tracking/corneal_reflection,data_y,no description
+processing/eye_tracking/corneal_reflection,area,no description
+processing/eye_tracking/corneal_reflection,area_raw,no description
+processing/eye_tracking/corneal_reflection,width,no description
+processing/eye_tracking/corneal_reflection,height,no description
+processing/eye_tracking/corneal_reflection,angle,no description
+processing/eye_tracking/corneal_reflection,timestamps,no description
+processing/eye_tracking/ellipse,(table),
+processing/eye_tracking/ellipse,reference_frame,no description
+processing/eye_tracking/ellipse,data_x,no description
+processing/eye_tracking/ellipse,data_y,no description
+processing/eye_tracking/ellipse,area,no description
+processing/eye_tracking/ellipse,area_raw,no description
+processing/eye_tracking/ellipse,width,no description
+processing/eye_tracking/ellipse,height,no description
+processing/eye_tracking/ellipse,angle,no description
+processing/eye_tracking/ellipse,timestamps,no description
+processing/eye_tracking/pupil,(table),
+processing/eye_tracking/pupil,reference_frame,no description
+processing/eye_tracking/pupil,data_x,no description
+processing/eye_tracking/pupil,data_y,no description
+processing/eye_tracking/pupil,area,no description
+processing/eye_tracking/pupil,area_raw,no description
+processing/eye_tracking/pupil,width,no description
+processing/eye_tracking/pupil,height,no description
+processing/eye_tracking/pupil,angle,no description
+processing/eye_tracking/pupil,timestamps,no description
+processing/running,(module),running speed data
+processing/running,running_speed,no description
+processing/running,running_wheel_rotation,no description
+processing/stimulus,(module),Stimulus Times processing
+processing/stimulus,timestamps,no description

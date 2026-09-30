@@ -1,0 +1,221 @@
+location,name,description
+electrodes,(table),metadata about extracellular electrodes
+electrodes,x,the x coordinate of the channel location
+electrodes,y,the y coordinate of the channel location
+electrodes,z,the z coordinate of the channel location
+electrodes,imp,the impedance of the channel
+electrodes,location,the location of channel within the subject e.g. brain region
+electrodes,filtering,description of hardware filtering
+electrodes,group,a reference to the ElectrodeGroup this electrode is a part of
+electrodes,group_name,the name of the ElectrodeGroup this electrode is a part of
+electrodes,probe_vertical_position,Length-wise position of electrode/channel on device (microns)
+electrodes,probe_horizontal_position,Width-wise position of electrode/channel on device (microns)
+electrodes,probe_id,The unique id of this electrode's/channel's device
+electrodes,valid_data,Whether data from this electrode/channel is usable
+units,(table),
+units,amplitude,no description
+units,isolation_distance,no description
+units,velocity_above,no description
+units,quality,no description
+units,cumulative_drift,no description
+units,silhouette_score,no description
+units,nn_hit_rate,no description
+units,waveform_halfwidth,no description
+units,snr,no description
+units,d_prime,no description
+units,recovery_slope,no description
+units,velocity_below,no description
+units,cluster_id,no description
+units,peak_channel_id,no description
+units,firing_rate,no description
+units,amplitude_cutoff,no description
+units,PT_ratio,no description
+units,isi_violations,no description
+units,repolarization_slope,no description
+units,presence_ratio,no description
+units,nn_miss_rate,no description
+units,waveform_duration,no description
+units,spread,no description
+units,max_drift,no description
+units,l_ratio,no description
+units,spike_times,times (s) of detected spiking events
+units,spike_amplitudes,amplitude (s) of detected spiking events
+units,waveform_mean,mean waveforms on peak channels (and over samples)
+intervals/dot_motion_presentations,(table),Presentation times and stimuli details for 'dot_motion' stimuli
+intervals/dot_motion_presentations,start_time,"Start time of epoch, in seconds"
+intervals/dot_motion_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/dot_motion_presentations,stimulus_name,Name of stimulus
+intervals/dot_motion_presentations,stimulus_block,Index of contiguous presentations of one stimulus type
+intervals/dot_motion_presentations,color,No description
+intervals/dot_motion_presentations,opacity,Opacity of stimulus
+intervals/dot_motion_presentations,units,Units of stimulus size
+intervals/dot_motion_presentations,contrast,Contrast of stimulus
+intervals/dot_motion_presentations,Speed,Speed of moving dot field
+intervals/dot_motion_presentations,Dir,Direction of stimulus motion
+intervals/dot_motion_presentations,coherence,Coherence of moving dot field
+intervals/dot_motion_presentations,dotLife,Longevity of individual dots
+intervals/dot_motion_presentations,dotSize,Size of individual dots
+intervals/dot_motion_presentations,fieldPos,Position of moving dot field
+intervals/dot_motion_presentations,fieldShape,Shape of moving dot field
+intervals/dot_motion_presentations,fieldSize,Size of moving dot field
+intervals/dot_motion_presentations,nDots,Number of dots in moving dot field
+intervals/dot_motion_presentations,noiseDots,No description
+intervals/dot_motion_presentations,tags,user-defined tags
+intervals/dot_motion_presentations,timeseries,index into a TimeSeries object
+intervals/drifting_gratings_75_repeats_presentations,(table),Presentation times and stimuli details for 'drifting_gratings_75_repeats' stimuli
+intervals/drifting_gratings_75_repeats_presentations,start_time,"Start time of epoch, in seconds"
+intervals/drifting_gratings_75_repeats_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/drifting_gratings_75_repeats_presentations,stimulus_name,Name of stimulus
+intervals/drifting_gratings_75_repeats_presentations,stimulus_block,Index of contiguous presentations of one stimulus type
+intervals/drifting_gratings_75_repeats_presentations,temporal_frequency,Temporal frequency of stimulus
+intervals/drifting_gratings_75_repeats_presentations,color,No description
+intervals/drifting_gratings_75_repeats_presentations,mask,Shape of mask applied to stimulus
+intervals/drifting_gratings_75_repeats_presentations,opacity,Opacity of stimulus
+intervals/drifting_gratings_75_repeats_presentations,phase,Phase of grating stimulus
+intervals/drifting_gratings_75_repeats_presentations,size,Size of stimulus (see ‘units’ field for units)
+intervals/drifting_gratings_75_repeats_presentations,units,Units of stimulus size
+intervals/drifting_gratings_75_repeats_presentations,orientation,Orientation of stimulus
+intervals/drifting_gratings_75_repeats_presentations,spatial_frequency,Spatial frequency of stimulus
+intervals/drifting_gratings_75_repeats_presentations,contrast,Contrast of stimulus
+intervals/drifting_gratings_75_repeats_presentations,tags,user-defined tags
+intervals/drifting_gratings_75_repeats_presentations,timeseries,index into a TimeSeries object
+intervals/drifting_gratings_contrast_presentations,(table),Presentation times and stimuli details for 'drifting_gratings_contrast' stimuli
+intervals/drifting_gratings_contrast_presentations,start_time,"Start time of epoch, in seconds"
+intervals/drifting_gratings_contrast_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/drifting_gratings_contrast_presentations,stimulus_name,Name of stimulus
+intervals/drifting_gratings_contrast_presentations,stimulus_block,Index of contiguous presentations of one stimulus type
+intervals/drifting_gratings_contrast_presentations,temporal_frequency,Temporal frequency of stimulus
+intervals/drifting_gratings_contrast_presentations,color,No description
+intervals/drifting_gratings_contrast_presentations,mask,Shape of mask applied to stimulus
+intervals/drifting_gratings_contrast_presentations,opacity,Opacity of stimulus
+intervals/drifting_gratings_contrast_presentations,phase,Phase of grating stimulus
+intervals/drifting_gratings_contrast_presentations,size,Size of stimulus (see ‘units’ field for units)
+intervals/drifting_gratings_contrast_presentations,units,Units of stimulus size
+intervals/drifting_gratings_contrast_presentations,orientation,Orientation of stimulus
+intervals/drifting_gratings_contrast_presentations,spatial_frequency,Spatial frequency of stimulus
+intervals/drifting_gratings_contrast_presentations,contrast,Contrast of stimulus
+intervals/drifting_gratings_contrast_presentations,tags,user-defined tags
+intervals/drifting_gratings_contrast_presentations,timeseries,index into a TimeSeries object
+intervals/flashes_presentations,(table),Presentation times and stimuli details for 'flashes' stimuli
+intervals/flashes_presentations,start_time,"Start time of epoch, in seconds"
+intervals/flashes_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/flashes_presentations,stimulus_name,Name of stimulus
+intervals/flashes_presentations,stimulus_block,Index of contiguous presentations of one stimulus type
+intervals/flashes_presentations,color,No description
+intervals/flashes_presentations,mask,Shape of mask applied to stimulus
+intervals/flashes_presentations,opacity,Opacity of stimulus
+intervals/flashes_presentations,phase,Phase of grating stimulus
+intervals/flashes_presentations,size,Size of stimulus (see ‘units’ field for units)
+intervals/flashes_presentations,units,Units of stimulus size
+intervals/flashes_presentations,orientation,Orientation of stimulus
+intervals/flashes_presentations,spatial_frequency,Spatial frequency of stimulus
+intervals/flashes_presentations,contrast,Contrast of stimulus
+intervals/flashes_presentations,tags,user-defined tags
+intervals/flashes_presentations,timeseries,index into a TimeSeries object
+intervals/gabors_presentations,(table),Presentation times and stimuli details for 'gabors' stimuli
+intervals/gabors_presentations,start_time,"Start time of epoch, in seconds"
+intervals/gabors_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/gabors_presentations,stimulus_name,Name of stimulus
+intervals/gabors_presentations,stimulus_block,Index of contiguous presentations of one stimulus type
+intervals/gabors_presentations,temporal_frequency,Temporal frequency of stimulus
+intervals/gabors_presentations,x_position,Horizontal position of stimulus on screen
+intervals/gabors_presentations,y_position,Vertical position of stimulus on screen
+intervals/gabors_presentations,color,No description
+intervals/gabors_presentations,mask,Shape of mask applied to stimulus
+intervals/gabors_presentations,opacity,Opacity of stimulus
+intervals/gabors_presentations,phase,Phase of grating stimulus
+intervals/gabors_presentations,size,Size of stimulus (see ‘units’ field for units)
+intervals/gabors_presentations,units,Units of stimulus size
+intervals/gabors_presentations,orientation,Orientation of stimulus
+intervals/gabors_presentations,spatial_frequency,Spatial frequency of stimulus
+intervals/gabors_presentations,contrast,Contrast of stimulus
+intervals/gabors_presentations,tags,user-defined tags
+intervals/gabors_presentations,timeseries,index into a TimeSeries object
+intervals/natural_movie_one_more_repeats_presentations,(table),Presentation times and stimuli details for 'natural_movie_one_more_repeats' stimuli
+intervals/natural_movie_one_more_repeats_presentations,start_time,"Start time of epoch, in seconds"
+intervals/natural_movie_one_more_repeats_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/natural_movie_one_more_repeats_presentations,stimulus_name,Name of stimulus
+intervals/natural_movie_one_more_repeats_presentations,stimulus_block,Index of contiguous presentations of one stimulus type
+intervals/natural_movie_one_more_repeats_presentations,color,No description
+intervals/natural_movie_one_more_repeats_presentations,opacity,Opacity of stimulus
+intervals/natural_movie_one_more_repeats_presentations,size,Size of stimulus (see ‘units’ field for units)
+intervals/natural_movie_one_more_repeats_presentations,units,Units of stimulus size
+intervals/natural_movie_one_more_repeats_presentations,orientation,Orientation of stimulus
+intervals/natural_movie_one_more_repeats_presentations,frame,Frame of movie stimulus
+intervals/natural_movie_one_more_repeats_presentations,contrast,Contrast of stimulus
+intervals/natural_movie_one_more_repeats_presentations,tags,user-defined tags
+intervals/natural_movie_one_more_repeats_presentations,timeseries,index into a TimeSeries object
+intervals/natural_movie_one_shuffled_presentations,(table),Presentation times and stimuli details for 'natural_movie_one_shuffled' stimuli
+intervals/natural_movie_one_shuffled_presentations,start_time,"Start time of epoch, in seconds"
+intervals/natural_movie_one_shuffled_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/natural_movie_one_shuffled_presentations,stimulus_name,Name of stimulus
+intervals/natural_movie_one_shuffled_presentations,stimulus_block,Index of contiguous presentations of one stimulus type
+intervals/natural_movie_one_shuffled_presentations,color,No description
+intervals/natural_movie_one_shuffled_presentations,opacity,Opacity of stimulus
+intervals/natural_movie_one_shuffled_presentations,size,Size of stimulus (see ‘units’ field for units)
+intervals/natural_movie_one_shuffled_presentations,units,Units of stimulus size
+intervals/natural_movie_one_shuffled_presentations,orientation,Orientation of stimulus
+intervals/natural_movie_one_shuffled_presentations,frame,Frame of movie stimulus
+intervals/natural_movie_one_shuffled_presentations,contrast,Contrast of stimulus
+intervals/natural_movie_one_shuffled_presentations,tags,user-defined tags
+intervals/natural_movie_one_shuffled_presentations,timeseries,index into a TimeSeries object
+intervals/spontaneous_presentations,(table),Presentation times and stimuli details for 'spontaneous' stimuli
+intervals/spontaneous_presentations,start_time,"Start time of epoch, in seconds"
+intervals/spontaneous_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/spontaneous_presentations,stimulus_name,Name of stimulus
+intervals/spontaneous_presentations,tags,user-defined tags
+intervals/spontaneous_presentations,timeseries,index into a TimeSeries object
+acquisition,raw_running_wheel_rotation,no description
+acquisition,running_wheel_signal_voltage,no description
+acquisition,running_wheel_supply_voltage,no description
+processing/eye_tracking,(module),Eye tracking processing module
+processing/eye_tracking/cr_ellipse_fits,(table),
+processing/eye_tracking/cr_ellipse_fits,center_x,no description
+processing/eye_tracking/cr_ellipse_fits,center_y,no description
+processing/eye_tracking/cr_ellipse_fits,height,no description
+processing/eye_tracking/cr_ellipse_fits,phi,no description
+processing/eye_tracking/cr_ellipse_fits,width,no description
+processing/eye_tracking/cr_ellipse_fits,timestamps,no description
+processing/eye_tracking/eye_ellipse_fits,(table),
+processing/eye_tracking/eye_ellipse_fits,center_x,no description
+processing/eye_tracking/eye_ellipse_fits,center_y,no description
+processing/eye_tracking/eye_ellipse_fits,height,no description
+processing/eye_tracking/eye_ellipse_fits,phi,no description
+processing/eye_tracking/eye_ellipse_fits,width,no description
+processing/eye_tracking/eye_ellipse_fits,timestamps,no description
+processing/eye_tracking/pupil_ellipse_fits,(table),
+processing/eye_tracking/pupil_ellipse_fits,center_x,no description
+processing/eye_tracking/pupil_ellipse_fits,center_y,no description
+processing/eye_tracking/pupil_ellipse_fits,height,no description
+processing/eye_tracking/pupil_ellipse_fits,phi,no description
+processing/eye_tracking/pupil_ellipse_fits,width,no description
+processing/eye_tracking/pupil_ellipse_fits,timestamps,no description
+processing/eye_tracking_rig_metadata,(module),Eye tracking rig metadata module
+processing/eye_tracking_rig_metadata,eye_tracking_rig_metadata,
+processing/filtered_gaze_mapping,(module),Gaze mapping processing module filtered outputs
+processing/filtered_gaze_mapping,eye_area,no description
+processing/filtered_gaze_mapping,pupil_area,no description
+processing/filtered_gaze_mapping,screen_coordinates,no description
+processing/filtered_gaze_mapping,screen_coordinates_spherical,no description
+processing/optotagging,(module),optogenetic stimulution data
+processing/optotagging,optotagging,no description
+processing/optotagging/optogenetic_stimulation,(table),
+processing/optotagging/optogenetic_stimulation,start_time,"Start time of epoch, in seconds"
+processing/optotagging/optogenetic_stimulation,condition,no description
+processing/optotagging/optogenetic_stimulation,level,no description
+processing/optotagging/optogenetic_stimulation,stop_time,"Stop time of epoch, in seconds"
+processing/optotagging/optogenetic_stimulation,stimulus_name,no description
+processing/optotagging/optogenetic_stimulation,duration,no description
+processing/optotagging/optogenetic_stimulation,tags,user-defined tags
+processing/optotagging/optogenetic_stimulation,timeseries,index into a TimeSeries object
+processing/raw_gaze_mapping,(module),Gaze mapping processing module raw outputs
+processing/raw_gaze_mapping,eye_area,no description
+processing/raw_gaze_mapping,pupil_area,no description
+processing/raw_gaze_mapping,screen_coordinates,no description
+processing/raw_gaze_mapping,screen_coordinates_spherical,no description
+processing/running,(module),running speed data
+processing/running,running_speed,no description
+processing/running,running_speed_end_times,no description
+processing/running,running_wheel_rotation,no description
+processing/stimulus,(module),Stimulus Times processing
+processing/stimulus,timestamps,no description

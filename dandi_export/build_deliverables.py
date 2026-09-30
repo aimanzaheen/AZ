@@ -33,6 +33,7 @@ ROOT = Path(__file__).resolve().parent.parent
 EXP = ROOT / "dandi_export"
 OUT = ROOT / "Dandi Data sets"
 API = "https://api.dandiarchive.org/api"
+MAX_PLAIN_CSV = 90e6  # larger CSVs are written gzip-compressed (.csv.gz)
 
 # dandiset -> (export output folder, report pdf, pinned version or None for latest)
 DATASETS = {
@@ -94,7 +95,14 @@ def main() -> int:
                     shutil.copy2(f, tabs / f.name)
                     n_tables += 1
                 elif f.suffix == ".parquet":
-                    pd.read_parquet(f).to_csv(tabs / f"{f.stem}.csv", index=False)
+                    df = pd.read_parquet(f)
+                    target = tabs / f"{f.stem}.csv"
+                    df.to_csv(target, index=False)
+                    if target.stat().st_size > MAX_PLAIN_CSV:  # GitHub rejects files > 100 MB
+                        target.unlink()
+                        df.to_csv(tabs / f"{f.stem}.csv.gz", index=False, compression="gzip")
+                    else:
+                        (tabs / f"{f.stem}.csv.gz").unlink(missing_ok=True)
                     n_tables += 1
         if (EXP / folder / "tables" / "psd.csv").exists():
             pass  # copied above

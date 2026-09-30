@@ -1,0 +1,171 @@
+{
+ "name": "Allen Institute - Visual Coding - Neuropixels (Functional Connectivity Stimulus Set)",
+ "description": "Allen Institute October 2019 Mouse extracellular electrophysiology data, collected under analogous conditions to the two-photon Brain Observatory imaging experiments, with mice shown a subset of stimuli with a higher number of repeats. \n\nFor more information, see https://portal.brain-map.org/explore/circuits/visual-coding-neuropixels\n\nData are subject to Allen Institute Terms of Use policy, available at: http://www.alleninstitute.org/legal/terms-use/\n",
+ "citation": "Siegle, Josh; Wakeman, Wayne; Jia, Xiaoxuan; Durand, Severine; Heller, Gregg; Ramirez, Tamina; Graddis, Nile; Mei, Nicholas (2025) Allen Institute - Visual Coding - Neuropixels (Functional Connectivity Stimulus Set) (Version 0.251116.2247) [Data set]. DANDI Archive. https://doi.org/10.48324/dandi.000022/0.251116.2247",
+ "doi": "10.48324/dandi.000022/0.251116.2247",
+ "url": "https://dandiarchive.org/dandiset/000022/0.251116.2247",
+ "version": "0.251116.2247",
+ "license": [
+  "spdx:CC-BY-4.0"
+ ],
+ "keywords": [
+  "electrophysiology",
+  "life sciences",
+  "machine learning",
+  "neurobiology",
+  "signal processing"
+ ],
+ "ethicsApproval": [],
+ "relatedResource": [],
+ "about": [],
+ "wasGeneratedBy": [],
+ "assetsSummary": {
+  "species": [
+   {
+    "name": "House mouse",
+    "schemaKey": "SpeciesType",
+    "identifier": "http://purl.obolibrary.org/obo/NCBITaxon_10090"
+   }
+  ],
+  "approach": [
+   {
+    "name": "electrophysiological approach",
+    "schemaKey": "ApproachType"
+   }
+  ],
+  "schemaKey": "AssetsSummary",
+  "dataStandard": [
+   {
+    "name": "Neurodata Without Borders (NWB)",
+    "schemaKey": "StandardsType",
+    "identifier": "RRID:SCR_015242"
+   }
+  ],
+  "numberOfBytes": 374956840341,
+  "numberOfFiles": 169,
+  "numberOfSubjects": 26,
+  "variableMeasured": [
+   "LFP",
+   "ProcessingModule",
+   "Units"
+  ],
+  "measurementTechnique": [
+   {
+    "name": "analytical technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "signal filtering technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "spike sorting technique",
+    "schemaKey": "MeasurementTechniqueType"
+   }
+  ]
+ },
+ "datePublished": "2025-11-16T22:47:01.731059+00:00",
+ "dateCreated": "2020-05-26T16:48:28.855000+00:00",
+ "contributor": [
+  {
+   "name": "Siegle, Josh",
+   "roleName": [
+    "dcite:Author",
+    "dcite:ContactPerson",
+    "dcite:ProjectLeader"
+   ],
+   "affiliation": [
+    {
+     "name": "Allen Institute for Brain Science",
+     "schemaKey": "Affiliation"
+    }
+   ]
+  },
+  {
+   "name": "Wakeman, Wayne",
+   "roleName": [
+    "dcite:ContactPerson",
+    "dcite:DataManager"
+   ],
+   "affiliation": [
+    {
+     "name": "Allen Institute for Brain Science",
+     "schemaKey": "Affiliation"
+    }
+   ]
+  },
+  {
+   "name": "Jia, Xiaoxuan",
+   "roleName": [
+    "dcite:Validation"
+   ],
+   "affiliation": [
+    {
+     "name": "Allen Institute for Brain Science",
+     "schemaKey": "Affiliation"
+    }
+   ]
+  },
+  {
+   "name": "Durand, Severine",
+   "roleName": [
+    "dcite:DataCollector"
+   ],
+   "affiliation": [
+    {
+     "name": "Allen Institute for Brain Science",
+     "schemaKey": "Affiliation"
+    }
+   ]
+  },
+  {
+   "name": "Heller, Gregg",
+   "roleName": [
+    "dcite:DataCollector"
+   ],
+   "affiliation": [
+    {
+     "name": "Allen Institute for Brain Science",
+     "schemaKey": "Affiliation"
+    }
+   ]
+  },
+  {
+   "name": "Ramirez, Tamina",
+   "roleName": [
+    "dcite:DataCollector"
+   ],
+   "affiliation": [
+    {
+     "name": "Allen Institute for Brain Science",
+     "schemaKey": "Affiliation"
+    }
+   ]
+  },
+  {
+   "name": "Graddis, Nile",
+   "roleName": [
+    "dcite:Software"
+   ],
+   "affiliation": [
+    {
+     "name": "Allen Institute for Brain Science",
+     "schemaKey": "Affiliation"
+    }
+   ]
+  },
+  {
+   "name": "Mei, Nicholas",
+   "roleName": [
+    "dcite:Software"
+   ],
+   "affiliation": [
+    {
+     "name": "Allen Institute for Brain Science",
+     "schemaKey": "Affiliation"
+    }
+   ]
+  }
+ ],
+ "identifier": "000022"
+}

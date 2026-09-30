@@ -11,7 +11,7 @@ Each `DANDI_<id>/` contains:
 | `metadata/dandiset.yaml`, `dandiset.json` | The Dandiset's published metadata, as served by the DANDI API | DANDI Archive |
 | `metadata/assets_manifest.csv` | Every file in the Dandiset: path, size, asset id, download URL | DANDI Archive |
 | `metadata/nwb_file_metadata.json`, `nwb_descriptions.csv` | File-level NWB fields and every column's description, from one NWB file | NWB files |
-| `exported_tables/*.csv` | Tables extracted from the NWB files (sessions, units, trials, region summary, ...) | built by this export |
+| `exported_tables/*.csv` | Tables extracted from the NWB files (sessions, units, trials, region summary, ...). A table larger than 90 MB is stored as `.csv.gz` (gzip; `pandas.read_csv` and R `read.csv` open it directly) | built by this export |
 | `original_files/` | Non-NWB files the authors published elsewhere and link from the Dandiset metadata | authors |
 
 ## Original (non-NWB) files

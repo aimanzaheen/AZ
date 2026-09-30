@@ -1,0 +1,171 @@
+location,name,description
+electrodes,(table),metadata about extracellular electrodes
+electrodes,location,the location of channel within the subject e.g. brain region
+electrodes,group,a reference to the ElectrodeGroup this electrode is a part of
+electrodes,group_name,the name of the ElectrodeGroup this electrode is a part of
+electrodes,probe_vertical_position,Length-wise position of electrode/channel on device (microns)
+electrodes,probe_horizontal_position,Width-wise position of electrode/channel on device (microns)
+electrodes,probe_id,The unique id of this electrode's/channel's device
+electrodes,probe_channel_number,The local index of electrode/channel on device
+electrodes,valid_data,Whether data from this electrode/channel is usable
+electrodes,x,the x coordinate of the position (+x is posterior)
+electrodes,y,the y coordinate of the position (+y is inferior)
+electrodes,z,the z coordinate of the position (+z is right)
+electrodes,imp,"the impedance of the electrode, in ohms"
+electrodes,filtering,"description of hardware filtering, including the filter name and frequency cutoffs"
+units,(table),
+units,PT_ratio,no description
+units,amplitude,no description
+units,amplitude_cutoff,no description
+units,cluster_id,no description
+units,cumulative_drift,no description
+units,d_prime,no description
+units,firing_rate,no description
+units,isi_label,no description
+units,isi_violations,no description
+units,isolation_distance,no description
+units,l_ratio,no description
+units,max_drift,no description
+units,nn_hit_rate,no description
+units,nn_miss_rate,no description
+units,peak_channel_id,no description
+units,presence_ratio,no description
+units,quality,no description
+units,recovery_slope,no description
+units,repolarization_slope,no description
+units,silhouette_score,no description
+units,snr,no description
+units,spread,no description
+units,structure_layer,no description
+units,velocity_above,no description
+units,velocity_below,no description
+units,waveform_duration,no description
+units,spike_times,times (s) of detected spiking events
+units,spike_amplitudes,amplitude (s) of detected spiking events
+units,waveform_mean,mean waveforms on peak channels (over samples)
+intervals/dynamic_routing_image_set_presentations,(table),"Presentation times and stimuli details for 'dynamic_routing_image_set' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/dynamic_routing_image_set_presentations,start_time,"Start time of epoch, in seconds"
+intervals/dynamic_routing_image_set_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/dynamic_routing_image_set_presentations,active,No description
+intervals/dynamic_routing_image_set_presentations,duration,No description
+intervals/dynamic_routing_image_set_presentations,end_frame,No description
+intervals/dynamic_routing_image_set_presentations,flashes_since_change,No description
+intervals/dynamic_routing_image_set_presentations,image_name,No description
+intervals/dynamic_routing_image_set_presentations,is_change,No description
+intervals/dynamic_routing_image_set_presentations,is_image_novel,No description
+intervals/dynamic_routing_image_set_presentations,omitted,No description
+intervals/dynamic_routing_image_set_presentations,rewarded,No description
+intervals/dynamic_routing_image_set_presentations,start_frame,No description
+intervals/dynamic_routing_image_set_presentations,stimulus_block,Index of contiguous presentations of one stimulus type
+intervals/dynamic_routing_image_set_presentations,stimulus_name,Name of stimulus
+intervals/dynamic_routing_image_set_presentations,tags,user-defined tags
+intervals/dynamic_routing_image_set_presentations,timeseries,index into a TimeSeries object
+intervals/flash_250ms_presentations,(table),"Presentation times and stimuli details for 'C:/ProgramData/StimulusFiles/dev/flash_250ms' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/flash_250ms_presentations,start_time,"Start time of epoch, in seconds"
+intervals/flash_250ms_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/flash_250ms_presentations,active,No description
+intervals/flash_250ms_presentations,color,No description
+intervals/flash_250ms_presentations,contrast,Contrast of stimulus
+intervals/flash_250ms_presentations,duration,No description
+intervals/flash_250ms_presentations,end_frame,No description
+intervals/flash_250ms_presentations,is_change,No description
+intervals/flash_250ms_presentations,is_image_novel,No description
+intervals/flash_250ms_presentations,omitted,No description
+intervals/flash_250ms_presentations,rewarded,No description
+intervals/flash_250ms_presentations,start_frame,No description
+intervals/flash_250ms_presentations,stimulus_block,Index of contiguous presentations of one stimulus type
+intervals/flash_250ms_presentations,stimulus_name,Name of stimulus
+intervals/flash_250ms_presentations,tags,user-defined tags
+intervals/flash_250ms_presentations,timeseries,index into a TimeSeries object
+intervals/gabor_20_deg_250ms_presentations,(table),"Presentation times and stimuli details for 'C:/ProgramData/StimulusFiles/dev/gabor_20_deg_250ms' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/gabor_20_deg_250ms_presentations,start_time,"Start time of epoch, in seconds"
+intervals/gabor_20_deg_250ms_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/gabor_20_deg_250ms_presentations,active,No description
+intervals/gabor_20_deg_250ms_presentations,contrast,Contrast of stimulus
+intervals/gabor_20_deg_250ms_presentations,duration,No description
+intervals/gabor_20_deg_250ms_presentations,end_frame,No description
+intervals/gabor_20_deg_250ms_presentations,is_change,No description
+intervals/gabor_20_deg_250ms_presentations,is_image_novel,No description
+intervals/gabor_20_deg_250ms_presentations,omitted,No description
+intervals/gabor_20_deg_250ms_presentations,orientation,Orientation of stimulus
+intervals/gabor_20_deg_250ms_presentations,position_x,No description
+intervals/gabor_20_deg_250ms_presentations,position_y,No description
+intervals/gabor_20_deg_250ms_presentations,rewarded,No description
+intervals/gabor_20_deg_250ms_presentations,spatial_frequency,Spatial frequency of stimulus
+intervals/gabor_20_deg_250ms_presentations,start_frame,No description
+intervals/gabor_20_deg_250ms_presentations,stimulus_block,Index of contiguous presentations of one stimulus type
+intervals/gabor_20_deg_250ms_presentations,stimulus_name,Name of stimulus
+intervals/gabor_20_deg_250ms_presentations,temporal_frequency,Temporal frequency of stimulus
+intervals/gabor_20_deg_250ms_presentations,tags,user-defined tags
+intervals/gabor_20_deg_250ms_presentations,timeseries,index into a TimeSeries object
+intervals/spontaneous_presentations,(table),"Presentation times and stimuli details for 'spontaneous' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/spontaneous_presentations,start_time,"Start time of epoch, in seconds"
+intervals/spontaneous_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/spontaneous_presentations,active,No description
+intervals/spontaneous_presentations,duration,No description
+intervals/spontaneous_presentations,end_frame,No description
+intervals/spontaneous_presentations,is_change,No description
+intervals/spontaneous_presentations,is_image_novel,No description
+intervals/spontaneous_presentations,omitted,No description
+intervals/spontaneous_presentations,rewarded,No description
+intervals/spontaneous_presentations,start_frame,No description
+intervals/spontaneous_presentations,stimulus_block,Index of contiguous presentations of one stimulus type
+intervals/spontaneous_presentations,stimulus_name,Name of stimulus
+intervals/spontaneous_presentations,tags,user-defined tags
+intervals/spontaneous_presentations,timeseries,index into a TimeSeries object
+intervals/trials,(table),experimental trials
+intervals/trials,start_time,"Start time of epoch, in seconds"
+intervals/trials,stop_time,"Stop time of epoch, in seconds"
+intervals/trials,initial_image_name,NOT IMPLEMENTED: initial_image_name
+intervals/trials,change_image_name,NOT IMPLEMENTED: change_image_name
+intervals/trials,is_change,NOT IMPLEMENTED: is_change
+intervals/trials,change_time,NOT IMPLEMENTED: change_time
+intervals/trials,go,NOT IMPLEMENTED: go
+intervals/trials,catch,NOT IMPLEMENTED: catch
+intervals/trials,lick_times,NOT IMPLEMENTED: lick_times
+intervals/trials,response_time,NOT IMPLEMENTED: response_time
+intervals/trials,response_latency,NOT IMPLEMENTED: response_latency
+intervals/trials,reward_time,NOT IMPLEMENTED: reward_time
+intervals/trials,reward_volume,NOT IMPLEMENTED: reward_volume
+intervals/trials,hit,NOT IMPLEMENTED: hit
+intervals/trials,false_alarm,NOT IMPLEMENTED: false_alarm
+intervals/trials,miss,NOT IMPLEMENTED: miss
+intervals/trials,correct_reject,NOT IMPLEMENTED: correct_reject
+intervals/trials,aborted,NOT IMPLEMENTED: aborted
+intervals/trials,auto_rewarded,NOT IMPLEMENTED: auto_rewarded
+intervals/trials,change_frame,NOT IMPLEMENTED: change_frame
+intervals/trials,trial_length,NOT IMPLEMENTED: trial_length
+intervals/trials,no_reward_epoch,NOT IMPLEMENTED: no_reward_epoch
+intervals/trials,omitted_reward,NOT IMPLEMENTED: omitted_reward
+intervals/trials,is_sham_change,NOT IMPLEMENTED: is_sham_change
+acquisition,EyeTracking,
+acquisition,v_in,"The theoretical maximum voltage that the running wheel encoder will reach prior to ""wrapping"". This should theoretically be 5V (after crossing 5V goes to 0V, or vice versa). In practice the encoder does not always reach this value before wrapping, which can cause transient spikes in speed at the voltage ""wraps""."
+acquisition,v_sig,Voltage signal from the running wheel encoder
+processing/eye_tracking_rig_metadata,(module),Eye tracking rig metadata module
+processing/eye_tracking_rig_metadata,eye_tracking_rig_metadata,
+processing/licking,(module),Licking behavior processing module
+processing/licking,licks,Timestamps and stimulus presentation frame indices for lick events
+processing/optotagging,(module),optogenetic stimulution data
+processing/optotagging,optotagging,no description
+processing/optotagging/optogenetic_stimulation,(table),
+processing/optotagging/optogenetic_stimulation,start_time,"Start time of epoch, in seconds"
+processing/optotagging/optogenetic_stimulation,condition,no description
+processing/optotagging/optogenetic_stimulation,level,no description
+processing/optotagging/optogenetic_stimulation,stop_time,"Stop time of epoch, in seconds"
+processing/optotagging/optogenetic_stimulation,stimulus_name,no description
+processing/optotagging/optogenetic_stimulation,duration,no description
+processing/optotagging/optogenetic_stimulation,tags,user-defined tags
+processing/optotagging/optogenetic_stimulation,timeseries,index into a TimeSeries object
+processing/rewards,(module),Licking behavior processing module
+processing/rewards,autorewarded,no description
+processing/rewards,volume,no description
+processing/running,(module),Running speed processing module
+processing/running,dx,"Running wheel angular change, computed during data collection"
+processing/running,speed,no description
+processing/running,speed_unfiltered,no description
+processing/stimulus,(module),Stimulus Times processing
+processing/stimulus,timestamps,no description

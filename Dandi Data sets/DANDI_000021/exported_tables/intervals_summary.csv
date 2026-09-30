@@ -1,0 +1,11 @@
+table,n_sessions,n_rows,columns
+drifting_gratings_contrast_presentations,8,4320,"start_time, stop_time, stimulus_name, stimulus_block, temporal_frequency, color, mask, opacity, phase, size, units, stimulus_index, orientation, spatial_frequency, contrast"
+drifting_gratings_presentations,32,20152,"start_time, stop_time, stimulus_name, stimulus_block, temporal_frequency, color, mask, opacity, phase, size, units, stimulus_index, orientation, spatial_frequency, contrast"
+flashes_presentations,32,4800,"start_time, stop_time, stimulus_name, stimulus_block, color, mask, opacity, phase, size, units, stimulus_index, orientation, spatial_frequency, contrast"
+gabors_presentations,32,116640,"start_time, stop_time, stimulus_name, stimulus_block, temporal_frequency, x_position, y_position, color, mask, opacity, phase, size, units, stimulus_index, orientation, spatial_frequency, contrast"
+invalid_times,13,54,"start_time, stop_time"
+natural_movie_one_presentations,32,576000,"start_time, stop_time, stimulus_name, stimulus_block, color, opacity, size, units, stimulus_index, orientation, frame, contrast"
+natural_movie_three_presentations,32,1152000,"start_time, stop_time, stimulus_name, stimulus_block, color, opacity, size, units, stimulus_index, orientation, frame, contrast"
+natural_scenes_presentations,32,190400,"start_time, stop_time, stimulus_name, stimulus_block, stimulus_index, frame"
+spontaneous_presentations,32,488,"start_time, stop_time, stimulus_name"
+static_gratings_presentations,32,192000,"start_time, stop_time, stimulus_name, stimulus_block, color, mask, opacity, phase, size, units, stimulus_index, orientation, spatial_frequency, contrast"
