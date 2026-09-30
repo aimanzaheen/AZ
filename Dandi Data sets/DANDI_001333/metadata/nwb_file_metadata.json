@@ -1,0 +1,50 @@
+{
+ "session_description": "Parkinson's Electrophysiological Signal Dataset (PESD) Generated from Simulation",
+ "experiment_description": "The PESD dataset is generated from a cortico-basal-ganglia network for a Parkinsonian computational model. The computational model of the cortico-basal-ganglia is originally presented by Fleming et al. in the article: 'Simulation of Closed-Loop Deep Brain Stimulation Control Schemes for Suppression of Pathological Beta Oscillations in Parkinson's Disease'.",
+ "institution": "Michigan Technological University",
+ "lab": "BrainX Lab",
+ "experimenter": [
+  "Ananna Biswas"
+ ],
+ "keywords": [
+  "ecephys",
+  "LFP",
+  "Parkinson's Disease",
+  "Beta Band"
+ ],
+ "related_publications": [
+  "https://arxiv.org/abs/2407.17756",
+  "DOI: 10.3389/fnins.2020.00166"
+ ],
+ "subject": {
+  "subject_id": "parkinson-simulated-lfp",
+  "species": "Homo sapiens",
+  "strain": null,
+  "genotype": null,
+  "sex": "U",
+  "age": "P0D",
+  "description": "This is a simulated dataset generated from a computational model."
+ },
+ "devices": {
+  "NEURON_Simulator": "Virtual probe used in NEURON simulation"
+ },
+ "electrode_groups": {
+  "shank0": {
+   "description": "Simulated electrode group for shank 0",
+   "location": "Simulated Cortico-basal-ganglia network of brain"
+  },
+  "shank1": {
+   "description": "Simulated electrode group for shank 1",
+   "location": "Simulated Cortico-basal-ganglia network of brain"
+  },
+  "shank2": {
+   "description": "Simulated electrode group for shank 2",
+   "location": "Simulated Cortico-basal-ganglia network of brain"
+  },
+  "shank3": {
+   "description": "Simulated electrode group for shank 3",
+   "location": "Simulated Cortico-basal-ganglia network of brain"
+  }
+ },
+ "source_file": "sub-parkinson-simulated-lfp_ses-111_ecephys.nwb"
+}

@@ -1,0 +1,66 @@
+id: DANDI:001637/draft
+url: https://dandiarchive.org/dandiset/001637/draft
+name: Allen Institute OpenScope - Predictive Processing (Ecephys)
+about: []
+access:
+- status: dandi:OpenAccess
+  schemaKey: AccessRequirements
+license:
+- spdx:CC-BY-4.0
+version: draft
+'@context': https://raw.githubusercontent.com/dandi/schema/master/releases/0.6.10/context.json
+citation: Peene, Carter (2026) Allen Institute OpenScope - Predictive Processing (Ecephys)
+  (Version draft) [Data set]. DANDI Archive. https://dandiarchive.org/dandiset/001637/draft
+schemaKey: Dandiset
+identifier: DANDI:001637
+repository: https://dandiarchive.org
+contributor:
+- name: Peene, Carter
+  email: rcpeene@gmail.com
+  roleName:
+  - dcite:ContactPerson
+  schemaKey: Person
+  affiliation: []
+  includeInCitation: true
+dateCreated: '2025-11-12T00:42:06.696184+00:00'
+description: This dataset contains data acquired on the Ecephys platform as part of
+  the OpenScope predictive processing community project
+assetsSummary:
+  species:
+  - name: Mus musculus - House mouse
+    schemaKey: SpeciesType
+    identifier: http://purl.obolibrary.org/obo/NCBITaxon_10090
+  approach:
+  - name: electrophysiological approach
+    schemaKey: ApproachType
+  schemaKey: AssetsSummary
+  dataStandard:
+  - name: Neurodata Without Borders (NWB)
+    schemaKey: StandardsType
+    identifier: RRID:SCR_015242
+  numberOfBytes: 770337238886
+  numberOfFiles: 60
+  numberOfSubjects: 16
+  variableMeasured:
+  - ElectricalSeries
+  - Units
+  - ProcessingModule
+  - LFP
+  - ElectrodeGroup
+  measurementTechnique:
+  - name: surgical technique
+    schemaKey: MeasurementTechniqueType
+  - name: spike sorting technique
+    schemaKey: MeasurementTechniqueType
+  - name: signal filtering technique
+    schemaKey: MeasurementTechniqueType
+  - name: analytical technique
+    schemaKey: MeasurementTechniqueType
+  - name: multi electrode extracellular electrophysiology recording technique
+    schemaKey: MeasurementTechniqueType
+schemaVersion: 0.6.10
+ethicsApproval: []
+wasGeneratedBy: []
+relatedResource: []
+manifestLocation:
+- https://api.dandiarchive.org/api/dandisets/001637/versions/draft/assets/

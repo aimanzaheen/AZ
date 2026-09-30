@@ -1,0 +1,94 @@
+location,name,description
+electrodes,(table),metadata about extracellular electrodes
+electrodes,location,Location of the electrode (channel).
+electrodes,group,Reference to the ElectrodeGroup.
+electrodes,electrode_name,Unique identifier derived from probe contact ids.
+electrodes,contact_shapes,Contact shape per electrode as defined by the probe.
+electrodes,channel_name,"The name of this channel, showing all recording streams for the electrode (e.g., 'AP379,LF379')."
+electrodes,rel_x,Relative x coordinate on the probe (µm).
+electrodes,rel_y,Relative y coordinate on the probe (µm).
+electrodes,probe_name,"IBL probe name in canonical format (e.g., 'Probe00', 'Probe01')."
+electrodes,contact_ids,Channel IDs as specified by the probe manufacturer.
+electrodes,shank_ids,Shank ID for each electrode (for multi-shank probes).
+electrodes,adc_group,ADC group index from SpikeGLX metadata.
+electrodes,adc_sample_order,ADC sample order from SpikeGLX metadata.
+electrodes,group_name,Name of the ElectrodeGroup.
+electrodes,x,x coordinate of the channel location in the brain.
+electrodes,y,y coordinate of the channel location in the brain.
+electrodes,z,z coordinate of the channel location in the brain.
+electrodes,imp,"Impedance of the channel, in ohms."
+electrodes,filtering,Description of hardware filtering.
+units,(table),"Spike-sorted units from Neuropixels 1.0 probes. Spike sorting was performed using a Python implementation of Kilosort 2.5 (iblsorter, formerly pykilosort) with IBL-specific optimizations for drift correction and automated quality control. Unit quality is determined by three metrics: (1) refractory period violations using the slidingRP algorithm (Hill et al. 2011), (2) noise cutoff based on amplitude distribution, and (3) median spike amplitude threshold (>50 uV). The 'label' column indicates the proportion of metrics passed (1.0 = all passed, i.e. 'good' unit). Each unit includes brain region assignment from IBL's histology pipeline with Allen CCF coordinates. For methodology details, see the IBL spike sorting white paper: https://doi.org/10.6084/m9.figshare.19705522"
+units,unit_name,Unique reference for each unit.
+units,min_spike_amplitude_uV,Minimum spike amplitude in microvolts.
+units,max_spike_amplitude_uV,Maximum spike amplitude in microvolts.
+units,firing_rate,Average firing rate in Hz.
+units,probe_name,"Name of probe this unit was recorded from in canonical format (e.g., 'Probe00', 'Probe01')."
+units,spike_amplitude_std_dB,Standard deviation of log-transformed spike amplitudes in decibels. High values (>6 dB) may indicate drift or contamination.
+units,isi_violations_ratio,Ratio of observed to expected ISI violations (Steinmetz/cortex-lab method). Can exceed 1.0. Equivalent to SpikeInterface's isi_violations_ratio.
+units,rp_violation,Contamination estimate using Hill et al. (2011) quadratic formula. Aligns with SpikeInterface's rp_violations.
+units,cluster_uuid,Globally unique identifier for cross-referencing with IBL database via ONE API.
+units,presence_ratio,Fraction of time bins (60s default) with at least one spike. Good units typically >0.9.
+units,kilosort2_label,"Original Kilosort2 classification: 'good', 'mua', or 'noise'."
+units,peak_to_trough_duration_ms,Duration from negative trough to positive peak of the mean waveform in milliseconds. Used to distinguish fast-spiking interneurons (~0.2-0.4 ms) from regular-spiking pyramidal cells (~0.4-0.8+ ms).
+units,median_spike_amplitude_uV,Median spike amplitude in microvolts. IBL uses 50 uV threshold for quality filtering.
+units,missed_spikes_estimate,Estimated fraction of spikes missed due to detection threshold (0.0-1.0).
+units,spike_times,the spike times for each unit in seconds
+units,electrodes,the electrodes that each spike unit came from
+units,presence_ratio_std,Standard deviation of spike counts across 10-second time bins.
+units,waveform_mean,the spike waveform mean for each spike unit
+units,sliding_rp_violation,Binary pass/fail (0.0 or 1.0) using sliding refractory period algorithm. Primary metric for ibl_quality_score. Aligns with SpikeInterface's sliding_rp_violations.
+units,ibl_quality_score,"Proportion of IBL quality metrics passed (0.0, 0.33, 0.67, or 1.0). 1.0 = all three passed."
+units,spike_distances_from_probe_tip_um,"Distance from the probe tip for each spike in micrometers, computed from waveform center of mass. 0 = probe tip, values increase toward brain surface."
+units,spike_amplitudes_uV,Peak amplitude of each spike for each unit in microvolts.
+units,cumulative_drift_um_per_hour,"Sum of absolute depth changes between consecutive spikes, normalized to um/hour. Formula: sum(abs(diff(spike_depths)))/duration*3600. High values indicate either electrode drift or depth estimation noise. Scales with spike count (~0.79 correlation). NOT actual electrode displacement."
+units,max_electrode,Index into the electrodes table for the electrode with maximum spike amplitude for this unit.
+units,distance_from_probe_tip_um,"Mean distance from the probe tip in micrometers, computed from waveform center of mass. 0 = probe tip, values increase toward brain surface."
+units,noise_cutoff,Standard deviations the lower amplitude quartile deviates from expected. Large values indicate missed spikes at detection threshold.
+units,spike_count,Total number of spikes assigned to this unit. Integer type; -1 indicates missing data.
+intervals/trials,(table),"Trial data from the IBL decision-making task. On each trial, a visual stimulus (Gabor patch) appears on the left or right of a screen, and the mouse must move it to the center by turning a wheel with its front paws within 60 seconds. Correct responses are rewarded with water; incorrect responses trigger a white noise auditory cue and 2-second timeout. If no response is recorded during 60 seconds, a white noise auditory cue is presented. Trial timeline: (1) start_time begins a quiescence period where the mouse must hold the wheel still; (2) after quiescence_period elapses, the stimulus and auditory go cue are presented (gabor_stimulus_onset_time); (3) the mouse responds by turning the wheel to move the stimulus; correct choices are defined by moving the visual stimulus into the center; (4) feedback_time marks reward punishment or presentation of the white noise auditory cue; (5) stop_time marks trial end. Stimulus contrast is uniformly sampled from 5 values (0%, 6.25%, 12.5%, 25%, 100%). On 0% contrast trials, no stimulus is visible but a correct side is still assigned based on block probability, allowing mice to perform above chance using prior information. After an initial 90 unbiased trials, stimulus probability alternates between left-biased (80:20) and right-biased (20:80) blocks of 20-100 trials (mean 51). Block changes are not cued. See IBL et al. (2021) eLife 10:e63711 for full task details."
+intervals/trials,start_time,The beginning of the trial.
+intervals/trials,stop_time,The end of the trial.
+intervals/trials,quiescence_period,"Required duration (seconds) the mouse must hold the wheel still before stimulus presentation. Sampled from exponential distribution (400-700ms, mean ~550ms)."
+intervals/trials,gabor_stimulus_onset_time,"Time when the visual stimulus (Gabor patch) appears on the screen, detected by the photodiode. Presented together with the auditory go cue."
+intervals/trials,auditory_cue_time,"Time of the auditory go cue (100ms, 5kHz tone) signaling the mouse may respond. Presented together with the visual stimulus."
+intervals/trials,wheel_movement_onset_time,Time of first detected wheel movement (>= 0.1 radians threshold) after the go cue.
+intervals/trials,choice_registration_time,"Time when the mouse's choice was registered: either the wheel movement reached the +/-35 degree threshold, or 60-second timeout elapsed."
+intervals/trials,feedback_time,"Time of feedback delivery: water reward for correct responses, or white noise pulse + 2-second timeout for incorrect responses."
+intervals/trials,gabor_stimulus_offset_time,"Time when the Gabor patch disappears from the screen, detected by the photodiode."
+intervals/trials,gabor_stimulus_contrast,"Contrast of the Gabor patch as a percentage (0, 6.25, 12.5, 25, or 100). Uniformly sampled across trials. At 0% contrast (no visible stimulus), mice can still perform above chance using block probability prior."
+intervals/trials,gabor_stimulus_side,"Side on the screen where stimulus was presented: 'left' or 'right'. Even at 0% contrast (no visible stimulus), a side is assigned to the stimulus for the trial, enabling the mice to perform a correct response using prior knowledge of the block distribution. "
+intervals/trials,mouse_wheel_choice,"Mouse's response: 'counter_clockwise' (counter_clockwise wheel turn moving stimulus leftward), 'clockwise' (clockwise wheel turn moving stimulus rightward), or 'none' (no response within 60s timeout). clockwise and counter_clockwise are wheel movements as seen from the perspective of the mouse"
+intervals/trials,is_mouse_rewarded,"Whether the mouse received a water reward (True) or not (False). If False, an additional negative feedback consisting of an auditory white noise stimulus."
+intervals/trials,reward_volume_uL,Volume of water reward in microliters (0 for incorrect/timeout trials).
+intervals/trials,probability_left,"Block prior probability for the visual stimulus to be presented on the left side of the screen. After an initial block of 90 unbiased trials (0.5), blocks alternate between a probability of 0.2 (right-biased) and 0.8 (left-biased). Block lengths: 20-100 trials from truncated geometric distribution (mean 51). Block changes are not cued."
+intervals/trials,block_type,"Block type based on stimulus probability bias: 'unbiased' (probability_left=0.5), 'left_block' (probability_left=0.8, stimulus 80% likely on the left side of the screen), or 'right_block' (probability_left=0.2, stimulus 80% likely on the right side of the screen)."
+processing/lick_times,(module),Lick event timestamps detected from video-based tongue pose estimation. Licks are detected by tracking tongue landmark positions (Lightning Pose) and identifying frames with significant tongue movement. Licking indicates consummatory behavior following water reward delivery.
+processing/lick_times,EventsLickTimes,"Lick event timestamps detected from tongue pose estimation (Lightning Pose). Detection algorithm: frame-to-frame position changes in tongue landmarks (tongue_end_l_x, tongue_end_l_y, tongue_end_r_x, tongue_end_r_y) are computed, and frames where any coordinate changes by more than std(diff)/4 are marked as lick events. If left and right camera data exist, the licks detected from both cameras are combined."
+processing/motion_energy,(module),"Motion energy quantifies total movement within video regions of interest (ROIs). Values are computed as the sum of Euclidean pixel intensity differences between frames, normalized to [0, 1] range. Useful as a behavioral covariate for neural analysis."
+processing/motion_energy,BodyCameraMotionEnergy,"Motion energy calculated for a region of the body camera video. ROI dimensions: 173 pixels wide, 210 pixels tall, top-left corner at (115, 118).
+
+Calculation: For each frame, pixel intensity differences are computed between frame N and frame N+2 (default offset). The Euclidean norm (L2) of differences is summed across all ROI pixels, then min-max normalized to [0, 1] range. Higher values indicate more movement within the ROI.
+
+CAUTION: Video loading libraries may use different axis conventions. When loading with cv2 in Python, x and y axes are flipped. The region then becomes [118:328, 115:288]."
+processing/motion_energy,LeftCameraMotionEnergy,"Motion energy calculated for a region of the left camera video. ROI dimensions: 121 pixels wide, 80 pixels tall, top-left corner at (380, 237).
+
+Calculation: For each frame, pixel intensity differences are computed between frame N and frame N+2 (default offset). The Euclidean norm (L2) of differences is summed across all ROI pixels, then min-max normalized to [0, 1] range. Higher values indicate more movement within the ROI.
+
+CAUTION: Video loading libraries may use different axis conventions. When loading with cv2 in Python, x and y axes are flipped. The region then becomes [237:317, 380:501]."
+processing/pose_estimation,(module),Pose estimation from video using Lightning Pose.
+processing/pose_estimation,BodyCamera,Estimated positions of body parts using Lightning Pose.
+processing/pose_estimation,LeftCamera,Estimated positions of body parts using Lightning Pose.
+processing/pose_estimation,Skeletons,
+processing/pupil,(module),"Pupil diameter measurements from video-based eye tracking. Pupil diameter is estimated using pose estimation (DLC/Lightning Pose) to track keypoints around the pupil boundary. Diameter is computed as the median of multiple estimates (vertical, horizontal, and circular fits) for robustness. Pupil diameter correlates with arousal, attention, and cognitive state."
+processing/pupil,LeftPupilDiameter,"Raw pupil diameter estimated from pose tracking keypoints around the pupil boundary. Multiple diameter estimates are computed: vertical (top-bottom distance), horizontal (left-right distance), and circular fits from other keypoint pairs. The final value is the median of these estimates, providing robustness against individual tracking errors."
+processing/pupil,LeftPupilDiameterSmoothed,Smoothed pupil diameter. This version has been temporally smoothed and interpolated over frames with missing or low-confidence keypoint detections. Useful for analyses where smooth trajectories are preferred over frame-by-frame accuracy.
+processing/wheel,(module),"Rotary encoder wheel used for behavioral responses. The wheel (6.2 cm diameter) is positioned under the mouse's forepaws, and rotation is measured via a quadrature encoder (1024 ticks, X4 encoding = 4096 effective ticks per revolution). Mice turn the wheel to move visual stimuli and report perceptual decisions. Contains raw position, detected movements, and derived kinematics."
+processing/wheel,WheelAccelerationSmoothed,Wheel angular acceleration derived from velocity (WheelVelocitySmoothed). Computed as the second derivative of the smoothed position signal.
+processing/wheel,WheelPosition,"Absolute unwrapped wheel angle recorded from a quadrature rotary encoder. The wheel (diameter 6.2 cm) is positioned under the mouse's forepaws and serves as the primary behavioral input device for reporting perceptual decisions. Sampling is event-driven: timestamps are recorded only when the wheel moves (i.e., when the encoder generates TTL edges), resulting in irregular inter-sample intervals. The encoder uses X4 decoding of two 90-degree phase-shifted channels, providing 4096 effective counts per revolution (angular resolution ~0.088 degrees or 2*pi/4096 radians). Position is NOT periodic: values grow unboundedly as the wheel rotates, accumulating across multiple full revolutions (e.g., 3 full turns clockwise = -6*pi radians). The position is never wrapped back to [0, 2*pi]. Sign convention follows mathematical standard: counter-clockwise rotation (from the subject's perspective) is positive."
+processing/wheel,WheelPositionSmoothed,"Wheel position resampled to a uniform 1000 Hz grid and smoothed. The raw wheel position has irregular timestamps (event-driven from encoder edges). This series provides uniformly sampled position by: (1) linear interpolation to 1000 Hz, then (2) 8th order Butterworth lowpass filter (20 Hz corner, zero-phase) to remove high-frequency noise. This smoothed signal is used to derive velocity and acceleration via differentiation."
+processing/wheel,WheelVelocitySmoothed,Wheel angular velocity derived from smoothed position (WheelPositionSmoothed). Computed as the first derivative of position after interpolation to 1000 Hz and lowpass filtering.
+processing/wheel/WheelMovementIntervals,(table),"The onset and offset times of all detected movements. Movements are defined as a wheel movement of at least 0.012 rad over 200ms. For a rotary encoder of resolution 1024 in X4 encoding, this is equivalent to around 8 ticks. Movements below 50ms are discarded and two detected movements within 100ms of one another are considered as a single movement. For the onsets a lower threshold is used to find a more precise onset time. The wheel diameter is 6.2 cm and the number of ticks is 4096 per revolution."
+processing/wheel/WheelMovementIntervals,start_time,"Start time of epoch, in seconds"
+processing/wheel/WheelMovementIntervals,stop_time,"Stop time of epoch, in seconds"
+processing/wheel/WheelMovementIntervals,peak_amplitude,"The absolute maximum amplitude of each detected wheel movement, relative to onset position."

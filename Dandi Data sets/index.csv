@@ -1,0 +1,12 @@
+dandiset,version,name,files_in_dandiset,size_gb,report,exported_tables,original_files
+000017,0.240329.1926,"Distributed coding of choice, action and engagement across the mouse brain",39,14.7,DANDI_000017_report.pdf,4,
+000409,0.260309.1324,IBL - Brain Wide Map,2048,49700.6,(export still running),0,Data_release_BW_2022_October___Methods_paper__19-09-2024.pdf
+001333,0.250327.2220,Parkinson's Electrophysiological Signal Dataset (PESD),52,0.0,DANDI_001333_report.pdf,2,
+000021,0.251116.2246,Allen Institute - Visual Coding - Neuropixels (Brain Observatory 1.1 Stimulus Set),214,477.6,(export still running),0,allen_ecephys_cache
+000022,0.251116.2247,Allen Institute - Visual Coding - Neuropixels (Functional Connectivity Stimulus Set),169,375.0,(export still running),0,allen_ecephys_cache
+000458,0.230317.0039,"Simultaneous electroencephalography, extracellular electrophysiology, and cortical electrical stimulation in head-fixed mice",24,361.5,DANDI_000458_report.pdf,4,
+001051,0.260922.1827,Large-scale Neuropixels recordings through SHIELD implant during visual change detection task with dynamic gating of engagement,666,1808.1,(export still running),0,
+001326,0.250528.1957,Brain-wide mouse electrophysiology during aversive stimuli and ketamine,13,2.6,DANDI_001326_report.pdf,4,analysis.py
+001416,draft,Allen Institute OpenScope - Psycode (Legacy),2,34.5,DANDI_001416_report.pdf,4,
+001417,0.260626.2154,Allen Institute OpenScope - Psycode,20,354.7,DANDI_001417_report.pdf,4,
+001637,draft,Allen Institute OpenScope - Predictive Processing (Ecephys),60,770.3,(export still running),0,

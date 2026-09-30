@@ -60,7 +60,7 @@ def build(dandiset: str, out: Path, pdf: Path, note: str | None) -> None:
     if note:
         story.append(Paragraph(f"<b>{esc(note)}</b>", NOTE))
     story += [Paragraph("Scope of this export (computed by this export): the units, electrodes and intervals tables of every "
-                        f"NWB file{' (session files; the per-probe *_ecephys.nwb LFP files were skipped)' if dandiset == '001051' else ''} "
+                        f"NWB file{' (session files; the per-probe LFP files were skipped)' if dandiset in ('001051', '000021', '000022') else ''} "
                         "were read remotely from the DANDI Archive; voltage, LFP, video and other time series were not downloaded.", BODY),
               Spacer(1, 4), legend_para(), Spacer(1, 4)]
     story += published_section(dm, fm, "1")

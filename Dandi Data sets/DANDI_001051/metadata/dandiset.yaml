@@ -1,0 +1,173 @@
+id: DANDI:001051/0.260922.1827
+doi: 10.48324/dandi.001051/0.260922.1827
+url: https://dandiarchive.org/dandiset/001051/0.260922.1827
+name: Large-scale Neuropixels recordings through SHIELD implant during visual change
+  detection task with dynamic gating of engagement
+about:
+- name: Visual areas
+  schemaKey: Anatomy
+  identifier: https://purl.brain-bican.org/ontology/mbao/MBA_669
+- name: Striatum
+  schemaKey: Anatomy
+  identifier: https://purl.brain-bican.org/ontology/mbao/MBA_477
+- name: visual attention
+  schemaKey: GenericType
+  identifier: https://www.cognitiveatlas.org/concept/id/trm_4a3fd79d0b46f
+- name: frontal cortex
+  schemaKey: Anatomy
+  identifier: http://purl.obolibrary.org/obo/UBERON_0001870
+- name: medial prefrontal cortex
+  schemaKey: Anatomy
+  identifier: http://purl.obolibrary.org/obo/UBERON_4450000
+- name: hippocampal formation
+  schemaKey: Anatomy
+  identifier: http://purl.obolibrary.org/obo/UBERON_0002421
+- name: midbrain
+  schemaKey: Anatomy
+  identifier: http://purl.obolibrary.org/obo/UBERON_0001891
+- name: Thalamus
+  schemaKey: Anatomy
+  identifier: https://purl.brain-bican.org/ontology/mbao/MBA_549
+access:
+- status: dandi:OpenAccess
+  schemaKey: AccessRequirements
+license:
+- spdx:CC-BY-4.0
+version: 0.260922.1827
+'@context': https://raw.githubusercontent.com/dandi/schema/master/releases/0.6.7/context.json
+citation: Bennett, Corbett; Sridhar, Arjun (2026) Large-scale Neuropixels recordings
+  through SHIELD implant during visual change detection task with dynamic gating of
+  engagement (Version 0.260922.1827) [Data set]. DANDI Archive. https://doi.org/10.48324/dandi.001051/0.260922.1827
+keywords:
+- Neuropixels
+- visual change detection
+- task engagement
+- SHIELD implant
+protocol: []
+schemaKey: Dandiset
+identifier: DANDI:001051
+repository: https://dandiarchive.org
+contributor:
+- name: Bennett, Corbett
+  email: corbennett@gmail.com
+  roleName:
+  - dcite:ContactPerson
+  - dcite:Author
+  schemaKey: Person
+  identifier: 0009-0001-2847-7754
+  affiliation:
+  - name: Allen Institute
+    schemaKey: Affiliation
+    identifier: https://ror.org/03cpe7c52
+  includeInCitation: true
+- name: Sridhar, Arjun
+  roleName:
+  - dcite:Author
+  schemaKey: Person
+  identifier: 0009-0000-9152-9863
+  affiliation:
+  - name: Allen Institute
+    schemaKey: Affiliation
+    identifier: https://ror.org/03cpe7c52
+  includeInCitation: true
+- name: Allen Institute
+  roleName:
+  - dcite:Funder
+  schemaKey: Organization
+  identifier: https://ror.org/03cpe7c52
+dateCreated: '2024-06-05T21:28:46.759168+00:00'
+description: "This dataset was collected at the Allen Institute. It includes data\
+  \ from 99 electrophysiology sessions featuring multi-Neuropixel recordings throughout\
+  \ the left hemisphere while mice performed a visual change detection task. This\
+  \ dataset is closely related to the Allen Institute Visual Behavior Neuropixels\
+  \ (VBN) dataset, but differs in two important ways: \nFirst, whereas the VBN recordings\
+  \ were focused on visual cortical areas and underlying subcortical regions, this\
+  \ dataset features recordings from throughout the left hemisphere, including frontal\
+  \ and medial cortical areas and the striatum. \nSecond, we have modified the behavioral\
+  \ task for this dataset to experimentally manipulate task engagement. During the\
+  \ VBN recordings, an hour of active behavior was followed by a passive behavior\
+  \ block during which the lick spout was retracted and mice were presented with the\
+  \ same visual stimuli but now with no opportunity to lick for reward. In practice,\
+  \ mice often satiated before the passive block. For this dataset, we interposed\
+  \ a 'no-reward' block in the middle of active behavior. During this new epoch, the\
+  \ lick spout remained extended but licks for visual changes no longer triggered\
+  \ reward. At the end of the no-reward block, auto-rewards were given to indicate\
+  \ that rewards were once again available, and many mice resumed licking for changes.\n\
+  \nTo better understand how to access and analyze this dataset, we encourage potential\
+  \ users to refer to the resources below. The data in DANDI is structured as follows:\
+  \ each subject has session NWBs identified by date of acquisition. Then, there are\
+  \ LFP NWBs for up to 6 probes for each session, identified by a probe id. For the\
+  \ LFP, each session NWB has a probes table that has the probe ids for the LFP data\
+  \ associated with that session. Use this table to get the probe ids and corresponding\
+  \ LFP NWBs. Examples  of opening a NWB file and accessing the probes table can be\
+  \ seen at the GitHub below under tutorials. In addition, there is a dynamic gating\
+  \ sessions metadata table at the GitHub repository below that has an acquisition\
+  \ date column, which can be used to map to a session id (the session column in the\
+  \ metadata tables). This will be useful for parsing the metadata tables for multi-session\
+  \ analysis.\n\n1) This repository includes a quick-start tutorial notebook as well\
+  \ as metadata tables for the sessions, probes, channels and units included in this\
+  \ dataset: https://github.com/AllenInstitute/SHIELD_Dynamic_Gating_Analysis\n2)\
+  \ To learn more about the basic visual change detection task as well as the general\
+  \ structure of the nwb files, consult the documentation available for the Allen\
+  \ Observatory Visual Behavior Neuropixels dataset here: https://portal.brain-map.org/circuits-behavior/visual-behavior-neuropixels\n\
+  \nThis dataset was used in the following preprint: \nSHIELD: Skull-shaped hemispheric\
+  \ implants enabling large-scale-electrophysiology datasets in the mouse brain [https://doi.org/10.1101/2023.11.12.566771]"
+publishedBy:
+  id: urn:uuid:76e90e88-cda2-4c57-801f-208fa5da2843
+  name: DANDI publish
+  endDate: '2026-09-22T18:27:21.645071+00:00'
+  schemaKey: PublishActivity
+  startDate: '2026-09-22T18:27:21.645071+00:00'
+  wasAssociatedWith:
+  - id: urn:uuid:074d41fb-4148-432e-8f78-8ae9c74958f9
+    name: DANDI API
+    version: 0.1.0
+    schemaKey: Software
+    identifier: RRID:SCR_017571
+studyTarget: []
+releaseNotes: Updated metadata
+assetsSummary:
+  species:
+  - name: Mus musculus - House mouse
+    schemaKey: SpeciesType
+    identifier: http://purl.obolibrary.org/obo/NCBITaxon_10090
+  approach:
+  - name: electrophysiological approach
+    schemaKey: ApproachType
+  schemaKey: AssetsSummary
+  dataStandard:
+  - name: Neurodata Without Borders (NWB)
+    schemaKey: StandardsType
+    identifier: RRID:SCR_015242
+  numberOfBytes: 1808065536215
+  numberOfFiles: 666
+  numberOfSubjects: 27
+  variableMeasured:
+  - Units
+  - ProcessingModule
+  - LFP
+  - ElectricalSeries
+  measurementTechnique:
+  - name: analytical technique
+    schemaKey: MeasurementTechniqueType
+  - name: spike sorting technique
+    schemaKey: MeasurementTechniqueType
+  - name: signal filtering technique
+    schemaKey: MeasurementTechniqueType
+  - name: multi electrode extracellular electrophysiology recording technique
+    schemaKey: MeasurementTechniqueType
+datePublished: '2026-09-22T18:27:21.645071+00:00'
+schemaVersion: 0.6.7
+ethicsApproval: []
+wasGeneratedBy: []
+relatedResource:
+- url: https://doi.org/10.1016/j.neuron.2024.06.015
+  name: 'SHIELD: Skull-shaped hemispheric implants enabling large-scale electrophysiology
+    datasets in the mouse brain'
+  relation: dcite:IsDescribedBy
+  schemaKey: Resource
+  identifier: doi:10.1016/j.neuron.2024.06.015
+  repository: Neuron
+  resourceType: dcite:JournalArticle
+manifestLocation:
+- https://dandiarchive.s3.amazonaws.com/dandisets/001051/0.260922.1827/assets.yaml

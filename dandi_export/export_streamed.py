@@ -2,7 +2,7 @@
 needed from each NWB file (HTTP range requests), without downloading the raw
 voltage, LFP or video data.
 
-Used for 000458, 001051, 001326, 001416, 001417 and 001637. The export is
+Used for 000021, 000022, 000458, 001051, 001326, 001416, 001417 and 001637. The export is
 dataset-neutral: every units column the authors provide is kept as is, and
 region labels are the electrode `location` strings stored in the files.
 
@@ -64,6 +64,8 @@ def list_assets(dandiset: str, version: str) -> list[dict]:
         url = j["next"]
     if dandiset == "001051":  # per-probe *_ecephys.nwb files hold LFP only; units are in the session files
         out = [a for a in out if not a["path"].endswith("_ecephys.nwb")]
+    if dandiset in ("000021", "000022"):  # per-probe *_probe-<id>_ecephys.nwb files hold LFP only
+        out = [a for a in out if "_probe-" not in a["path"]]
     return sorted(out, key=lambda a: a["path"])
 
 

@@ -1,0 +1,10 @@
+table,n_sessions,n_rows,columns
+40_hz_pulse_train_presentations,2,299,"start_time, stop_time, condition_num, level, condition, stim_name, duration"
+5_hz_pulse_train_presentations,2,298,"start_time, stop_time, condition_num, level, condition, stim_name, duration"
+behavior_presentations,2,7195,"start_time, stop_time, duration, image_index, image_name, image_set, omitted, stim_name"
+post_receptive_field_mapping_presentations,2,3888,"start_time, stop_time, duration, stim_name, contrast, temporal_frequency, spatial_frequency, orientation, pos_x, pos_y"
+post_surround_suppression_mapping_presentations,2,3000,"start_time, stop_time, duration, stim_name, contrast, temporal_frequency, spatial_frequency, orientation, size, pos_x, pos_y"
+pre_receptive_field_mapping_presentations,2,3888,"start_time, stop_time, duration, stim_name, contrast, temporal_frequency, spatial_frequency, orientation, pos_x, pos_y"
+pre_surround_suppression_mapping_presentations,2,3000,"start_time, stop_time, duration, stim_name, contrast, temporal_frequency, spatial_frequency, orientation, size, pos_x, pos_y"
+raised_cosine_presentations,2,300,"start_time, stop_time, condition_num, level, condition, stim_name, duration"
+spontaneous_presentations,2,13197,"start_time, stop_time, duration, stim_name"

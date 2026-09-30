@@ -1,0 +1,213 @@
+id: DANDI:000458/0.230317.0039
+doi: 10.48324/dandi.000458/0.230317.0039
+url: https://dandiarchive.org/dandiset/000458/0.230317.0039
+name: Simultaneous electroencephalography, extracellular electrophysiology, and cortical
+  electrical stimulation in head-fixed mice
+about: []
+access:
+- status: dandi:OpenAccess
+  schemaKey: AccessRequirements
+license:
+- spdx:CC-BY-4.0
+version: 0.230317.0039
+'@context': https://raw.githubusercontent.com/dandi/schema/master/releases/0.6.4/context.json
+citation: Claar, Leslie D; Rembado, Irene; Kuyat, Jacqulyn R; Russo, Simone; Marks,
+  Lydia C; Olsen, Shawn R; Koch, Christof (2023) Simultaneous electroencephalography,
+  extracellular electrophysiology, and cortical electrical stimulation in head-fixed
+  mice (Version 0.230317.0039) [Data set]. DANDI archive. https://doi.org/10.48324/dandi.000458/0.230317.0039
+keywords:
+- EEG
+- Neuropixels
+- electrical stimulation
+- brain states
+- cortico-thalamic interactions
+- extracellular electrophysiology
+protocol: []
+schemaKey: Dandiset
+identifier: DANDI:000458
+repository: https://dandiarchive.org
+contributor:
+- name: Claar, Leslie D
+  email: lesliec@alleninstitute.org
+  roleName:
+  - dcite:ContactPerson
+  - dcite:Author
+  schemaKey: Person
+  identifier: 0000-0002-4030-9171
+  affiliation:
+  - name: Allen Institute
+    schemaKey: Affiliation
+    identifier: https://ror.org/03cpe7c52
+  includeInCitation: true
+- name: Rembado, Irene
+  email: irene.rembado@alleninstitute.org
+  roleName:
+  - dcite:Author
+  - dcite:ContactPerson
+  schemaKey: Person
+  affiliation:
+  - name: Allen Institute
+    schemaKey: Affiliation
+    identifier: https://ror.org/03cpe7c52
+  includeInCitation: true
+- name: Kuyat, Jacqulyn R
+  roleName:
+  - dcite:Author
+  schemaKey: Person
+  affiliation:
+  - name: Allen Institute
+    schemaKey: Affiliation
+    identifier: https://ror.org/03cpe7c52
+  includeInCitation: true
+- name: Russo, Simone
+  roleName:
+  - dcite:Author
+  schemaKey: Person
+  affiliation:
+  - name: Allen Institute
+    schemaKey: Affiliation
+    identifier: https://ror.org/03cpe7c52
+  includeInCitation: true
+- name: Marks, Lydia C
+  roleName:
+  - dcite:Author
+  schemaKey: Person
+  affiliation:
+  - name: Allen Institute
+    schemaKey: Affiliation
+    identifier: https://ror.org/03cpe7c52
+  includeInCitation: true
+- name: Olsen, Shawn R
+  roleName:
+  - dcite:Author
+  schemaKey: Person
+  affiliation:
+  - name: Allen Institute
+    schemaKey: Affiliation
+    identifier: https://ror.org/03cpe7c52
+  includeInCitation: true
+- name: Koch, Christof
+  roleName:
+  - dcite:Author
+  schemaKey: Person
+  affiliation:
+  - name: Allen Institute
+    schemaKey: Affiliation
+    identifier: https://ror.org/03cpe7c52
+  includeInCitation: true
+- url: https://www.tinybluedotfoundation.org/
+  name: Tiny Blue Dot Foundation
+  roleName:
+  - dcite:Funder
+  schemaKey: Organization
+  contactPoint: []
+  includeInCitation: false
+- url: https://alleninstitute.org/
+  name: Allen Institute
+  roleName:
+  - dcite:Sponsor
+  - dcite:Affiliation
+  schemaKey: Organization
+  identifier: https://ror.org/03cpe7c52
+  contactPoint:
+  - schemaKey: ContactPoint
+  includeInCitation: false
+dateCreated: '2023-03-16T16:02:14.771820+00:00'
+description: 'In this set of experiments, we recorded neural signals using an electroencephalography
+  (EEG) array and Neuropixels probes while directly electrically stimulating the cortex
+  in awake and anesthetized head-fixed mice. Details of the experiments can be found
+  in the associated manuscript (Claar, Rembado et al., 2023). Briefly, the recordings
+  and stimulation commenced while the mouse was awake, free to rest or move on a rotating
+  disc. After delivering a series of stimuli, anesthesia was induced with isoflurane
+  (5% via inhalation). Once a surgical level of anesthesia was reached, the mouse
+  was maintained unconscious (1-1.5% isoflurane) during the delivery of another series
+  of stimuli. In some subjects another series of stimuli was delivered after the isoflurane
+  was turned off, this epoch/state is referred to as “recovery” in the dataset.
+
+
+  Each session file includes the following data: raw EEG signals from all 30 surface
+  electrodes and the associated electrode information; raw LFP signals from all electrodes
+  on all Neuropixels probes (if used) and the associated electrode information; spike
+  times for all units (spike sorted with Kilosort 2.0) that passed our quality threshold
+  with associated information (brain region, spike waveform duration, etc.); subject’s
+  speed computed from the rotation of the disc for the entire session; epochs marking
+  when isoflurane was induced and when it was maintained; and a trial table containing
+  information about every stimulus delivered throughout the session.
+
+
+  All sessions included an awake and an isoflurane epoch, but not all sessions included
+  a recovery epoch. Some subjects received visual stimulation trials (visual stimuli
+  presented on a screen in the subject’s right field of view) interleaved with the
+  electrical stimulation trials.'
+publishedBy:
+  id: urn:uuid:9365f375-532b-46e6-92bb-b6587df796f0
+  name: DANDI publish
+  endDate: '2023-03-17T00:39:49.682458+00:00'
+  schemaKey: PublishActivity
+  startDate: '2023-03-17T00:39:49.682458+00:00'
+  wasAssociatedWith:
+  - id: urn:uuid:67d2b19b-0f63-4846-891c-894c7cde6086
+    name: DANDI API
+    version: 0.1.0
+    schemaKey: Software
+    identifier: RRID:SCR_017571
+studyTarget: []
+assetsSummary:
+  species:
+  - name: Mus musculus - House mouse
+    schemaKey: SpeciesType
+    identifier: http://purl.obolibrary.org/obo/NCBITaxon_10090
+  approach:
+  - name: electrophysiological approach
+    schemaKey: ApproachType
+  - name: behavioral approach
+    schemaKey: ApproachType
+  schemaKey: AssetsSummary
+  dataStandard:
+  - name: Neurodata Without Borders (NWB)
+    schemaKey: StandardsType
+    identifier: RRID:SCR_015242
+  numberOfBytes: 361482309556
+  numberOfFiles: 24
+  numberOfSubjects: 23
+  variableMeasured:
+  - BehavioralTimeSeries
+  - Units
+  - ElectricalSeries
+  - ElectrodeGroup
+  - LFP
+  - ProcessingModule
+  measurementTechnique:
+  - name: surgical technique
+    schemaKey: MeasurementTechniqueType
+  - name: spike sorting technique
+    schemaKey: MeasurementTechniqueType
+  - name: behavioral technique
+    schemaKey: MeasurementTechniqueType
+  - name: analytical technique
+    schemaKey: MeasurementTechniqueType
+  - name: signal filtering technique
+    schemaKey: MeasurementTechniqueType
+  - name: multi electrode extracellular electrophysiology recording technique
+    schemaKey: MeasurementTechniqueType
+datePublished: '2023-03-17T00:39:49.682458+00:00'
+schemaVersion: 0.6.4
+ethicsApproval: []
+wasGeneratedBy: []
+relatedResource:
+- url: https://elifesciences.org/reviewed-preprints/84630
+  name: Cortico-thalamo-cortical interactions modulate electrically evoked EEG responses
+    in mice
+  relation: dcite:IsDescribedBy
+  schemaKey: Resource
+  identifier: Reviewed preprint (eLife)
+  repository: eLife
+- url: https://www.biorxiv.org/content/10.1101/2022.07.22.501195v3
+  name: Cortico-thalamo-cortical interactions modulate electrically evoked EEG responses
+    in mice
+  relation: dcite:IsDescribedBy
+  schemaKey: Resource
+  identifier: Manuscript preprint (bioRxiv)
+  repository: bioRxiv
+manifestLocation:
+- https://dandiarchive.s3.amazonaws.com/dandisets/000458/0.230317.0039/assets.yaml

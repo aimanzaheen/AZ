@@ -1,0 +1,155 @@
+id: DANDI:000021/0.251116.2246
+doi: 10.48324/dandi.000021/0.251116.2246
+url: https://dandiarchive.org/dandiset/000021/0.251116.2246
+name: Allen Institute - Visual Coding - Neuropixels (Brain Observatory 1.1 Stimulus
+  Set)
+about: []
+access:
+- status: dandi:OpenAccess
+  schemaKey: AccessRequirements
+license:
+- spdx:CC-BY-4.0
+version: 0.251116.2246
+'@context': https://raw.githubusercontent.com/dandi/schema/master/releases/0.6.0/context.json
+citation: Siegle, Josh; Wakeman, Wayne; Jia, Xiaoxuan; Heller, Gregg; Ramirez, Tamina;
+  Graddis, Nile; Mei, Nicholas; Durand, Severine (2025) Allen Institute - Visual Coding
+  - Neuropixels (Brain Observatory 1.1 Stimulus Set) (Version 0.251116.2246) [Data
+  set]. DANDI Archive. https://doi.org/10.48324/dandi.000021/0.251116.2246
+keywords:
+- electrophysiology
+- life sciences
+- machine learning
+- neurobiology
+- signal processing
+schemaKey: Dandiset
+identifier: DANDI:000021
+repository: https://dandiarchive.org
+contributor:
+- name: Siegle, Josh
+  email: joshs@alleninstitute.org
+  roleName:
+  - dcite:Author
+  - dcite:ContactPerson
+  - dcite:ProjectLeader
+  schemaKey: Person
+  identifier: 0000-0002-7736-4844
+  affiliation:
+  - name: Allen Institute for Brain Science
+    schemaKey: Affiliation
+  includeInCitation: true
+- name: Wakeman, Wayne
+  email: waynew@alleninstitute.org
+  roleName:
+  - dcite:DataManager
+  - dcite:ContactPerson
+  schemaKey: Person
+  identifier: 0000-0002-3693-3609
+  affiliation:
+  - name: Allen Institute for Brain Science
+    schemaKey: Affiliation
+  includeInCitation: true
+- name: Jia, Xiaoxuan
+  roleName:
+  - dcite:Validation
+  schemaKey: Person
+  identifier: 0000-0001-5484-9331
+  affiliation:
+  - name: Allen Institute for Brain Science
+    schemaKey: Affiliation
+  includeInCitation: true
+- name: Heller, Gregg
+  roleName:
+  - dcite:DataCollector
+  schemaKey: Person
+  identifier: 0000-0003-3552-996X
+  affiliation:
+  - name: Allen Institute for Brain Science
+    schemaKey: Affiliation
+  includeInCitation: true
+- name: Ramirez, Tamina
+  roleName:
+  - dcite:DataCollector
+  schemaKey: Person
+  identifier: 0000-0002-6569-5291
+  affiliation:
+  - name: Allen Institute for Brain Science
+    schemaKey: Affiliation
+  includeInCitation: true
+- name: Graddis, Nile
+  roleName:
+  - dcite:Software
+  schemaKey: Person
+  identifier: 0000-0003-1290-3912
+  affiliation:
+  - name: Allen Institute for Brain Science
+    schemaKey: Affiliation
+  includeInCitation: true
+- name: Mei, Nicholas
+  roleName:
+  - dcite:Software
+  schemaKey: Person
+  identifier: 0000-0001-8893-1763
+  affiliation:
+  - name: Allen Institute for Brain Science
+    schemaKey: Affiliation
+  includeInCitation: true
+- name: Durand, Severine
+  roleName:
+  - dcite:DataCollector
+  schemaKey: Person
+  identifier: 0000-0001-7788-0200
+  affiliation:
+  - name: Allen Institute for Brain Science
+    schemaKey: Affiliation
+  includeInCitation: true
+dateCreated: '2020-05-26T16:47:47.341000+00:00'
+description: "Allen Institute October 2019 Mouse extracellular electrophysiology data\
+  \ approximately matching two-photon brain observatory stimulus set. \n\nFor more\
+  \ information, see https://portal.brain-map.org/explore/circuits/visual-coding-neuropixels\n\
+  \nData are subject to Allen Institute terms of use, available at: http://www.alleninstitute.org/legal/terms-use/"
+publishedBy:
+  id: urn:uuid:8d2dd92e-8009-4d49-92f4-7cdfb4b03ddc
+  name: DANDI publish
+  endDate: '2025-11-16T22:46:42.638124+00:00'
+  schemaKey: PublishActivity
+  startDate: '2025-11-16T22:46:42.638124+00:00'
+  wasAssociatedWith:
+  - id: urn:uuid:30a39d33-fa6b-47d5-ac94-8245d7eba364
+    name: DANDI API
+    version: 0.1.0
+    schemaKey: Software
+    identifier: RRID:SCR_017571
+assetsSummary:
+  species:
+  - name: House mouse
+    schemaKey: SpeciesType
+    identifier: http://purl.obolibrary.org/obo/NCBITaxon_10090
+  approach:
+  - name: electrophysiological approach
+    schemaKey: ApproachType
+  schemaKey: AssetsSummary
+  dataStandard:
+  - name: Neurodata Without Borders (NWB)
+    schemaKey: StandardsType
+    identifier: RRID:SCR_015242
+  numberOfBytes: 477562344354
+  numberOfFiles: 214
+  numberOfSubjects: 32
+  variableMeasured:
+  - ProcessingModule
+  - LFP
+  - Units
+  measurementTechnique:
+  - name: analytical technique
+    schemaKey: MeasurementTechniqueType
+  - name: signal filtering technique
+    schemaKey: MeasurementTechniqueType
+  - name: spike sorting technique
+    schemaKey: MeasurementTechniqueType
+datePublished: '2025-11-16T22:46:42.638124+00:00'
+schemaVersion: 0.6.0
+ethicsApproval: []
+wasGeneratedBy: []
+relatedResource: []
+manifestLocation:
+- https://dandiarchive.s3.amazonaws.com/dandisets/000021/0.251116.2246/assets.yaml

@@ -1,0 +1,3 @@
+table,n_sessions,n_rows,columns
+epochs,24,48,"start_time, stop_time"
+trials,24,33841,"start_time, stop_time, stimulus_type, stimulus_description, estim_current, estim_target_region, estim_target_depth, behavioral_epoch, is_running, is_valid"

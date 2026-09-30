@@ -1,0 +1,611 @@
+{
+ "id": "DANDI:001417/0.260626.2154",
+ "doi": "10.48324/dandi.001417/0.260626.2154",
+ "url": "https://dandiarchive.org/dandiset/001417/0.260626.2154",
+ "name": "Allen Institute OpenScope - Psycode",
+ "about": [
+  {
+   "name": "Psilocybin",
+   "schemaKey": "GenericType"
+  }
+ ],
+ "access": [
+  {
+   "status": "dandi:OpenAccess",
+   "schemaKey": "AccessRequirements",
+   "embargoedUntil": "2026-06-26"
+  }
+ ],
+ "license": [
+  "spdx:CC-BY-4.0"
+ ],
+ "version": "0.260626.2154",
+ "@context": "https://raw.githubusercontent.com/dandi/schema/master/releases/0.6.9/context.json",
+ "citation": "Amaya, Avalon; Bawany, Ahad; Buice, Michael; Carlson, Mikayla; De Filippo, Roberto; Durand, Severine; Gillis, Ryan; Grasso, Conor; Groblewski, Peter; Han, Warren; Johnson, Tye; Kenney, Jaimie; Kiselycznyk, Carly; Koch, Christof; Lecoq, Jérôme A.; Loeffler, Henry; Marks, Lydia; Naidoo, Robyn; Ott, Torben; Ouellette, Ben; Peene, Ross Carter; Rembado, Irene; Schmitz, Dietmar; Suarez, Lucas; Swapp, Jackie; Weber, Julie; Wilkes, Josh; Williford, Ali; Wyrick, David (2026) Allen Institute OpenScope - Psycode (Version 0.260626.2154) [Data set]. DANDI Archive. https://doi.org/10.48324/dandi.001417/0.260626.2154",
+ "keywords": [
+  "psilocybin",
+  "openscope",
+  "mouse",
+  "vision",
+  "ecephys",
+  "neuropixels"
+ ],
+ "schemaKey": "Dandiset",
+ "identifier": "DANDI:001417",
+ "repository": "https://dandiarchive.org",
+ "contributor": [
+  {
+   "name": "National Institutes of Health (NIH)",
+   "roleName": [
+    "dcite:Funder"
+   ],
+   "schemaKey": "Organization",
+   "awardNumber": "1 U24 NS 113646-05"
+  },
+  {
+   "url": "https://alleninstitute.org/person/avalon-amaya",
+   "name": "Amaya, Avalon",
+   "email": "avalon.amaya@wsu.edu",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0003-2274-2892",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "url": "https://www.allenneuraldynamics.org/people/ahad-bawany",
+   "name": "Bawany, Ahad",
+   "email": "ahad.bawany@alleninstitute.org",
+   "roleName": [
+    "dcite:Software"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0009-0002-5495-5411",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Buice, Michael",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0002-2196-1498",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "url": "https://alleninstitute.org/person/mikayla-carlson",
+   "name": "Carlson, Mikayla",
+   "email": "mikayla.carlson@alleninstitute.org",
+   "roleName": [
+    "dcite:DataCollector"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0009-0003-7019-2781",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "url": "https://robertodf.github.io/",
+   "name": "De Filippo, Roberto",
+   "email": "roberto.defilippo@alleninstitute.org",
+   "roleName": [
+    "dcite:ContactPerson",
+    "dcite:Conceptualization"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0002-4085-9114",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    },
+    {
+     "name": "Humboldt University of Berlin",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "awardNumber": "NIH U24 NS113646-01A1",
+   "includeInCitation": true
+  },
+  {
+   "url": "https://alleninstitute.org/person/severine-durand",
+   "name": "Durand, Severine",
+   "email": "severined@alleninstitute.org",
+   "roleName": [
+    "dcite:Investigation"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0001-7788-0200",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Gillis, Ryan",
+   "email": "ryan.gillis@alleninstitute.org",
+   "roleName": [
+    "dcite:DataCollector"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0009-0000-1879-6519",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Grasso, Conor",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0009-0003-6384-4075",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Groblewski, Peter",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0002-8415-1118",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Han, Warren",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Johnson, Tye",
+   "email": "tye.johnson@alleninstitute.org",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0009-0006-7239-7571",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Kenney, Jaimie",
+   "email": "jaimie.kenney@alleninstitute.org",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0009-0003-5308-2783",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Kiselycznyk, Carly",
+   "roleName": [
+    "dcite:ProjectAdministration"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0009-0006-8410-1192",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Koch, Christof",
+   "email": "ChristofK@alleninstitute.org",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0001-6482-8067",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Lecoq, Jérôme A.",
+   "email": "jeromel@alleninstitute.org",
+   "roleName": [
+    "dcite:ProjectLeader",
+    "dcite:ContactPerson"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0002-0131-0938",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Loeffler, Henry",
+   "email": "henry.loeffler@alleninstitute.org",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Marks, Lydia",
+   "email": "lydia.marks@alleninstitute.org",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0002-7270-2680",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Naidoo, Robyn",
+   "email": "robyn.naidoo@alleninstitute.org",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0009-0004-0996-8808",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Ott, Torben",
+   "email": "torben.ott@bccn-berlin.de",
+   "roleName": [
+    "dcite:Supervision"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0002-4168-2832",
+   "affiliation": [
+    {
+     "name": "Humboldt University of Berlin",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Ouellette, Ben",
+   "email": "beno@alleninstitute.org",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "url": "https://alleninstitute.org/person/carter-peene",
+   "name": "Peene, Ross Carter",
+   "email": "carter.peene@alleninstitute.org",
+   "roleName": [
+    "dcite:Software"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0009-0000-6660-2264",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Rembado, Irene",
+   "email": "irene.rembado@alleninstitute.org",
+   "roleName": [
+    "dcite:Supervision"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0001-7121-4442",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Schmitz, Dietmar",
+   "email": "dietmar.schmitz@charite.de",
+   "roleName": [
+    "dcite:Conceptualization"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0003-2741-5241",
+   "affiliation": [],
+   "includeInCitation": true
+  },
+  {
+   "name": "Suarez, Lucas",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Swapp, Jackie",
+   "email": "jackies@alleninstitute.org",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0009-0008-4965-6242",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Weber, Julie",
+   "email": "julie.weber@alleninstitute.org",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0009-0002-1060-3828",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Wilkes, Josh",
+   "email": "josh.wilkes@alleninstitute.org",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Williford, Ali",
+   "email": "aliw@alleninstitute.org",
+   "roleName": [
+    "dcite:Researcher"
+   ],
+   "schemaKey": "Person",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "url": "https://alleninstitute.org/person/david-wyrick",
+   "name": "Wyrick, David",
+   "email": "david.wyrick@alleninstitute.org",
+   "roleName": [
+    "dcite:FormalAnalysis"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0001-8096-5766",
+   "affiliation": [
+    {
+     "name": "Allen Institute",
+     "schemaKey": "Affiliation"
+    }
+   ],
+   "includeInCitation": true
+  }
+ ],
+ "dateCreated": "2025-04-15T18:53:08.895305+00:00",
+ "description": "Psycode dataset is an OpenScope project designed to investigate the effects of psilocybin on visual processing and behavior in the mouse visual cortex. The core experimental design follows a ‘pre-drug / post-drug’ structure, allowing for a within-subject comparison of neural activity and task performance. Initially, mice are trained on a visual change detection task, similar to the paradigm used in the Visual Behavior Optical Physiology and Visual Behavior Neuropixels projects. In this go/no-go task, mice are shown a continuous series of briefly presented natural images (presented for 250 ms), and they earn water rewards by correctly reporting when the identity of the image changes. Alongside this behavior, the experiment includes a battery of passive visual stimulation protocols to probe the functional properties of visual neurons.  The experimental timeline follows a structured sequence. Before psilocybin application, mice first undergo passive visual stimulation for receptive field (RF) mapping and a surround suppression paradigm, providing a baseline measurement of each neuron’s tuning properties. This is followed by the change detection task to end the pre-injection epoch. After psilocybin is administered, the same sequence of stimuli is presented in reverse: first the change detection task, followed by receptive field mapping and surround suppression. Finally, passive visual stimulation is repeated, now including an optotagging protocol at the end to identify cortical SST neurons. This symmetrical design—with both behavioral and passive protocols repeated before and after drug administration—enables a powerful within-subject analysis of how psilocybin modulates visual processing, from basic receptive field properties to complex task-dependent dynamics involving natural image perception. The dataset therefore offers a unique opportunity to link molecularly-specific cell types, natural image perception, and the state-dependent changes induced by a psychedelic compound. **Note: In this dandiset, session ecephys-752309-2025-02-12-13-53-52 had synchronization/alignment issues between stimulus and ecephys timing. Session ecephys_767926_2025-02-26_15-49-35 is missing running data because of a problem ith the sensor during recording**",
+ "publishedBy": {
+  "id": "urn:uuid:7718271f-857f-4f10-9ed7-c2d43de9ca2e",
+  "name": "DANDI publish",
+  "endDate": "2026-06-26T21:54:04.988117+00:00",
+  "schemaKey": "PublishActivity",
+  "startDate": "2026-06-26T21:54:04.988117+00:00",
+  "wasAssociatedWith": [
+   {
+    "id": "urn:uuid:603f3f55-68cd-4d17-9847-4a5e9e122319",
+    "name": "DANDI API",
+    "version": "0.1.0",
+    "schemaKey": "Software",
+    "identifier": "RRID:SCR_017571"
+   }
+  ]
+ },
+ "studyTarget": [
+  "Psilocybin",
+  "Mouse",
+  "Vision"
+ ],
+ "assetsSummary": {
+  "species": [
+   {
+    "name": "Mus musculus - House mouse",
+    "schemaKey": "SpeciesType",
+    "identifier": "http://purl.obolibrary.org/obo/NCBITaxon_10090"
+   }
+  ],
+  "approach": [
+   {
+    "name": "electrophysiological approach",
+    "schemaKey": "ApproachType"
+   }
+  ],
+  "schemaKey": "AssetsSummary",
+  "dataStandard": [
+   {
+    "name": "Neurodata Without Borders (NWB)",
+    "schemaKey": "StandardsType",
+    "identifier": "RRID:SCR_015242"
+   }
+  ],
+  "numberOfBytes": 354660247064,
+  "numberOfFiles": 20,
+  "numberOfSubjects": 10,
+  "variableMeasured": [
+   "ProcessingModule",
+   "Units",
+   "LFP",
+   "ElectricalSeries",
+   "ElectrodeGroup"
+  ],
+  "measurementTechnique": [
+   {
+    "name": "multi electrode extracellular electrophysiology recording technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "spike sorting technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "surgical technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "signal filtering technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "analytical technique",
+    "schemaKey": "MeasurementTechniqueType"
+   }
+  ]
+ },
+ "datePublished": "2026-06-26T21:54:04.988117+00:00",
+ "schemaVersion": "0.6.9",
+ "ethicsApproval": [
+  {
+   "schemaKey": "EthicsApproval",
+   "identifier": "​Allen Institute Institutional Animal Care and Use Committee (IACUC), protocol 2117",
+   "contactPoint": {
+    "schemaKey": "ContactPoint"
+   }
+  }
+ ],
+ "wasGeneratedBy": [],
+ "acknowledgement": "We thank the Allen Institute founder, Paul G. Allen, for his vision, encouragement, and support.",
+ "relatedResource": [
+  {
+   "url": "https://alleninstitute.github.io/openscope_databook/psycode/",
+   "name": "OpenScope’s Psycode Dataset",
+   "relation": "dcite:IsDescribedBy",
+   "schemaKey": "Resource",
+   "repository": "OpenScope Databook",
+   "resourceType": "dcite:ComputationalNotebook"
+  }
+ ],
+ "manifestLocation": [
+  "https://dandiarchive.s3.amazonaws.com/dandisets/001417/0.260626.2154/assets.yaml"
+ ]
+}

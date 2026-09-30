@@ -1,0 +1,30 @@
+location,name,description
+electrodes,(table),metadata about extracellular electrodes
+electrodes,location,the location of channel within the subject e.g. brain region
+electrodes,group,a reference to the ElectrodeGroup this electrode is a part of
+electrodes,group_name,the name of the ElectrodeGroup this electrode is a part of
+electrodes,is_data_valid,True for electrodes/channels with usable data
+electrodes,probe_vertical_position,length-wise position of electrode/channel on device (microns)
+electrodes,probe_horizontal_position,width-wise position of electrode/channel on device (microns)
+electrodes,x,the x coordinate of the position (+x is posterior)
+electrodes,y,the y coordinate of the position (+y is inferior)
+electrodes,z,the z coordinate of the position (+z is right)
+electrodes,reference,"Description of the reference electrode and/or reference scheme used for this                         electrode, e.g.,""stainless steel skull screw"" or ""online common average referencing""."
+intervals/epochs,(table),experimental epochs
+intervals/epochs,start_time,"Start time of epoch, in seconds"
+intervals/epochs,stop_time,"Stop time of epoch, in seconds"
+intervals/epochs,tags,user-defined tags
+intervals/trials,(table),experimental trials
+intervals/trials,start_time,"Start time of epoch, in seconds"
+intervals/trials,stop_time,"Stop time of epoch, in seconds"
+intervals/trials,stimulus_type,type of stimulus delivered
+intervals/trials,stimulus_description,more specific description of stimulus type
+intervals/trials,estim_current,"electrical stimulation current (μA), if applicable"
+intervals/trials,estim_target_region,"electrical stimulation target region, if applicable"
+intervals/trials,estim_target_depth,"electrical stimulation target depth (cortical layer), if applicable"
+intervals/trials,behavioral_epoch,behavioral epoch when stimulus was delivered
+intervals/trials,is_running,"True if mouse is running during trial, running defined as average speed > 0 cm/s between [-0.5, 0.5] s from stimulus onset"
+intervals/trials,is_valid,"True for valid trials, trials are invalid if they have large electrical artifacts or if electrical stimulation was off target"
+acquisition,ElectricalSeriesEEG,voltage measured over time and associated timestamps from EEG array
+processing/behavior,(module),processed behavioral data
+processing/behavior/BehavioralTimeSeries,running_speed,"running speed data, computed from wheel angular velocity"

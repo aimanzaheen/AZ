@@ -1,0 +1,499 @@
+id: DANDI:000409/0.260309.1324
+doi: 10.48324/dandi.000409/0.260309.1324
+url: https://dandiarchive.org/dandiset/000409/0.260309.1324
+name: IBL - Brain Wide Map
+about: []
+access:
+- status: dandi:OpenAccess
+  schemaKey: AccessRequirements
+license:
+- spdx:CC-BY-4.0
+version: 0.260309.1324
+'@context': https://raw.githubusercontent.com/dandi/schema/master/releases/0.6.3/context.json
+citation: International Brain Laboratory; Benson, Brandon; Benson, Julius; Birman,
+  Daniel; Bonacchi, Niccolò; Carandini, Matteo; Catarino, Joana; Chapuis, Gaelle;
+  Dayan, Peter; DeWitt, Eric; Engel, Tatiana; Fabbri, Michele; Faulkner, Mayo; Fiete,
+  Ila; Findling, Charles; Freitas-Silva, Laura; Gerçek, Berk; Harris, Kenneth; Hofer,
+  Sonja; Hu, Fei; Hubert, Félix; Huntenburg, Julia; Khanal, Anup; Langdon, Christopher;
+  Lau, Petrina; Meijer, Guido; Miska, Nathaniel; Noel, Jean-Paul; Nylund, Kai; Pan-Vazquez,
+  Alejandro; Pouget, Alexandre; Rossant, Cyrille; Roth, Noam; Schaeffer, Rylan; Schartner,
+  Michael; Shi, Yanliang; Socha, Karolina; Steinmetz, Nicholas; Svoboda, Karel; Urai,
+  Anne; Wells, Miles; West, Steven; Whiteway, Mathew; Winter, Olivier; Witten, Ilana
+  (2026) IBL - Brain Wide Map (Version 0.260309.1324) [Data set]. DANDI Archive. https://doi.org/10.48324/dandi.000409/0.260309.1324
+keywords:
+- International Brain Laboratory
+- multi-probe
+- Neuropixels
+- Allen Mouse Brain CCFv3
+- Allen Mouse Brain Atlas
+- head-fixed
+- decision-making
+- face-tracking
+schemaKey: Dandiset
+identifier: DANDI:000409
+repository: https://dandiarchive.org
+contributor:
+- url: https://www.internationalbrainlab.com/
+  name: International Brain Laboratory
+  email: info@internationalbrainlab.org
+  roleName:
+  - dcite:ContactPerson
+  schemaKey: Organization
+  contactPoint: []
+  includeInCitation: true
+- url: http://www.wellcome.ac.uk
+  name: Wellcome Trust
+  roleName:
+  - dcite:Funder
+  schemaKey: Organization
+  identifier: https://ror.org/029chgv08
+  awardNumber: 209558, 216324
+  contactPoint: []
+  includeInCitation: false
+- url: https://www.simonsfoundation.org
+  name: Simons Foundation
+  roleName:
+  - dcite:Funder
+  schemaKey: Organization
+  identifier: https://ror.org/01cmst727
+  contactPoint: []
+  includeInCitation: false
+- url: http://www.nih.gov/
+  name: National Institutes of Health
+  roleName:
+  - dcite:Funder
+  schemaKey: Organization
+  identifier: https://ror.org/01cwqze88
+  awardNumber: 1U19NS123716, Diversity Supplement, Administrative Supplement to Support
+    Enhancement of Software Tools for Open Science
+  contactPoint: []
+  includeInCitation: false
+- name: Benson, Brandon
+  schemaKey: Person
+  identifier: 0000-0003-3719-4358
+  affiliation:
+  - name: Stanford University
+    schemaKey: Affiliation
+    identifier: https://ror.org/00f54p054
+  includeInCitation: true
+- name: Benson, Julius
+  schemaKey: Person
+  affiliation:
+  - name: New York University
+    schemaKey: Affiliation
+    identifier: https://ror.org/0190ak572
+  includeInCitation: true
+- name: Birman, Daniel
+  schemaKey: Person
+  identifier: 0000-0003-3748-6289
+  affiliation:
+  - name: University of Washington
+    schemaKey: Affiliation
+    identifier: https://ror.org/00cvxb145
+  includeInCitation: true
+- name: Bonacchi, Niccolò
+  schemaKey: Person
+  identifier: 0000-0001-5228-6918
+  affiliation:
+  - name: Champalimaud Foundation
+    schemaKey: Affiliation
+    identifier: https://ror.org/03g001n57
+  includeInCitation: true
+- name: Carandini, Matteo
+  schemaKey: Person
+  identifier: 0000-0003-4880-7682
+  affiliation:
+  - name: University College London
+    schemaKey: Affiliation
+    identifier: https://ror.org/02jx3x895
+  includeInCitation: true
+- name: Catarino, Joana
+  schemaKey: Person
+  identifier: 0000-0001-8761-5531
+  affiliation:
+  - name: Champalimaud Foundation
+    schemaKey: Affiliation
+    identifier: https://ror.org/03g001n57
+  includeInCitation: true
+- name: Chapuis, Gaelle
+  schemaKey: Person
+  affiliation:
+  - name: University of Geneva
+    schemaKey: Affiliation
+    identifier: https://ror.org/01swzsf04
+  includeInCitation: true
+- name: Dayan, Peter
+  schemaKey: Person
+  identifier: 0000-0003-3476-1839
+  affiliation:
+  - name: Max Planck Society
+    schemaKey: Affiliation
+    identifier: https://ror.org/01hhn8329
+  includeInCitation: true
+- name: DeWitt, Eric
+  schemaKey: Person
+  identifier: 0000-0001-9182-8257
+  affiliation:
+  - name: Champalimaud Foundation
+    schemaKey: Affiliation
+    identifier: https://ror.org/03g001n57
+  includeInCitation: true
+- name: Engel, Tatiana
+  schemaKey: Person
+  identifier: 0000-0001-5842-9406
+  affiliation:
+  - name: Princeton Universty
+    schemaKey: Affiliation
+    identifier: https://ror.org/00hx57361
+  includeInCitation: true
+- name: Fabbri, Michele
+  schemaKey: Person
+  affiliation:
+  - name: Champalimaud Foundation
+    schemaKey: Affiliation
+    identifier: https://ror.org/03g001n57
+  includeInCitation: true
+- name: Faulkner, Mayo
+  schemaKey: Person
+  identifier: 0000-0001-5427-0282
+  affiliation:
+  - name: University College London
+    schemaKey: Affiliation
+    identifier: https://ror.org/02jx3x895
+  includeInCitation: true
+- name: Fiete, Ila
+  schemaKey: Person
+  identifier: 0000-0003-4738-2539
+  affiliation:
+  - name: Massachusetts Institute of Technology
+    schemaKey: Affiliation
+    identifier: https://ror.org/042nb2s44
+  includeInCitation: true
+- name: Findling, Charles
+  schemaKey: Person
+  affiliation:
+  - name: University of Geneva
+    schemaKey: Affiliation
+    identifier: https://ror.org/01swzsf04
+  includeInCitation: true
+- name: Freitas-Silva, Laura
+  schemaKey: Person
+  affiliation:
+  - name: Champalimaud Foundation
+    schemaKey: Affiliation
+    identifier: https://ror.org/03g001n57
+  includeInCitation: true
+- name: Gerçek, Berk
+  schemaKey: Person
+  identifier: 0000-0003-1063-6769
+  affiliation:
+  - name: University of Geneva
+    schemaKey: Affiliation
+    identifier: https://ror.org/01swzsf04
+  includeInCitation: true
+- name: Harris, Kenneth
+  schemaKey: Person
+  identifier: 0000-0002-5930-6456
+  affiliation:
+  - name: University College London
+    schemaKey: Affiliation
+    identifier: https://ror.org/02jx3x895
+  includeInCitation: true
+- name: Hofer, Sonja
+  schemaKey: Person
+  identifier: 0000-0003-4921-8521
+  affiliation:
+  - name: University College London
+    schemaKey: Affiliation
+    identifier: https://ror.org/02jx3x895
+  includeInCitation: true
+- name: Hu, Fei
+  schemaKey: Person
+  identifier: 0000-0001-7827-9548
+  affiliation:
+  - name: University of California, Berkeley
+    schemaKey: Affiliation
+    identifier: https://ror.org/01an7q238
+  includeInCitation: true
+- name: Hubert, Félix
+  schemaKey: Person
+  affiliation:
+  - name: University of Geneva
+    schemaKey: Affiliation
+    identifier: https://ror.org/01swzsf04
+  includeInCitation: true
+- name: Huntenburg, Julia
+  schemaKey: Person
+  identifier: 0000-0003-0579-9811
+  affiliation:
+  - name: Max Planck Society
+    schemaKey: Affiliation
+    identifier: https://ror.org/01hhn8329
+  includeInCitation: true
+- name: Khanal, Anup
+  schemaKey: Person
+  identifier: 0000-0002-8929-7984
+  affiliation:
+  - name: University of California Los Angeles
+    schemaKey: Affiliation
+    identifier: https://ror.org/046rm7j60
+  includeInCitation: true
+- name: Langdon, Christopher
+  schemaKey: Person
+  affiliation:
+  - name: Cold Spring Harbor Laboratory
+    schemaKey: Affiliation
+    identifier: https://ror.org/02qz8b764
+  includeInCitation: true
+- name: Lau, Petrina
+  schemaKey: Person
+  identifier: 0000-0003-2257-2344
+  affiliation:
+  - name: University College London
+    schemaKey: Affiliation
+    identifier: https://ror.org/02jx3x895
+  includeInCitation: true
+- name: Meijer, Guido
+  schemaKey: Person
+  identifier: 0000-0002-7473-0482
+  affiliation:
+  - name: Champalimaud Foundation
+    schemaKey: Affiliation
+    identifier: https://ror.org/03g001n57
+  includeInCitation: true
+- name: Miska, Nathaniel
+  schemaKey: Person
+  identifier: 0000-0001-8587-4919
+  affiliation:
+  - name: University College London
+    schemaKey: Affiliation
+    identifier: https://ror.org/02jx3x895
+  includeInCitation: true
+- name: Noel, Jean-Paul
+  schemaKey: Person
+  identifier: 0000-0001-5297-3363
+  affiliation:
+  - name: New York University
+    schemaKey: Affiliation
+    identifier: https://ror.org/0190ak572
+  includeInCitation: true
+- name: Nylund, Kai
+  schemaKey: Person
+  affiliation:
+  - name: University of Washington
+    schemaKey: Affiliation
+    identifier: https://ror.org/00cvxb145
+  includeInCitation: true
+- name: Pan-Vazquez, Alejandro
+  schemaKey: Person
+  identifier: 0000-0001-5899-0471
+  affiliation:
+  - name: Princeton Universty
+    schemaKey: Affiliation
+    identifier: https://ror.org/00hx57361
+  includeInCitation: true
+- name: Pouget, Alexandre
+  schemaKey: Person
+  identifier: 0000-0003-3054-6365
+  affiliation:
+  - name: University of Geneva
+    schemaKey: Affiliation
+    identifier: https://ror.org/01swzsf04
+  includeInCitation: true
+- name: Rossant, Cyrille
+  schemaKey: Person
+  identifier: 0000-0003-2069-9093
+  affiliation:
+  - name: University College London
+    schemaKey: Affiliation
+    identifier: https://ror.org/02jx3x895
+  includeInCitation: true
+- name: Roth, Noam
+  schemaKey: Person
+  identifier: 0000-0002-0168-0103
+  affiliation:
+  - name: University of Washington
+    schemaKey: Affiliation
+    identifier: https://ror.org/00cvxb145
+  includeInCitation: true
+- name: Schaeffer, Rylan
+  schemaKey: Person
+  identifier: 0000-0002-4298-7216
+  affiliation:
+  - name: Stanford University
+    schemaKey: Affiliation
+    identifier: https://ror.org/00f54p054
+  includeInCitation: true
+- name: Schartner, Michael
+  schemaKey: Person
+  identifier: 0000-0002-4854-3034
+  affiliation:
+  - name: Champalimaud Foundation
+    schemaKey: Affiliation
+    identifier: https://ror.org/03g001n57
+  includeInCitation: true
+- name: Shi, Yanliang
+  schemaKey: Person
+  identifier: 0000-0003-2427-5298
+  affiliation:
+  - name: Princeton Universty
+    schemaKey: Affiliation
+    identifier: https://ror.org/00hx57361
+  includeInCitation: true
+- name: Socha, Karolina
+  schemaKey: Person
+  identifier: 0000-0002-1677-1489
+  affiliation:
+  - name: University College London
+    schemaKey: Affiliation
+    identifier: https://ror.org/02jx3x895
+  includeInCitation: true
+- name: Steinmetz, Nicholas
+  schemaKey: Person
+  identifier: 0000-0001-7029-2908
+  affiliation:
+  - name: University of Washington
+    schemaKey: Affiliation
+    identifier: https://ror.org/00cvxb145
+  includeInCitation: true
+- name: Svoboda, Karel
+  schemaKey: Person
+  affiliation:
+  - name: Allen Institute for Neural Dynamics
+    schemaKey: Affiliation
+    identifier: https://ror.org/04szwah67
+  includeInCitation: true
+- name: Urai, Anne
+  schemaKey: Person
+  identifier: 0000-0001-5270-6513
+  affiliation:
+  - name: Leiden University
+    schemaKey: Affiliation
+    identifier: https://ror.org/027bh9e22
+  includeInCitation: true
+- name: Wells, Miles
+  schemaKey: Person
+  identifier: 0000-0003-4014-2591
+  affiliation:
+  - name: University College London
+    schemaKey: Affiliation
+    identifier: https://ror.org/02jx3x895
+  includeInCitation: true
+- name: West, Steven
+  schemaKey: Person
+  identifier: 0000-0002-2413-0999
+  affiliation:
+  - name: University College London
+    schemaKey: Affiliation
+    identifier: https://ror.org/02jx3x895
+  includeInCitation: true
+- name: Whiteway, Mathew
+  schemaKey: Person
+  identifier: 0000-0003-3756-1349
+  affiliation:
+  - name: Columbia University
+    schemaKey: Affiliation
+    identifier: https://ror.org/00hj8s172
+  includeInCitation: true
+- name: Winter, Olivier
+  schemaKey: Person
+  identifier: 0000-0001-9278-2721
+  affiliation:
+  - name: Champalimaud Foundation
+    schemaKey: Affiliation
+    identifier: https://ror.org/03g001n57
+  includeInCitation: true
+- name: Witten, Ilana
+  schemaKey: Person
+  affiliation:
+  - name: Princeton Universty
+    schemaKey: Affiliation
+    identifier: https://ror.org/00hx57361
+  includeInCitation: true
+dateCreated: '2023-01-31T21:47:46.772688+00:00'
+description: 'The International Brain lab (IBL) aims to understand the neural basis
+  of decision-making in the mouse by gathering a whole-brain activity map composed
+  of electrophysiological recordings pooled from multiple laboratories. We have systematically
+  recorded from nearly all major brain areas with Neuropixels probes, using a grid
+  system for unbiased sampling and replicating each recording site in at least two
+  laboratories. These data have been used to construct a brain-wide map of activity
+  at single-spike cellular resolution during a decision-making task. In addition to
+  the map, this data set contains other information gathered during the task: sensory
+  stimuli presented to the mouse; mouse decisions and response times; and mouse pose
+  information from video recordings and DeepLabCut analysis.'
+publishedBy:
+  id: urn:uuid:9eeebe0b-c49a-4fd6-b89f-be806767aeb5
+  name: DANDI publish
+  endDate: '2026-03-09T13:24:10.741911+00:00'
+  schemaKey: PublishActivity
+  startDate: '2026-03-09T13:24:10.741911+00:00'
+  wasAssociatedWith:
+  - id: urn:uuid:fed6a824-30c5-40b7-92d1-222dbe57ca22
+    name: DANDI API
+    version: 0.1.0
+    schemaKey: Software
+    identifier: RRID:SCR_017571
+assetsSummary:
+  species:
+  - name: Mus musculus - House mouse
+    schemaKey: SpeciesType
+    identifier: http://purl.obolibrary.org/obo/NCBITaxon_10090
+  approach:
+  - name: electrophysiological approach
+    schemaKey: ApproachType
+  - name: behavioral approach
+    schemaKey: ApproachType
+  schemaKey: AssetsSummary
+  dataStandard:
+  - name: Neurodata Without Borders (NWB)
+    schemaKey: StandardsType
+    identifier: RRID:SCR_015242
+  numberOfBytes: 49700602778159
+  numberOfFiles: 2048
+  numberOfSubjects: 139
+  variableMeasured:
+  - ElectricalSeries
+  - ElectrodeGroup
+  - SpatialSeries
+  - Units
+  - ProcessingModule
+  measurementTechnique:
+  - name: surgical technique
+    schemaKey: MeasurementTechniqueType
+  - name: multi electrode extracellular electrophysiology recording technique
+    schemaKey: MeasurementTechniqueType
+  - name: analytical technique
+    schemaKey: MeasurementTechniqueType
+  - name: behavioral technique
+    schemaKey: MeasurementTechniqueType
+  - name: spike sorting technique
+    schemaKey: MeasurementTechniqueType
+datePublished: '2026-03-09T13:24:10.741911+00:00'
+schemaVersion: 0.6.3
+ethicsApproval: []
+wasGeneratedBy: []
+relatedResource:
+- url: https://www.biorxiv.org/content/10.1101/2023.07.04.547681v2
+  name: A Brain-Wide Map of Neural Activity during Complex Behaviour
+  relation: dcite:IsDescribedBy
+  schemaKey: Resource
+  identifier: https://doi.org/10.1101/2023.07.04.547681
+  resourceType: dcite:Preprint
+- url: https://figshare.com/articles/preprint/Data_release_-_Brainwide_map_-_Q4_2022/21400815
+  name: Data release - Brainwide map - Q4 2022
+  relation: dcite:IsDescribedBy
+  schemaKey: Resource
+- url: https://figshare.com/articles/preprint/A_standardized_and_reproducible_method_to_measure_decision-making_in_mice_Appendix_2_IBL_protocol_for_mice_training/11634729
+  name: 'Behavior: Appendix 2: IBL protocol for mice training'
+  relation: dcite:IsDescribedBy
+  schemaKey: Resource
+  identifier: https://doi.org/10.1101/2020.01.17.909838
+- url: https://github.com/catalystneuro/IBL-to-nwb
+  name: Conversion Software
+  relation: dcite:IsSourceOf
+  schemaKey: Resource
+  identifier: ''
+  repository: catalystneuro/IBL-to-nwb
+  resourceType: dcite:Software
+manifestLocation:
+- https://dandiarchive.s3.amazonaws.com/dandisets/000409/0.260309.1324/assets.yaml

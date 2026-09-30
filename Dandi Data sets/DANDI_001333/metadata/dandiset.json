@@ -1,0 +1,106 @@
+{
+ "id": "DANDI:001333/0.250327.2220",
+ "doi": "10.48324/dandi.001333/0.250327.2220",
+ "url": "https://dandiarchive.org/dandiset/001333/0.250327.2220",
+ "name": "Parkinson's Electrophysiological Signal Dataset (PESD)",
+ "access": [
+  {
+   "status": "dandi:OpenAccess",
+   "schemaKey": "AccessRequirements"
+  }
+ ],
+ "license": [
+  "spdx:CC-BY-4.0"
+ ],
+ "version": "0.250327.2220",
+ "@context": "https://raw.githubusercontent.com/dandi/schema/master/releases/0.6.9/context.json",
+ "citation": "Biswas, Ananna (2025) Parkinson's Electrophysiological Signal Dataset (PESD) (Version 0.250327.2220) [Data set]. DANDI Archive. https://doi.org/10.48324/dandi.001333/0.250327.2220",
+ "schemaKey": "Dandiset",
+ "identifier": "DANDI:001333",
+ "repository": "https://dandiarchive.org",
+ "contributor": [
+  {
+   "name": "Biswas, Ananna",
+   "email": "ananna314.bd@gmail.com",
+   "roleName": [
+    "dcite:ContactPerson"
+   ],
+   "schemaKey": "Person",
+   "affiliation": [],
+   "includeInCitation": true
+  }
+ ],
+ "dateCreated": "2025-02-08T10:15:43.847350+00:00",
+ "description": "The dataset contains electrophysiological signals from both healthy and parkinsonian subjects. We generated two types of samples from each group. The parkinsonian signals show a relatively high power density at the beta frequency (13 to 30 Hz). Thus, the beta oscillations (13 to 30 Hz) in the subthalamic nucleus (STN) are typically used as the pathological biomarkers for PD symptoms. Each sample includes two types of signals: Beta Average Rectified Voltage (ARV) and Local Field Potential (LFP) from the Subthalamic Nucleus (STN). The ARV signals are in the frequency domain and LFP signals are in the time domain.\n\nBeta ARV Signal: The controller beta values are determined by calculating the Average Rectified Value (ARV) of the beta band. This is achieved by fully rectifying the filtered LFP signal using a fourth-order Chebyshev band-pass filter with an 8 Hz bandwidth, centered around the peak of the LFP power spectrum. Local Field Potential (LFP) - STN: Local Field Potentials are derived from the synchronized activity of neuron populations between the cortex, STN, and thalamus.\n\nMore details can be found in our article named, “Preliminary Results of Neuromorphic Controller Design and a Parkinson's Disease Dataset Building for Closed-Loop Deep Brain Stimulation”, available at https://arxiv.org/abs/2407.17756",
+ "publishedBy": {
+  "id": "urn:uuid:ae476dfe-913c-4cfe-932b-8f1f99342dff",
+  "name": "DANDI publish",
+  "endDate": "2025-03-27T22:20:53.652589+00:00",
+  "schemaKey": "PublishActivity",
+  "startDate": "2025-03-27T22:20:53.652589+00:00",
+  "wasAssociatedWith": [
+   {
+    "id": "urn:uuid:c92d6c4d-4458-424e-bbd3-3e84585e3190",
+    "name": "DANDI API",
+    "version": "0.1.0",
+    "schemaKey": "Software",
+    "identifier": "RRID:SCR_017571"
+   }
+  ]
+ },
+ "assetsSummary": {
+  "species": [
+   {
+    "name": "Homo sapiens - Human",
+    "schemaKey": "SpeciesType",
+    "identifier": "http://purl.obolibrary.org/obo/NCBITaxon_9606"
+   }
+  ],
+  "approach": [
+   {
+    "name": "electrophysiological approach",
+    "schemaKey": "ApproachType"
+   }
+  ],
+  "schemaKey": "AssetsSummary",
+  "dataStandard": [
+   {
+    "name": "Neurodata Without Borders (NWB)",
+    "schemaKey": "StandardsType",
+    "identifier": "RRID:SCR_015242"
+   }
+  ],
+  "numberOfBytes": 28983392,
+  "numberOfFiles": 52,
+  "numberOfSubjects": 5,
+  "variableMeasured": [
+   "ElectricalSeries",
+   "LFP",
+   "ElectrodeGroup",
+   "ProcessingModule"
+  ],
+  "measurementTechnique": [
+   {
+    "name": "analytical technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "signal filtering technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "surgical technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "multi electrode extracellular electrophysiology recording technique",
+    "schemaKey": "MeasurementTechniqueType"
+   }
+  ]
+ },
+ "datePublished": "2025-03-27T22:20:53.652589+00:00",
+ "schemaVersion": "0.6.9",
+ "manifestLocation": [
+  "https://dandiarchive.s3.amazonaws.com/dandisets/001333/0.250327.2220/assets.yaml"
+ ]
+}

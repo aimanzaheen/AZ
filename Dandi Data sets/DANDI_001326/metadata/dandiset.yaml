@@ -1,0 +1,94 @@
+id: DANDI:001326/0.250528.1957
+doi: 10.48324/dandi.001326/0.250528.1957
+url: https://dandiarchive.org/dandiset/001326/0.250528.1957
+name: Brain-wide mouse electrophysiology during aversive stimuli and ketamine
+about: []
+access:
+- status: dandi:OpenAccess
+  schemaKey: AccessRequirements
+license:
+- spdx:CC-BY-4.0
+version: 0.250528.1957
+'@context': https://raw.githubusercontent.com/dandi/schema/master/releases/0.6.9/context.json
+citation: Brain-wide mouse electrophysiology during aversive stimuli and ketamine
+  (2025). (Version 0.250528.1957) [Data set]. DANDI Archive. https://doi.org/10.48324/dandi.001326/0.250528.1957
+keywords:
+- Neuropixels
+- Mouse
+- Electrophysiology
+- Ketamine
+- Timescale
+schemaKey: Dandiset
+identifier: DANDI:001326
+repository: https://dandiarchive.org
+contributor:
+- name: National Institutes of Health (NIH)
+  roleName:
+  - dcite:Funder
+  schemaKey: Organization
+  awardNumber: 1 P50 DA 042012-01A1
+- name: Richman, Ethan
+  email: erichamc@gmail.com
+  roleName:
+  - dcite:Author
+  - dcite:ContactPerson
+  schemaKey: Person
+  identifier: 0000-0001-8471-266X
+- name: Kauvar, Isaac
+  email: ikauvar@gmail.com
+  roleName:
+  - dcite:Author
+  schemaKey: Person
+  identifier: 0000-0002-1336-0721
+dateCreated: '2025-01-25T22:09:29.961947+00:00'
+description: Brain-wide electrophysiology associated with Kauvar*, Richman*, Liu*
+  et al. Science (2025). https://doi.org/10.1126/science.adt3971
+publishedBy:
+  id: urn:uuid:bfd23037-8765-49dd-b401-ab08e6104132
+  name: DANDI publish
+  endDate: '2025-05-28T19:57:47.043354+00:00'
+  schemaKey: PublishActivity
+  startDate: '2025-05-28T19:57:47.043354+00:00'
+  wasAssociatedWith:
+  - id: urn:uuid:9ee1a6fd-590d-4f80-b3bc-928cbff73110
+    name: DANDI API
+    version: 0.1.0
+    schemaKey: Software
+    identifier: RRID:SCR_017571
+assetsSummary:
+  species:
+  - name: Mus musculus - House mouse
+    schemaKey: SpeciesType
+    identifier: http://purl.obolibrary.org/obo/NCBITaxon_10090
+  approach:
+  - name: electrophysiological approach
+    schemaKey: ApproachType
+  schemaKey: AssetsSummary
+  dataStandard:
+  - name: Neurodata Without Borders (NWB)
+    schemaKey: StandardsType
+    identifier: RRID:SCR_015242
+  numberOfBytes: 2606908588
+  numberOfFiles: 13
+  numberOfSubjects: 10
+  variableMeasured:
+  - ElectrodeGroup
+  - Units
+  measurementTechnique:
+  - name: spike sorting technique
+    schemaKey: MeasurementTechniqueType
+  - name: surgical technique
+    schemaKey: MeasurementTechniqueType
+datePublished: '2025-05-28T19:57:47.043354+00:00'
+schemaVersion: 0.6.9
+ethicsApproval: []
+wasGeneratedBy: []
+relatedResource:
+- url: https://zenodo.org/records/14876694
+  relation: dcite:IsSupplementTo
+  schemaKey: Resource
+  identifier: Analysis code
+  repository: Analysis
+  resourceType: dcite:Software
+manifestLocation:
+- https://dandiarchive.s3.amazonaws.com/dandisets/001326/0.250528.1957/assets.yaml
