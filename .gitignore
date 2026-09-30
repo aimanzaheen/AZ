@@ -15,3 +15,4 @@ dandi_export/output_000409/*.parquet
 dandi_export/output_001333/signals/
 # streamed exports: per-session scratch
 dandi_export/output_*/_sessions/
+dandi_export/output_*/VERSION
