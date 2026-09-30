@@ -1,0 +1,224 @@
+location,name,description
+electrodes,(table),metadata about extracellular electrodes
+electrodes,location,the location of channel within the subject e.g. brain region
+electrodes,group,a reference to the ElectrodeGroup this electrode is a part of
+electrodes,group_name,the name of the ElectrodeGroup this electrode is a part of
+electrodes,channel_name,unique channel reference
+electrodes,rel_y,rel_y
+electrodes,rel_x,rel_x
+electrodes,inter_sample_shift,no description
+electrodes,x,ccf x coordinate
+electrodes,y,ccf y coordinate
+electrodes,z,ccf z coordinate
+units,(table),Units from Kilosort4
+units,spike_times,the spike times for each unit
+units,electrodes,the electrodes that each spike unit came from
+units,waveform_mean,the spike waveform mean for each spike unit
+units,waveform_sd,the spike waveform standard deviation for each spike unit
+units,unit_name,Unique reference for each unit.
+units,sync_spike_4,No description.
+units,presence_ratio,No description.
+units,amplitude_cv_range,No description.
+units,isi_violations_ratio,No description.
+units,nn_miss_rate,No description.
+units,estimated_y,No description.
+units,repolarization_slope,No description.
+units,d_prime,No description.
+units,num_positive_peaks,No description.
+units,drift_mad,No description.
+units,amplitude,No description.
+units,estimated_z,No description.
+units,velocity_above,No description.
+units,nn_hit_rate,No description.
+units,device_name,No description.
+units,firing_range,No description.
+units,amplitude_cv_median,No description.
+units,exp_decay,No description.
+units,estimated_x,No description.
+units,rp_violations,No description.
+units,velocity_below,No description.
+units,amplitude_cutoff,No description.
+units,recovery_slope,No description.
+units,drift_std,No description.
+units,snr,The signal-to-noise ratio of the unit.
+units,isolation_distance,No description.
+units,num_spikes,No description.
+units,depth,No description.
+units,sync_spike_2,No description.
+units,ks_unit_id,No description.
+units,default_qc,No description.
+units,l_ratio,No description.
+units,decoder_label,No description.
+units,shank,No description.
+units,drift_ptp,No description.
+units,original_cluster_id,No description.
+units,sync_spike_8,No description.
+units,isi_violations_count,No description.
+units,num_negative_peaks,No description.
+units,decoder_probability,No description.
+units,spread,No description.
+units,half_width,No description.
+units,firing_rate,Number of spikes per unit of time.
+units,amplitude_median,No description.
+units,sliding_rp_violation,No description.
+units,silhouette,No description.
+units,peak_trough_ratio,No description.
+units,rp_contamination,No description.
+units,peak_to_valley,The duration between the negative and the positive peaks computed on the maximum channel.
+intervals/40 hz pulse train_presentations,(table),"Presentation times and stimuli details for '40 hz pulse train' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/40 hz pulse train_presentations,start_time,"Start time of epoch, in seconds"
+intervals/40 hz pulse train_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/40 hz pulse train_presentations,condition_num,Description of condition_num
+intervals/40 hz pulse train_presentations,level,Description of level
+intervals/40 hz pulse train_presentations,condition,Description of condition
+intervals/40 hz pulse train_presentations,stim_name,Description of stim_name
+intervals/40 hz pulse train_presentations,duration,Description of duration
+intervals/40 hz pulse train_presentations,timeseries,index into a TimeSeries object
+intervals/5 hz pulse train_presentations,(table),"Presentation times and stimuli details for '5 hz pulse train' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/5 hz pulse train_presentations,start_time,"Start time of epoch, in seconds"
+intervals/5 hz pulse train_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/5 hz pulse train_presentations,condition_num,Description of condition_num
+intervals/5 hz pulse train_presentations,level,Description of level
+intervals/5 hz pulse train_presentations,condition,Description of condition
+intervals/5 hz pulse train_presentations,stim_name,Description of stim_name
+intervals/5 hz pulse train_presentations,duration,Description of duration
+intervals/5 hz pulse train_presentations,timeseries,index into a TimeSeries object
+intervals/behavior_presentations,(table),"Presentation times and stimuli details for 'behavior' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/behavior_presentations,start_time,"Start time of epoch, in seconds"
+intervals/behavior_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/behavior_presentations,duration,Description of duration
+intervals/behavior_presentations,image_name,Description of image_name
+intervals/behavior_presentations,image_set,Description of image_set
+intervals/behavior_presentations,omitted,Description of omitted
+intervals/behavior_presentations,stim_name,Description of stim_name
+intervals/behavior_presentations,timeseries,index into a TimeSeries object
+intervals/injection_times,(table),Intervals from ../data/interval_metadata/injection_times.csv
+intervals/injection_times,start_time,"Start time of epoch, in seconds"
+intervals/injection_times,stop_time,"Stop time of epoch, in seconds"
+intervals/injection_times,lims_session_id,lims_session_id column from CSV
+intervals/injection_times,session_id,session_id column from CSV
+intervals/injection_times,injection_type,injection_type column from CSV
+intervals/post_receptive_field_mapping_presentations,(table),"Presentation times and stimuli details for 'post_receptive_field_mapping' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/post_receptive_field_mapping_presentations,start_time,"Start time of epoch, in seconds"
+intervals/post_receptive_field_mapping_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/post_receptive_field_mapping_presentations,duration,Description of duration
+intervals/post_receptive_field_mapping_presentations,stim_name,Description of stim_name
+intervals/post_receptive_field_mapping_presentations,contrast,Description of contrast
+intervals/post_receptive_field_mapping_presentations,temporal_frequency,Description of temporal_frequency
+intervals/post_receptive_field_mapping_presentations,spatial_frequency,Description of spatial_frequency
+intervals/post_receptive_field_mapping_presentations,orientation,Description of orientation
+intervals/post_receptive_field_mapping_presentations,pos_x,Description of pos_x
+intervals/post_receptive_field_mapping_presentations,pos_y,Description of pos_y
+intervals/post_receptive_field_mapping_presentations,timeseries,index into a TimeSeries object
+intervals/post_surround_suppression_mapping_presentations,(table),"Presentation times and stimuli details for 'post_surround_suppression_mapping' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/post_surround_suppression_mapping_presentations,start_time,"Start time of epoch, in seconds"
+intervals/post_surround_suppression_mapping_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/post_surround_suppression_mapping_presentations,duration,Description of duration
+intervals/post_surround_suppression_mapping_presentations,stim_name,Description of stim_name
+intervals/post_surround_suppression_mapping_presentations,contrast,Description of contrast
+intervals/post_surround_suppression_mapping_presentations,temporal_frequency,Description of temporal_frequency
+intervals/post_surround_suppression_mapping_presentations,spatial_frequency,Description of spatial_frequency
+intervals/post_surround_suppression_mapping_presentations,orientation,Description of orientation
+intervals/post_surround_suppression_mapping_presentations,size,Description of size
+intervals/post_surround_suppression_mapping_presentations,pos_x,Description of pos_x
+intervals/post_surround_suppression_mapping_presentations,pos_y,Description of pos_y
+intervals/post_surround_suppression_mapping_presentations,timeseries,index into a TimeSeries object
+intervals/pre_receptive_field_mapping_presentations,(table),"Presentation times and stimuli details for 'pre_receptive_field_mapping' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/pre_receptive_field_mapping_presentations,start_time,"Start time of epoch, in seconds"
+intervals/pre_receptive_field_mapping_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/pre_receptive_field_mapping_presentations,duration,Description of duration
+intervals/pre_receptive_field_mapping_presentations,stim_name,Description of stim_name
+intervals/pre_receptive_field_mapping_presentations,contrast,Description of contrast
+intervals/pre_receptive_field_mapping_presentations,temporal_frequency,Description of temporal_frequency
+intervals/pre_receptive_field_mapping_presentations,spatial_frequency,Description of spatial_frequency
+intervals/pre_receptive_field_mapping_presentations,orientation,Description of orientation
+intervals/pre_receptive_field_mapping_presentations,pos_x,Description of pos_x
+intervals/pre_receptive_field_mapping_presentations,pos_y,Description of pos_y
+intervals/pre_receptive_field_mapping_presentations,timeseries,index into a TimeSeries object
+intervals/pre_surround_suppression_mapping_presentations,(table),"Presentation times and stimuli details for 'pre_surround_suppression_mapping' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/pre_surround_suppression_mapping_presentations,start_time,"Start time of epoch, in seconds"
+intervals/pre_surround_suppression_mapping_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/pre_surround_suppression_mapping_presentations,duration,Description of duration
+intervals/pre_surround_suppression_mapping_presentations,stim_name,Description of stim_name
+intervals/pre_surround_suppression_mapping_presentations,contrast,Description of contrast
+intervals/pre_surround_suppression_mapping_presentations,temporal_frequency,Description of temporal_frequency
+intervals/pre_surround_suppression_mapping_presentations,spatial_frequency,Description of spatial_frequency
+intervals/pre_surround_suppression_mapping_presentations,orientation,Description of orientation
+intervals/pre_surround_suppression_mapping_presentations,size,Description of size
+intervals/pre_surround_suppression_mapping_presentations,pos_x,Description of pos_x
+intervals/pre_surround_suppression_mapping_presentations,pos_y,Description of pos_y
+intervals/pre_surround_suppression_mapping_presentations,timeseries,index into a TimeSeries object
+intervals/raised_cosine_presentations,(table),"Presentation times and stimuli details for 'raised_cosine' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/raised_cosine_presentations,start_time,"Start time of epoch, in seconds"
+intervals/raised_cosine_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/raised_cosine_presentations,condition_num,Description of condition_num
+intervals/raised_cosine_presentations,level,Description of level
+intervals/raised_cosine_presentations,condition,Description of condition
+intervals/raised_cosine_presentations,stim_name,Description of stim_name
+intervals/raised_cosine_presentations,duration,Description of duration
+intervals/raised_cosine_presentations,timeseries,index into a TimeSeries object
+intervals/spontaneous_presentations,(table),"Presentation times and stimuli details for 'spontaneous' stimuli. 
+Note: image_name references control_description in stimulus/templates"
+intervals/spontaneous_presentations,start_time,"Start time of epoch, in seconds"
+intervals/spontaneous_presentations,stop_time,"Stop time of epoch, in seconds"
+intervals/spontaneous_presentations,duration,Description of duration
+intervals/spontaneous_presentations,stim_name,Description of stim_name
+intervals/spontaneous_presentations,timeseries,index into a TimeSeries object
+acquisition,autorewarded,Boolean flag indicating whether reward was auto-delivered
+acquisition,licks,Lick events
+acquisition,raw_running_wheel_rotation,no description
+acquisition,reward_volume,Volume of reward delivered
+acquisition,running_wheel_signal_voltage,no description
+acquisition,running_wheel_supply_voltage,no description
+processing/ecephys,(module),"Intermediate data from extracellular electrophysiology recordings, e.g., LFP."
+processing/ecephys/LFP,ElectricalSeriesProbeA-LFP,LFP voltage traces from ProbeA
+processing/ecephys/LFP,ElectricalSeriesProbeB-LFP,LFP voltage traces from ProbeB
+processing/ecephys/LFP,ElectricalSeriesProbeC-LFP,LFP voltage traces from ProbeC
+processing/ecephys/LFP,ElectricalSeriesProbeD-LFP,LFP voltage traces from ProbeD
+processing/ecephys/LFP,ElectricalSeriesProbeE-LFP,LFP voltage traces from ProbeE
+processing/ecephys/LFP,ElectricalSeriesProbeF-LFP,LFP voltage traces from ProbeF
+processing/eye_tracking,(module),eye tracking data
+processing/eye_tracking,likely_blink_times,no description
+processing/eye_tracking/corneal_reflection,(table),
+processing/eye_tracking/corneal_reflection,reference_frame,no description
+processing/eye_tracking/corneal_reflection,data_x,no description
+processing/eye_tracking/corneal_reflection,data_y,no description
+processing/eye_tracking/corneal_reflection,area,no description
+processing/eye_tracking/corneal_reflection,area_raw,no description
+processing/eye_tracking/corneal_reflection,width,no description
+processing/eye_tracking/corneal_reflection,height,no description
+processing/eye_tracking/corneal_reflection,angle,no description
+processing/eye_tracking/corneal_reflection,timestamps,no description
+processing/eye_tracking/ellipse,(table),
+processing/eye_tracking/ellipse,reference_frame,no description
+processing/eye_tracking/ellipse,data_x,no description
+processing/eye_tracking/ellipse,data_y,no description
+processing/eye_tracking/ellipse,area,no description
+processing/eye_tracking/ellipse,area_raw,no description
+processing/eye_tracking/ellipse,width,no description
+processing/eye_tracking/ellipse,height,no description
+processing/eye_tracking/ellipse,angle,no description
+processing/eye_tracking/ellipse,timestamps,no description
+processing/eye_tracking/pupil,(table),
+processing/eye_tracking/pupil,reference_frame,no description
+processing/eye_tracking/pupil,data_x,no description
+processing/eye_tracking/pupil,data_y,no description
+processing/eye_tracking/pupil,area,no description
+processing/eye_tracking/pupil,area_raw,no description
+processing/eye_tracking/pupil,width,no description
+processing/eye_tracking/pupil,height,no description
+processing/eye_tracking/pupil,angle,no description
+processing/eye_tracking/pupil,timestamps,no description
+processing/running,(module),running speed data
+processing/running,running_speed,no description
+processing/running,running_wheel_rotation,no description
+processing/stimulus,(module),Stimulus Times processing
+processing/stimulus,timestamps,no description
