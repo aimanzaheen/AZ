@@ -20,6 +20,7 @@ Usage:
 
 from __future__ import annotations
 
+import gzip
 import json
 import shutil
 import sys
@@ -92,7 +93,12 @@ def main() -> int:
                 if f.name in ("nwb_file_metadata.json", "nwb_descriptions.csv", "dataset_metadata.json"):
                     continue
                 if f.suffix == ".csv":
-                    shutil.copy2(f, tabs / f.name)
+                    if f.stat().st_size > MAX_PLAIN_CSV:  # GitHub rejects files > 100 MB
+                        (tabs / f.name).unlink(missing_ok=True)
+                        with open(f, "rb") as src_f, gzip.open(tabs / f"{f.name}.gz", "wb") as dst_f:
+                            shutil.copyfileobj(src_f, dst_f)
+                    else:
+                        shutil.copy2(f, tabs / f.name)
                     n_tables += 1
                 elif f.suffix == ".parquet":
                     df = pd.read_parquet(f)

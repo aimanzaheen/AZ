@@ -1,6 +1,6 @@
 dandiset,version,name,files_in_dandiset,size_gb,report,exported_tables,original_files
 000017,0.240329.1926,"Distributed coding of choice, action and engagement across the mouse brain",39,14.7,DANDI_000017_report.pdf,4,
-000409,0.260309.1324,IBL - Brain Wide Map,2048,49700.6,(export still running),0,Data_release_BW_2022_October___Methods_paper__19-09-2024.pdf
+000409,0.260309.1324,IBL - Brain Wide Map,2048,49700.6,DANDI_000409_report.pdf,4,Data_release_BW_2022_October___Methods_paper__19-09-2024.pdf
 001333,0.250327.2220,Parkinson's Electrophysiological Signal Dataset (PESD),52,0.0,DANDI_001333_report.pdf,2,
 000021,0.251116.2246,Allen Institute - Visual Coding - Neuropixels (Brain Observatory 1.1 Stimulus Set),214,477.6,DANDI_000021_report.pdf,4,allen_ecephys_cache
 000022,0.251116.2247,Allen Institute - Visual Coding - Neuropixels (Functional Connectivity Stimulus Set),169,375.0,DANDI_000022_report.pdf,4,allen_ecephys_cache
